@@ -16,6 +16,18 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
+-- Table `mydb`.`tipo`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`tipo` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`tipo` (
+  `idTipo` INT NOT NULL AUTO_INCREMENT,
+  `tipo` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idTipo`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `mydb`.`preguntas`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mydb`.`preguntas` ;
@@ -23,8 +35,14 @@ DROP TABLE IF EXISTS `mydb`.`preguntas` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`preguntas` (
   `idPreguntas` INT NOT NULL AUTO_INCREMENT,
   `enunciado` VARCHAR(250) NOT NULL,
-  `tipo` ENUM('rojo', 'verde', 'azul', 'amarillo') NOT NULL,
-  PRIMARY KEY (`idPreguntas`))
+  `tipo_idTipo` INT NOT NULL,
+  PRIMARY KEY (`idPreguntas`),
+  INDEX `fk_preguntas_tipo1_idx` (`tipo_idTipo` ASC) VISIBLE,
+  CONSTRAINT `fk_preguntas_tipo1`
+    FOREIGN KEY (`tipo_idTipo`)
+    REFERENCES `mydb`.`tipo` (`idTipo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -133,17 +151,31 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `mydb`.`rol`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`rol` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`rol` (
+  `idRol` INT NOT NULL AUTO_INCREMENT,
+  `rol` VARCHAR(25) NOT NULL,
+  PRIMARY KEY (`idRol`),
+  UNIQUE INDEX `rol_UNIQUE` (`rol` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `mydb`.`docente`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mydb`.`docente` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`docente` (
   `usuario_idUsuario` INT NOT NULL,
-  `rol` ENUM('0', '1', '2') NOT NULL,
   `centro_idCentro` INT NOT NULL,
+  `rol_idRol` INT NOT NULL,
   PRIMARY KEY (`usuario_idUsuario`),
   INDEX `fk_docente_usuario_idx` (`usuario_idUsuario` ASC) VISIBLE,
   INDEX `fk_docente_centro1_idx` (`centro_idCentro` ASC) VISIBLE,
+  INDEX `fk_docente_rol1_idx` (`rol_idRol` ASC) VISIBLE,
   CONSTRAINT `fk_docente_usuario`
     FOREIGN KEY (`usuario_idUsuario`)
     REFERENCES `mydb`.`usuario` (`idUsuario`)
@@ -152,6 +184,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`docente` (
   CONSTRAINT `fk_docente_centro1`
     FOREIGN KEY (`centro_idCentro`)
     REFERENCES `mydb`.`centro` (`idCentro`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_docente_rol1`
+    FOREIGN KEY (`rol_idRol`)
+    REFERENCES `mydb`.`rol` (`idRol`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
