@@ -82,46 +82,54 @@ function vaildar_pass(pass_str){
 //funciones validar formularios
 
 
-function validar_form_create_profesor(pass_id, email_id, dni_id) {
-    document.forms["nombre_formulario"]["campo_dni"].value;
+function validar_form_create_profesor() {
     var dni_str=document.forms["nombre_formulario"]["campo_dni"].value;
     var email_str=document.forms["nombre_formulario"]["campo_email"].value;
     var pass_str=document.forms["nombre_formulario"]["campo_padd"].value;
 
-    validar_DNI(dni_str);
-    validar_email(email_str);
-    vaildar_pass(pass_str);
+    var dni_ok= validar_DNI(dni_str);
+    var email_ok=validar_email(email_str);
+    var pass_ok=vaildar_pass(pass_str);
+
+    if (dni_ok && email_ok && pass_ok) {
+        return true;
+    }else{
+        return false;
+    }
 }
 
-function validar_form_create_alumno( email_id, dni_id) {
+function validar_form_create_alumno( ) {
     var dni_str=document.forms["nombre_formulario"]["campo_dni"].value;
     var email_str=document.forms["nombre_formulario"]["campo_email"].value;
-    
 
-    validar_DNI(dni_str);
-    validar_email(email_str);
+    var dni_ok= validar_DNI(dni_str);
+    var email_ok=validar_email(email_str);
+
+    if (dni_ok && email_ok) {
+        return true;
+    }else{
+        return false;
+    }
     
 }
 
-function validar_form_login_profesor(pass_id, dni_id) {
+function validar_form_login_profesor() {
     var dni_str=document.forms["nombre_formulario"]["campo_dni"].value;
     
     var pass_str=document.forms["nombre_formulario"]["campo_pass"].value;
 
-    validar_DNI(dni_str);
-    //validar_email(email_str);
-    vaildar_pass(pass_str);
+    var dni_ok= validar_DNI(dni_str);
+    var pass_ok=vaildar_pass(pass_str);
+
+    if (dni_ok && pass_ok) {
+        return true;
+    }else{
+        return false;
+    }
+
 }
 
 function validar_form_login_alumno() {
-    
-  
-  
-
-
-
-
-
     var dni_str=document.forms["nombre_formulario"]["campo_dni"].value;
     
     var devolver=validar_DNI(dni_str);
