@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: whitesmoke; /*#4a2343*/
+    color: black;
+    height: 100vh;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: white;
+    background-color: #592a51;
+    width: 25%;
+    height: 100%;
+}
+img{
+    height: 15vh;
+    width: 15vh;
+}
+.gob{
+    margin-top: 1vh;
+    order: 1;
+}
+.centro{
+    margin-top: 1vh;
+    order: 3;
+
+}
+.abajo{
+    order: 2;
+    margin-top: 80vh;
+    
+}
