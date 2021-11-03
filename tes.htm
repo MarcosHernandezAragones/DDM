@@ -12,11 +12,64 @@
 </head>
 <body>
     <!-- formulario que solo envia datos si los datos introducidos son correctos -->
-    <form action="" method="get" name="nombre_formulario" onsubmit="return validar_form_login_alumno()">
-        <input type="text" name="campo_dni" id="campo_dni">
+
+    <!-- 
+    <form action="" method="get" name="formulario_login_alumno" onsubmit="return validar_form_login_alumno()">
+        <label for="campo_dni">DNI: </label><input type="text" name="campo_dni" id="campo_dni">
+        <label for="pass"></label><input type="password" name="pass" id="pass"><br>
         <input type="submit" value="berda" >
     </form>
-        
-    
+    -->
+
+    <!-- 
+    <form action="" method="get" name="formulario_login_doc" onsubmit="return validar_form_login_profesor()">
+        <label for="nombre"></label><input type="text" name="nombre" id="nombre" pattern="[A-Za-z]{1,}">
+        <label for="pass"></label><input type="password" name="pass" id="pass"><br>
+        <input type="submit" value="berda" >
+    </form>
+    -->
+
+    <!--
+    <form action="crear_alumno.php" method="get" name="formulario_reg_alumno" onsubmit="return validar_form_create_alumno()">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" pattern="[A-Za-z]{1,}">
+        <label for="apellido">Apellidos: </label>
+        <input type="text" name="apellido" id="apellido" pattern="[A-Za-z]{1,}"><br>
+        <label for="dni">DNI: </label>
+        <input type="text" name="dni" id="dni"><br>
+        <label for="correo">E-mail: </label>
+        <input type="email" name="correo" id="correo"><br>
+        <label for="curso">Curso: </label>
+        <select name="curso" id="curso">
+            <option value="nil" selected>-----------------</option>
+        </select><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+    -->
+
+
+    <form action="crear_alumno.php" method="get" name="formulario_reg_doc" onsubmit="return validar_form_create_profesor()">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" pattern="[A-Za-z]{1,}">
+        <label for="apellido">Apellidos: </label>
+        <input type="text" name="apellido" id="apellido" pattern="[A-Za-z]{1,}"><br>
+        <label for="dni">DNI: </label>
+        <input type="text" name="dni" id="dni"><br>
+        <label for="correo">E-mail: </label>
+        <input type="email" name="correo" id="correo"><br>
+        <label for="contraseña">Contraseña: </label>
+        <input type="password" name="contraseña" id="contraseña"><br>
+        <label for="centro">Centro: </label>
+        <select name="centro" id="centro">
+            <option value="nil" selected>-----------------</option>
+            
+        </select><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+
+
 </body>
 </html>

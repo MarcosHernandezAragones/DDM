@@ -1,3 +1,6 @@
+//funciones validar campos
+
+
 function validar_DNI(dni_str) {
     var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
@@ -35,8 +38,6 @@ function validar_email(email_str) {
         return false;
     }
 }
-
-
 
 function vaildar_pass(pass_str){
     //obtencion pass
@@ -79,8 +80,10 @@ function vaildar_pass(pass_str){
     }
 }
 
-//funciones validar formularios
 
+////////
+//funciones validar formularios
+////////
 
 function validar_form_create_profesor() {
     var dni_str=document.forms["nombre_formulario"]["campo_dni"].value;
@@ -114,11 +117,11 @@ function validar_form_create_alumno( ) {
 }
 
 function validar_form_login_profesor() {
-    var dni_str=document.forms["nombre_formulario"]["campo_dni"].value;
+    //var dni_str=document.forms["nombre_formulario"]["campo_dni"].value;
     
     var pass_str=document.forms["nombre_formulario"]["campo_pass"].value;
 
-    var dni_ok= validar_DNI(dni_str);
+    //var dni_ok= validar_DNI(dni_str);
     var pass_ok=vaildar_pass(pass_str);
 
     if (dni_ok && pass_ok) {
