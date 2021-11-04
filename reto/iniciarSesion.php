@@ -18,8 +18,8 @@ $conexion=conectarBD();
 $user=$_POST['user'];
 $pass=$_POST['pass'];
 
-echo "Usuario(post): ".$user."<br>";
-echo "Contraseña(post): ".$pass."<br>";
+//echo "Usuario(post): ".$user."<br>";
+//echo "Contraseña(post): ".$pass."<br>";
 
 //preparamos la query
 $query = "SELECT * FROM usuario WHERE nombre=\"$user\" AND ".'password'."=\"$pass\"";
@@ -33,7 +33,7 @@ $nfilas=$consulta->rowCount();
 //Si solo devuelve una fila, es que el usuario existe
 if ($nfilas==1) {
     //hacemos una nueva query para comprobar si el usuario pertenece a docente(si no lo hace, es que es un alumno)
-    $query = "SELECT usuario_idUsuario, rol_idRol FROM docente, usuario WHERE usuario.idUsuario=usuario_idUsuario AND usuario.nombre=\"$user\"";
+    $query = "SELECT docente.usuario_idUsuario as idUsuario,centro.nombre as nombreCentro, usuario.nombre as nombre,docente.rol_idRol as rol FROM centro,docente, usuario WHERE usuario.idUsuario=usuario_idUsuario AND usuario.nombre=\"$user\" and docente.centro_idCentro=centro.idCentro";
 
     $consultaProf = $conexion->prepare($query);
     $consultaProf->execute();
@@ -42,8 +42,10 @@ if ($nfilas==1) {
     if ($nfilas==1) {
         //Si el usuario es un profesor entramos aqui
         $fila = $consultaProf->fetch();
-        $_SESSION['user']=$fila->usuario_idUsuario;
-        $_SESSION['rol']=$fila->rol_idRol;
+        $_SESSION['user']=$fila->idUsuario;
+        $_SESSION['nombre']=$fila->nombre;
+        $_SESSION['centro']=$fila->nombreCentro;
+        $_SESSION['rol']=$fila->rol;
         header("refresh:0;url=profesor.php");
         //REDIRECCIONAR A PROFESOR
     }else{
