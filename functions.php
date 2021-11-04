@@ -12,7 +12,7 @@ function conectar_BD(){
     try {
         $conexion = new PDO("mysql:host=$servidor;dbname=$baseDatos", $usuario, $password, $opciones);      
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Conexión realizada Satisfactoriamente";
+        //echo "Conexión realizada Satisfactoriamente";
         return $conexion;
     }catch(PDOException $e){
         echo "La conexión ha fallado: " . $e->getMessage();
@@ -45,17 +45,23 @@ function select_cursos_prof($id_prof){
     $consulta->execute();
 
     $nfilas=$consulta->rowCount();
-    echo "El número de filas devuelto es: $nfilas";//solo test
+    
 
     $cursos=[];
     $cont=0;
-    while ($fila = $consulta->fetch()) {
-        $cursos[$cont]["id_centro"]=$fila->curso_centro_idCentro;
-        $cursos[$cont]["id_curso"]=$fila->curso_idCurso;
-        $cursos[$cont]["name"]=select_name_curso($fila->curso_idCurso,$fila->curso_centro_idCentro);
-        $cont++;
+    
+
+    try {
+        while ($fila = $consulta->fetch()) {
+            $cursos[$cont]["id_centro"]=$fila->curso_centro_idCentro;
+            $cursos[$cont]["id_curso"]=$fila->curso_idCurso;
+            $cursos[$cont]["name"]=select_name_curso($fila->curso_idCurso,$fila->curso_centro_idCentro);
+            $cont++;
+        }
+    } catch (Exception $e) {
+        echo $e;   
     }
-    print_r($cursos);//solo test
+    
     $conexx = null;
     return $cursos;
 
@@ -89,8 +95,8 @@ function delete_alumnos($id_alumno){
 
 function create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso){
     $conexx=conectar_BD();
-    $sql1="INSERT INTO  usuario (\"apellidos\",\"correo\",\"DNI\",\"nombre\",\"'password'\") VALUES (\"$apellidos\",\"$correo\",\"$DNI\",\"$nombre\",\"$passwrd\")";//REVISAR ESTO
-
+    $sql1="INSERT INTO  usuario (idUsuario,\"apellidos\",\"correo\",\"DNI\",\"nombre\",\"'password'\") VALUES (0,\"$apellidos\",\"$correo\",\"$DNI\",\"$nombre\",\"$passwrd\")";//REVISAR ESTO
+    
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
 
@@ -102,7 +108,7 @@ function create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCu
 
 
     $fila = $consulta2->fetch();
-    $id_alumno_aux=$fila->DNI;
+    $id_alumno_aux=$fila->idUsuario;
 
     $sql3="INSERT INTO  alumno (\"usuario_idUsuario\",\"curso_centro_idCentro\",\"curso_idCurso\") VALUES (\"$id_alumno_aux\",\"$idCentro\",\"$idCurso\")";//REVISAR ESTO
 
@@ -151,14 +157,21 @@ function read_alumno($id_alumno){
     $consulta2 = $conexx->prepare($sql2);
     $consulta2->execute();
 
-    $fila2=$consulta2->fetch();
-    $curso=$fila2->curso_idCurso;
-    $centro=$fila2->curso_centro_idCentro;
-    $grupo=$fila2->grupo_idGrupo;
-    $amarillo=$fila2->amarillo;
-    $rojo=$fila2->rojo;
-    $verde=$fila2->verde;
-    $azul=$fila2->azul;
+    
+    try {
+
+        $fila2=$consulta2->fetch();
+        $curso=$fila2->curso_idCurso;
+        $centro=$fila2->curso_centro_idCentro;
+        $grupo=$fila2->grupo_idGrupo;
+        $amarillo=$fila2->amarillo;
+        $rojo=$fila2->rojo;
+        $verde=$fila2->verde;
+        $azul=$fila2->azul;
+    
+    } catch (Exception $th) {
+        echo $th;
+    }
     
     $conexx=null;
 
@@ -166,6 +179,9 @@ function read_alumno($id_alumno){
     return $datos_alumno;
 }
 
+
+//recibe id curso e id centro 
+//devuelve los alumnos de un curso
 function read_alumnoss($curso,$centro){
     $conexx=conectar_BD();
     $sql1="SELECT * FROM usuario ";
@@ -188,7 +204,7 @@ function read_alumnoss($curso,$centro){
 
             $consulta2 = $conexx->prepare($sql2);
             $consulta2->execute();
-            $nfilas=$consulta->rowCount();
+            $nfilas=$consulta2->rowCount();
             if ($nfilas == 1) {
                 $fila2=$consulta2->fetch();
             

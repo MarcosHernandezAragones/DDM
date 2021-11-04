@@ -2,12 +2,41 @@
     include_once "functions.php";
     session_start();
     //select_cursos_prof(1);
-    //$cursos = select_cursos_prof($_SESSION['id']);
-    $cursos=["eso1"];
-    $datos_alumno=read_alumno(1)// TEST VALUE CHANGE WITH ID
+    $_SESSION['id_prof']=3;//test only
+    $cursos = select_cursos_prof($_SESSION['id_prof']);
+
+
+    
+    if (isset($_POST['id_al_upd'])) {
+        $apellidos=$_POST['apellido'];
+        $correo=$_POST['correo'];
+        $DNI=$_POST['dni'];
+        $nombre=$_POST['nombre'];
+        $passwrd=$_POST['contraseña'];
+
+        $vars_curso=explode('!!!',$_POST['curso']);
+
+        $idCentro=$vars_curso[0];
+        $idCurso=$vars_curso[1];
+
+        $idGrupo=null;
+        $id_alumno=$_POST['id_al_upd'];
+
+        try {
+            update_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso,$idGrupo,$id_alumno);
+        } catch (Exception $th) {
+            echo $th;
+            header("refresh:5;url=ver_alumno.php");
+        }
+        
+
+        header("Location: ver_alumno.php");
+    }else if (isset($_POST['id_alumn'])) {
+    
+        $datos_alumno=read_alumno($_POST['id_alumn']);
 ?>
 
-[$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso]
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +48,7 @@
 </head>
 <body>
 <form action="editar_alumno.php" method="post">
+        <input type="hidden" name="id_al_upd" value="<?php echo $datos_alumno[0] ?>">
         <label for="nombre">Nombre: </label>
         <input type="text" name="nombre" id="nombre" value = <?php echo $datos_alumno[1] ?>>
         <label for="apellido">Apellidos: </label>
@@ -35,11 +65,12 @@
             <?php 
             for ($i=0; $i < count($cursos); $i++) { 
                 if ($datos_alumno[7] == $cursos[$i]["id_centro"]  && $datos_alumno[7] == $cursos[$i]["id_curso"] ) {
-                    echo" <option value=\"".$cursos[$i]["name"]."\" selected>".$cursos[$i]["name"]."</option>";
+                    $value_curso=$cursos[$i]["id_centro"]."!!!".$cursos[$i]["id_curso"];
+                    echo" <option value=\"$value_curso\" selected>".$cursos[$i]["name"]."</option>";
                 }
 
                 $value_curso=$cursos[$i]["id_centro"]."!!!".$cursos[$i]["id_curso"];
-                echo" <option value=\"".$value_curso."\" >".$cursos[$i]["name"]."</option>";
+                echo" <option value=\"$value_curso\" >".$cursos[$i]["name"]."</option>";
             }
 
             ?>
@@ -52,3 +83,14 @@
     </form>
 </body>
 </html>
+<?php
+
+}else {
+    header("Location: ver_alumno.php");
+}
+
+
+
+//print_r($datos_alumno);
+//[$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso,$amarillo,$rojo,$verde,$azul]
+?>

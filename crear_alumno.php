@@ -1,12 +1,44 @@
 <?php 
     include_once "functions.php";
     session_start();
-    select_cursos_prof(1);
-    //$cursos = select_cursos_prof($_SESSION['id']);
+    //select_cursos_prof(1);
+
+    $_SESSION['id']=3;//test only
+    
+    $cursos = select_cursos_prof($_SESSION['id']);
     //$cursos=$_SESSION['cursos'];
-    $cursos=["eso1"];
+    //$cursos=["eso1"];
+
+    if (isset($_POST['nombre'])) {
+        $apellidos=$_POST['apellido'];
+        $correo=$_POST['correo'];
+        $DNI=$_POST['dni'];
+        $nombre=$_POST['nombre'];
+        $passwrd=$_POST['contrasena'];
+
+        $vars_curso=explode('!!!',$_POST['curso']);
+
+        $idCentro=$vars_curso[0];
+        $idCurso=$vars_curso[1];
+
+        
+        
 
 
+
+
+
+
+
+        try {
+            create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso);
+            
+        } catch (Exception $th) {
+            echo $th;
+            header("refresh:5;url=ver_alumno.php");
+        }
+        header("Location: ver_alumno.php");
+    }else{
     
 
 
@@ -30,8 +62,8 @@
         <input type="text" name="dni" id="dni"><br>
         <label for="correo">E-mail: </label>
         <input type="email" name="correo" id="correo"><br>
-        <label for="contraseña">Contraseña del alumno: </label>
-        <input type="text" name="contraseña" id="contraseña"><!-- contraseña visible solo al crear --><br>
+        <label for="contrasena">Contraseña del alumno: </label>
+        <input type="text" name="contrasena" id="contrasena"><!-- contraseña visible solo al crear --><br>
         <label for="curso">Curso: </label>
         <select name="curso" id="curso">
             <option value="nil" selected>-----------------</option>
@@ -51,3 +83,8 @@
     </form>
 </body>
 </html>
+
+<?php
+
+        }
+?>
