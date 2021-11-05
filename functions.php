@@ -69,6 +69,23 @@ function select_cursos_prof($id_prof){
 
 
 ////////////////////////////////////////////////////////////////////////
+/////////////////////////////CRUD_USUARIO///////////////////////////////
+////////////////////////////////////////////////////////////////////////
+function delete_usuario($id_alumno){
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
 /////////////////////////////CRUD_ALUMNO////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -95,7 +112,7 @@ function delete_alumnos($id_alumno){
 
 function create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso){
     $conexx=conectar_BD();
-    $sql1="INSERT INTO  usuario (idUsuario,\"apellidos\",\"correo\",\"DNI\",\"nombre\",\"'password'\") VALUES (0,\"$apellidos\",\"$correo\",\"$DNI\",\"$nombre\",\"$passwrd\")";//REVISAR ESTO
+    $sql1="INSERT INTO  usuario (idUsuario,apellidos,correo,DNI,nombre,password) VALUES (0,\"$apellidos\",\"$correo\",\"$DNI\",\"$nombre\",\"$passwrd\")";//REVISAR ESTO
     
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
@@ -110,7 +127,7 @@ function create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCu
     $fila = $consulta2->fetch();
     $id_alumno_aux=$fila->idUsuario;
 
-    $sql3="INSERT INTO  alumno (\"usuario_idUsuario\",\"curso_centro_idCentro\",\"curso_idCurso\") VALUES (\"$id_alumno_aux\",\"$idCentro\",\"$idCurso\")";//REVISAR ESTO
+    $sql3="INSERT INTO  alumno (usuario_idUsuario,curso_centro_idCentro,curso_idCurso) VALUES (\"$id_alumno_aux\",\"$idCentro\",\"$idCurso\")";//REVISAR ESTO
 
     $consulta3 = $conexx->prepare($sql3);
     $consulta3->execute();
@@ -121,13 +138,21 @@ function create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCu
 
 function update_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso,$idGrupo,$id_alumno){
     $conexx=conectar_BD();
-    $sql1="UPDATE usuario SET apellidos=\"$apellidos\"  , correo=\"$correo\" ,DNI=\"$DNI\" , nombre=\"$nombre\" , 'password'=\"$passwrd\" WHERE idUsuario=\"$id_alumno\"";//REVISAR ESTO
-
+    $sql1="UPDATE usuario SET apellidos=\"$apellidos\"  , correo=\"$correo\" ,DNI=\"$DNI\" , nombre=\"$nombre\" , password=\"$passwrd\" WHERE idUsuario=\"$id_alumno\"";//REVISAR ESTO
+    
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
 
-    $sql3="UPDATE usuario SET curso_idCurso=\"$idCurso\"  , curso_centro_idCentro=\"$idCentro\" , grupo_idGrupo=\"$idGrupo\" WHERE usuario_idUsuario=\"$id_alumno\"";//REVISAR ESTO
+    if ($idGrupo == "") {
+        $idGrupo="null";
+        $sql3="UPDATE alumno SET curso_idCurso=\"$idCurso\"  , curso_centro_idCentro=\"$idCentro\" , grupo_idGrupo=$idGrupo WHERE usuario_idUsuario=\"$id_alumno\"";//REVISAR ESTO
+  
+    }else{
+        $sql3="UPDATE alumno SET curso_idCurso=\"$idCurso\"  , curso_centro_idCentro=\"$idCentro\" , grupo_idGrupo=\"$idGrupo\" WHERE usuario_idUsuario=\"$id_alumno\"";//REVISAR ESTO
+  
+    }
 
+    echo $sql3;
     $consulta3 = $conexx->prepare($sql3);
     $consulta3->execute();
 
@@ -193,6 +218,7 @@ function read_alumnoss($curso,$centro){
     $datos_all=[];
     while ($fila1=$consulta1->fetch()){
         $apellidos=$fila1->apellidos;
+        
         $correo=$fila1->correo;
         $DNI=$fila1->DNI;
         $nombre=$fila1->nombre;
@@ -216,6 +242,7 @@ function read_alumnoss($curso,$centro){
 
                 $datos_alumno=[$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso,$amarillo,$rojo,$verde,$azul];
                 $datos_all[$cont]=$datos_alumno;
+                $cont++;
             }  
 
     }

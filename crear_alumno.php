@@ -53,6 +53,9 @@
     <title>Document</title>
 </head>
 <body>
+        <form action="ver_alumno.php" method="post">
+            <input type="submit" value="volver">
+        </form>
     <form action="crear_alumno.php" method="post">
         <label for="nombre">Nombre: </label>
         <input type="text" name="nombre" id="nombre">
