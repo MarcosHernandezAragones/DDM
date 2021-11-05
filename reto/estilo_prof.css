@@ -1,0 +1,56 @@
+@import 'estilo_fijo.css';
+
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+button:hover{
+    background-color: #4a2343;
+    color: white;
+}
+h1{
+    width: 100%;
+    text-align: center;
+    margin-top: 15vh;
+}
+.propGrupos{
+    margin-top: 15vh;
+    width: 75%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.verGrupos{
+    margin-top: 5vh;
+    width: 75%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.verAlumno{
+    margin-top: 5vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.verClases{
+    margin-top: 5vh;
+    margin-left: 7vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.adminProf{
+    margin-top: 5vh;
+    width: 75%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.salir{
+    margin-top: 22.5vh;
+    width: 75%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+
