@@ -26,13 +26,16 @@
     function centroAlumno($idAlumno){
         $conexion=conectarBD();
 
-        $query = "SELECT centro.nombre FROM alumno, centro WHERE centro.idCentro=alumno.curso_centro_idCentro AND alumno.usuario_idUsuario=\"$idAlumno\"";
+        $query = "SELECT centro.nombre as nombreCentro FROM alumno, centro WHERE centro.idCentro=alumno.curso_centro_idCentro AND alumno.usuario_idUsuario=\"$idAlumno\"";
 
         
         $consulta = $conexion->prepare($query);
         $consulta->execute();
-        $nombreCentro=$consulta->fetch();
+        $fila=$consulta->fetch();
         
+        $nombreCentro=$fila->nombreCentro;
+       
+
         return $nombreCentro;
 
         
