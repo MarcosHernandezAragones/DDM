@@ -1,0 +1,68 @@
+@import 'estilo_fijo.css';
+
+main{
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+    align-self: center;
+    padding-top: 10%;
+}
+
+.pregunta{
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    text-align: center;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-start: 1;
+    grid-column-end: 8;
+}
+
+form input[type="radio"]{
+    place-self: center;
+    margin-bottom: 10%;
+}
+
+form label{
+    place-self: center;
+    text-align: center;
+}
+
+.resp_gigante{
+    height:6.8vh; 
+    width:6.8vh;
+}
+
+.resp_gigante input[type="radio"]:checked::after{
+    background-color: red;
+    color: red;
+    
+}
+
+.resp_grande{
+    height:5.3vh; 
+    width:5.3vh;
+}
+
+.resp_mediano{
+    height:4.2vh; 
+    width:4.2vh;
+}
+
+.resp{
+    height:2.5vh; 
+    width:2.5vh;
+}
+
+#siguiente{
+    align-self: flex-end;
+    grid-column-start: 6;
+    grid-row-start: 3;
+    padding: 10%;
+    font-size: 100%;
+} 
