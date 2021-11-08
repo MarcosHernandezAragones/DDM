@@ -2,7 +2,7 @@
     include_once "functions.php";
     session_start();
 
-    $_SESSION['id_prof']=3;//test only
+    $_SESSION['id_prof']=3;//test only 
     //$_SESSION['id_alumn']=2;//test only
 
     $cursos=select_cursos_prof($_SESSION['id_prof']);
@@ -58,9 +58,7 @@
         </form>
     <?php
                 
-                echo "<br>/////////////////////////////////////////<br>";
-                echo "/////////////////////////////////////////<br>";
-                echo "/////////////////////////////////////////<br>";
+                
 
                 $datos_alumnos_clase=read_alumnoss($cursos[$i]['id_curso'],$cursos[$i]['id_centro']);
                 
@@ -79,9 +77,9 @@
                         $amarillo=$datos_alumnos_clase[$gg][9];
 
                         $id_alumno=$datos_alumnos_clase[$gg][0];
-
-                        echo "<div class='alumno'>$nombre $apell: </div> <div class='alumno'>$rojo</div> <div class='alumno'>$azul</div> <div class='alumno'>$amarillo</div> <div class='alumno'>$verde</div>  <div class='alumno'>N/A</div> <div class='alumno'><form action='editar_alumno.php' method='post'><input type='hidden' name='id_alumn' value='$id_alumno'><input type='submit' value='Edit'></form></div> <div class='alumno'><form action='delete_alumno.php' method='post'><input type='hidden' name='id_alumn' value='$id_alumno'><input type='submit' value='DELETE'></form></div><br>";
-                        
+                        echo  "<div id='al_<?php echo $id_alumno ?>'>";
+                        echo "<div class='alumno'>$nombre $apell: </div> <div class='alumno col_rojo'>$rojo</div> <div class='alumno col_azul'>$azul</div> <div class='alumno col_amarillo'>$amarillo</div> <div class='alumno col_verde'>$verde</div>  <div class='alumno'>N/A</div> <div class='alumno'><form action='editar_alumno.php' method='post'><input type='hidden' name='id_alumn' value='$id_alumno'><input type='submit' value='Edit'></form></div> <div class='alumno'><form action='delete_alumno.php' method='post'><input type='hidden' name='id_alumn' value='$id_alumno'><input type='submit' value='DELETE'></form></div><br>";
+                        echo "</div>";
                     
                         //print_r($datos_alumnos_clase);
                     }
@@ -109,6 +107,6 @@
     
     ?>
 
-
+            
 </body>
 </html>

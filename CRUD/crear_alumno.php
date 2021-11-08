@@ -3,11 +3,16 @@
     session_start();
     //select_cursos_prof(1);
 
-    $_SESSION['id']=3;//test only
+    
     
     $cursos = select_cursos_prof($_SESSION['id']);
     //$cursos=$_SESSION['cursos'];
     //$cursos=["eso1"];
+    print_r($cursos);
+    if (empty($cursos)) {
+        header("Location: ver_alumno.php");
+    }
+
 
     if (isset($_POST['nombre'])) {
         $apellidos=$_POST['apellido'];

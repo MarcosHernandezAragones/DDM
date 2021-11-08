@@ -35,8 +35,8 @@
     }else if (isset($_POST['id_alumn'])) {
     
         $datos_alumno=read_alumno($_POST['id_alumn']);
-        print_r($datos_alumno);
-        echo $datos_alumno[1];
+        //print_r($datos_alumno);
+        //echo $datos_alumno[1];
 ?>
 
 
