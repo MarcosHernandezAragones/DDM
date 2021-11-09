@@ -404,7 +404,7 @@ function update_docente($apellidos,$correo,$DNI,$nombre,$passwrd,$id_prof,$idCen
     $sql3="UPDATE docente SET rol_idRol=\"$idRol\" , centro_idCentro=\"$idCentro\" WHERE usuario_idUsuario=\"$id_prof\"";
   
 
-    echo $sql3;
+    
     $consulta3 = $conexx->prepare($sql3);
     $consulta3->execute();
 
@@ -524,7 +524,7 @@ function create_centro($nombre_cent, $loc_cent){
 function update_centro($id_cent,$nombre_cent,$loc_cent){
     $conexx=conectar_BD();
 
-    $sql1="UPDATE centro SET nombre=\"$nombre_cent\", ubicacion=\"$loc_cent\" WHERE idRol=\"$id_cent\"";
+    $sql1="UPDATE centro SET nombre=\"$nombre_cent\", ubicacion=\"$loc_cent\" WHERE idCentro=\"$id_cent\"";
 
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();

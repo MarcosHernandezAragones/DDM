@@ -54,6 +54,7 @@
         <div id="<?php echo $cursos[$i]['name']; ?>">
         <h2><?php echo $cursos[$i]['name']; ?></h2>
         <form action="crear_alumno.php" method="post">
+            <input type="hidden" name="confir" value="a">
             <input type="submit" value="Añadir alumno">
         </form>
     <?php

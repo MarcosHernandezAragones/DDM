@@ -1,3 +1,4 @@
+
 <?php 
     include_once "functions.php";
     session_start();
@@ -23,28 +24,31 @@
         $is_sup=true;
     }
 
-   
-   
+
 
 
 
 
 
     if (isset($_POST["aux_centre"])) {
+        $id_cent=$_POST["aux_centre"];
         $nombre_cent=$_POST["nombre"];
         $loc_cent=$_POST["Localizacion"];
 
         try {
-            create_centro($nombre_cent, $loc_cent);
+            update_centro($id_cent,$nombre_cent,$loc_cent);
             
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_centro.php");
+            header("refresh:15;url=ver_centro.php");
         }
         header("Location: ver_centro.php");
+       
 
-    } else if ($is_sup && isset($_POST['confir'])){
+    } else if ($is_sup && isset($_POST["id_cent"])){
+        $datos_centro_edit=read_centro($_POST["id_cent"]);
 
+        //[$id_cent,$nombre_centro,$loc_centro]
 
 
 ?>
@@ -66,12 +70,12 @@
         <input type="submit" value="volver">
     </form>
 
-    <form action="crear_centro.php" method="post">
-        <input type="hidden" name="aux_centre" value="a">
+    <form action="editar_centro.php" method="post">
+        <input type="hidden" name="aux_centre" value="<?php echo $datos_centro_edit[0] ?>">
         <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre" id="nombre">
+        <input type="text" name="nombre" id="nombre" value="<?php echo $datos_centro_edit[1] ?>">
         <label for="Localizacion">Localizacion: </label>
-        <input type="text" name="Localizacion" id="Localizacion"><br>
+        <input type="text" name="Localizacion" id="Localizacion" value="<?php echo $datos_centro_edit[2] ?>"><br>
 
         <input type="submit" value="Enviar">
     </form>
@@ -86,8 +90,8 @@
 
 <?php
     }else {
-        echo "Acceso denegado por motivos random";
-        header("refresh:2;url=ver_centro.php");
+        echo "Acceso denegado por..... motivos";
+        header("refresh:5;url=ver_centro.php");
     }
 
 
