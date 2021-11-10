@@ -4,26 +4,7 @@
     session_start();
 
     $_SESSION['id_prof']=1;//test only 
-    $rolarr=read_rolss();
-    for ($i=0; $i < count($rolarr); $i++) { 
-        if ($rolarr[$i][1] == "superadmin") {
-            $id_sup=$rolarr[$i][0];
-            
-        }
-    }
-    
-    
-    $datos_doc=read_docente($_SESSION['id_prof']);
-
-    //[$id_prof,$nombre,$apellidos,$DNI,$correo,$passwrd,$rol,$centro]  rol 6
-    $is_sup=false;
-    
-    
-    if ($datos_doc[6] ==  $id_sup) {
-        
-        $is_sup=true;
-    }
-
+    $chek_chek=check_doc_rol($_SESSION['id_prof']);
 
 
 
@@ -45,7 +26,7 @@
         header("Location: ver_centro.php");
        
 
-    } else if ($is_sup && isset($_POST["id_cent"])){
+    } else if ($chek_chek[1] && isset($_POST["id_cent"])){
         $datos_centro_edit=read_centro($_POST["id_cent"]);
 
         //[$id_cent,$nombre_centro,$loc_centro]

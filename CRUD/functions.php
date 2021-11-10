@@ -67,6 +67,34 @@ function select_cursos_prof($id_prof){
 
 }
 
+function check_doc_rol($id_doof){//devuelve si es admin / si es super admin/ datos del docente
+    $rolarr=read_rolss();
+    for ($i=0; $i < count($rolarr); $i++) { 
+            
+        if ($rolarr[$i][1] == "superadmin") {
+
+            $id_sup=$rolarr[$i][0];
+        }elseif ($rolarr[$i][1] == "admin") {
+            $id_admog=$rolarr[$i][0];
+        }
+    }
+    
+    
+    $datos_doc=read_docente($id_doof);
+ 
+
+    $chek_chek=[false,false,$datos_doc];
+
+    if ($datos_doc[6] ==  $id_sup) {
+        $chek_chek[1]=true;
+        
+    }elseif ($datos_doc[6] ==  $id_admog) {
+        $chek_chek[0]=true;
+        
+    }
+    return $chek_chek;
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -169,7 +197,7 @@ function update_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCu
   
     }
 
-    echo $sql3;
+    
     $consulta3 = $conexx->prepare($sql3);
     $consulta3->execute();
 
@@ -496,7 +524,7 @@ function read_docentess($centro){
 
 
 ////////////////////////////////////////////////////////////////////////
-////////////////////////////CRUD_CENTRO///////////////////////////////
+////////////////////////////CRUD_CENTRO/////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
 function delete_centro($id_cent){
@@ -514,7 +542,7 @@ function create_centro($nombre_cent, $loc_cent){
     $conexx=conectar_BD();
 
     $sql1="INSERT INTO centro (idCentro, nombre, ubicacion) VALUES (0, \"$nombre_cent\", \"$loc_cent\")";
-    echo $sql1;
+    
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
 
@@ -583,9 +611,85 @@ function read_centross(){
 
 
 
+////////////////////////////////////////////////////////////////////////
+//////////////////////////////CRUD_CURSO////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+function delete_curso($id_curso, $id_centro){
+    $conexx=conectar_BD();
+
+    $sql1="DELETE FROM curso WHERE centro_idCentro=\"$id_centro\" and idCurso=\"$id_curso\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+    
+    $conexx = null;
+}
+
+function create_curso($nombre_curso, $id_centro){
+    $conexx=conectar_BD();
+
+    $sql1="INSERT INTO curso (nombre, centro_idCentro) VALUES (\"$nombre_curso\", \"$id_centro\")";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $conexx = null;
+}
+
+function update_curso($nombre_curso,$id_curso,$id_centro){
+    $conexx=conectar_BD();
+
+    $sql1="UPDATE curso SET nombre=\"$nombre_curso\" WHERE idCurso=\"$id_curso\" and centro_idCentro=\"$id_centro\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $conexx = null;
+}
+
+function read_curso($id_curso,$id_centro){//devuelve el nombre del curso en funcion del id
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM curso WHERE idCurso=\"$id_curso\" and centro_idCentro=\"$id_centro\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+    $fila1=$consulta1->fetch();
+    $nombre_curs=$fila1->nombre;
+    
 
 
+    $datos_curs=[$nombre_curs,$id_curso,$id_centro];
 
+    $conexx = null;
+    return $datos_curs;
+}
+
+function read_cursoss(){
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM curso";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $datos_todos=[];
+    $cont=0;
+
+    while ( $fila1=$consulta1->fetch()) {
+        $nombre_curso=$fila1->nombre;
+        $id_curso=$fila1->idCurso;
+        $id_centro=$fila1->centro_idCentro;
+        $datos_curso=[$nombre_curso,$id_curso,$id_centro];
+
+        $datos_todos[$cont]=$datos_curso;
+        $cont++;
+    }
+
+    $conexx = null;
+    return $datos_todos;
+}
 
 
 

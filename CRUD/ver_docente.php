@@ -1,27 +1,12 @@
 <?php 
     include_once "functions.php";
     session_start();
-    //$cursos_arr WIP
-
-
-    $rolarr=read_rolss();
-    for ($i=0; $i < count($rolarr); $i++) { 
-            
-        if ($rolarr[$i][1] == "superadmin") {
-
-            $id_sup=$rolarr[$i][0];
-        }elseif ($rolarr[$i][1] == "admin") {
-            $id_admog=$rolarr[$i][0];
-        }
-    }
     
     $_SESSION['id_prof']=1;//test only 
-    $datos_doc=read_docente($_SESSION['id_prof']);
 
-    //[$id_prof,$nombre,$apellidos,$DNI,$correo,$passwrd,$rol,$centro]  rol 6
-    $is_sup=false;
-    $is_admog=false;
-
+    
+    $chek_chek=check_doc_rol($_SESSION['id_prof']);
+    
 
     function mostrar_docentes_centro_admin($identif_centro){
         $datos_doc_all=read_docentess($identif_centro);
@@ -81,13 +66,7 @@
         }
     }
 
-    if ($datos_doc[6] ==  $id_sup) {
-        $is_sup=true;
-        
-    }elseif ($datos_doc[6] ==  $id_admog) {
-        $is_admog=true;
-        
-    }
+    
 
     
 
@@ -114,15 +93,15 @@
 
 
     <?php
-        if ($is_sup) {
+        if ($chek_chek[1]) {
             $centros=read_centross();
             for ($i=0; $i < count($centros); $i++) { 
                 mostrar_docentes_centro_admin($centros[$i][0]);
             }
-        } elseif ($is_admog){
-            mostrar_docentes_centro_admin($datos_doc[7]);
+        } elseif ($$chek_chek[0]){
+            mostrar_docentes_centro_admin($chek_chek[2][7]);
         }else {
-            mostrar_docentes_centro($datos_doc[7]);
+            mostrar_docentes_centro($chek_chek[2][7]);
         }
         
         
