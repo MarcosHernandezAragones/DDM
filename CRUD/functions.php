@@ -271,7 +271,7 @@ function read_alumnoss($curso,$centro){
         $id_alumno=$fila1->idUsuario;
 
 
-            $sql2="SELECT * FROM alumno WHERE usuario_idUsuario=\"$id_alumno\" and (curso_idCurso=\"$curso\" and curso_centro_idCentro=\"$centro\")";
+            $sql2="SELECT * FROM alumno WHERE usuario_idUsuario=\"$id_alumno\" and (curso_idCurso=\"$curso\" and curso_centro_idCentro=\"$centro\") ORDER BY curso_idCurso ASC";
 
             $consulta2 = $conexx->prepare($sql2);
             $consulta2->execute();
@@ -457,7 +457,7 @@ function read_docente($id_prof){
     $passwrd=$fila1->password;
 
 
-    $sql2="SELECT * FROM docente WHERE usuario_idUsuario=\"$id_prof\"";
+    $sql2="SELECT * FROM docente WHERE usuario_idUsuario=\"$id_prof\" ORDER BY centro_idCentro ASC";
 
     $consulta2 = $conexx->prepare($sql2);
     $consulta2->execute();
@@ -669,7 +669,7 @@ function read_curso($id_curso,$id_centro){//devuelve el nombre del curso en func
 function read_cursoss(){
     $conexx=conectar_BD();
 
-    $sql1="SELECT * FROM curso";
+    $sql1="SELECT * FROM curso ORDER BY centro_idCentro ASC";
 
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
@@ -690,6 +690,68 @@ function read_cursoss(){
     $conexx = null;
     return $datos_todos;
 }
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+/////////////////////////CRUD_CURSO_HAS_DOCENTE/////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+
+function delete_curso_has_docente($id_doof, $id_cent, $id_curso){
+    $conexx=conectar_BD();
+
+    $sql1="DELETE FROM curso_has_docente WHERE (curso_centro_idCentro=\"$id_centro\" and curso_idCurso=\"$id_curso\") and docente_usuario_idUsuario=\"$id_doof\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+    
+    $conexx = null;
+}
+
+function create_curso_has_docente($id_doof, $id_cent, $id_curso){
+    $conexx=conectar_BD();
+
+    $sql1="INSERT INTO curso_has_docente (curso_centro_idCentro, curso_idCurso, docente_usuario_idUsuario)values (curso_centro_idCentro=\"$id_centro\" and curso_idCurso=\"$id_curso\") and docente_usuario_idUsuario=\"$id_doof\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $conexx = null;
+}
+
+function update_curso_has_docente($id_doof, $id_cent, $id_curso,$id_doof_dep, $id_cent_dep, $id_curso_dep){
+    $conexx=conectar_BD();
+
+    $sql1="UPDATE curso_has_docente SET curso_centro_idCentro=\"$id_centro\" curso_idCurso=\"$id_curso\" docente_usuario_idUsuario=\"$id_doof\" WHERE (curso_centro_idCentro=\"$id_centro_dep\" and curso_idCurso=\"$id_curso_dep\") and docente_usuario_idUsuario=\"$id_doof_dep\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $conexx = null;
+}
+
+function read_curso_has_docentess(){
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM curso_has_docente ORDER BY curso_centro_idCentro,curso_idCurso ASC";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $conexx = null;
+}
+
+
+
+
 
 
 

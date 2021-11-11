@@ -25,6 +25,7 @@
             header("refresh:5;url=ver_cursoss.php");
         }
         header("Location: ver_cursoss.php");
+        
 
     } else if (($chek_chek[1] || $chek_chek[0]) && isset($_POST['confir'])){
         $centros=read_centross();
