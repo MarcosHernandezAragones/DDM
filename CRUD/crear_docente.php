@@ -5,6 +5,18 @@
 
 
     if (isset($_POST['nombre'])) {
+        $flag=true;
+        if ($_POST["centro"] == "nil") {
+            echo "centro no seleccionado";
+            header("refresh:5;url=ver_cursoss.php");
+            $flag=false;
+        }
+        if ($_POST["rol"] == "nil") {
+            echo "rol no seleccionado";
+            header("refresh:5;url=ver_cursoss.php");
+            $flag=false;
+        }
+
         $apellidos=$_POST['apellido'];
         $correo=$_POST['correo'];
         $DNI=$_POST['dni'];
@@ -24,15 +36,17 @@
 
 
 
-
-        try {
-            create_docente($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idRol);
+        if ($flag) {
+            try {
+                create_docente($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idRol);
             
-        } catch (Exception $th) {
-            echo $th;
-            header("refresh:5;url=ver_docente.php");
+            } catch (Exception $th) {
+                echo $th;
+                header("refresh:5;url=ver_docente.php");
+            }
+            header("Location: ver_docente.php");
         }
-        header("Location: ver_docente.php");
+        
         //header("refresh:15;url=ver_docente.php");
     }elseif (isset($_POST['confir'])){
         $centros=read_centross();
@@ -102,6 +116,6 @@
 
         }else{
             echo "Acceso denegado por motivos random";
-            header("refresh:2;url=ver_centro.php");
+            header("refresh:2;url=ver_docente.php");
         }
 ?>

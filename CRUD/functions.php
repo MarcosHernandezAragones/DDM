@@ -271,7 +271,7 @@ function read_alumnoss($curso,$centro){
         $id_alumno=$fila1->idUsuario;
 
 
-            $sql2="SELECT * FROM alumno WHERE usuario_idUsuario=\"$id_alumno\" and (curso_idCurso=\"$curso\" and curso_centro_idCentro=\"$centro\") ORDER BY curso_idCurso ASC";
+            $sql2="SELECT * FROM alumno WHERE usuario_idUsuario=\"$id_alumno\" and (curso_idCurso=\"$curso\" and curso_centro_idCentro=\"$centro\")";
 
             $consulta2 = $conexx->prepare($sql2);
             $consulta2->execute();
@@ -457,7 +457,7 @@ function read_docente($id_prof){
     $passwrd=$fila1->password;
 
 
-    $sql2="SELECT * FROM docente WHERE usuario_idUsuario=\"$id_prof\" ORDER BY centro_idCentro ASC";
+    $sql2="SELECT * FROM docente WHERE usuario_idUsuario=\"$id_prof\"";
 
     $consulta2 = $conexx->prepare($sql2);
     $consulta2->execute();
@@ -708,7 +708,7 @@ function read_cursoss(){
 function delete_curso_has_docente($id_doof, $id_cent, $id_curso){
     $conexx=conectar_BD();
 
-    $sql1="DELETE FROM curso_has_docente WHERE (curso_centro_idCentro=\"$id_centro\" and curso_idCurso=\"$id_curso\") and docente_usuario_idUsuario=\"$id_doof\"";
+    $sql1="DELETE FROM curso_has_docente WHERE (curso_centro_idCentro=\"$id_cent\" and curso_idCurso=\"$id_curso\") and docente_usuario_idUsuario=\"$id_doof\"";
 
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
@@ -719,14 +719,15 @@ function delete_curso_has_docente($id_doof, $id_cent, $id_curso){
 function create_curso_has_docente($id_doof, $id_cent, $id_curso){
     $conexx=conectar_BD();
 
-    $sql1="INSERT INTO curso_has_docente (curso_centro_idCentro, curso_idCurso, docente_usuario_idUsuario)values (curso_centro_idCentro=\"$id_centro\" and curso_idCurso=\"$id_curso\") and docente_usuario_idUsuario=\"$id_doof\"";
-
+    $sql1="INSERT INTO curso_has_docente (curso_centro_idCentro, curso_idCurso, docente_usuario_idUsuario) values (\"$id_cent\", \"$id_curso\", \"$id_doof\")";
+    
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
 
     $conexx = null;
 }
 
+/* 
 function update_curso_has_docente($id_doof, $id_cent, $id_curso,$id_doof_dep, $id_cent_dep, $id_curso_dep){
     $conexx=conectar_BD();
 
@@ -737,17 +738,168 @@ function update_curso_has_docente($id_doof, $id_cent, $id_curso,$id_doof_dep, $i
 
     $conexx = null;
 }
+*/
+
+function read_curso_has_docente($centro){
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM curso_has_docente WHERE curso_centro_idCentro=\"$centro\" ORDER BY curso_centro_idCentro, curso_idCurso, docente_usuario_idUsuario ASC";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $datos_todos=[];
+    $cont=0;
+
+    while ( $fila1=$consulta1->fetch()) {
+        $id_doof=$fila1->docente_usuario_idUsuario;
+        $id_curso=$fila1->curso_idCurso;
+        $id_centro=$fila1->curso_centro_idCentro;
+
+        $datos_curso=[$id_doof,$id_curso,$id_centro];
+
+        $datos_todos[$cont]=$datos_curso;
+        $cont++;
+    }
+
+
+
+    $conexx = null;
+    return $datos_todos;
+}
+
+
 
 function read_curso_has_docentess(){
     $conexx=conectar_BD();
 
-    $sql1="SELECT * FROM curso_has_docente ORDER BY curso_centro_idCentro,curso_idCurso ASC";
+    $sql1="SELECT * FROM curso_has_docente ORDER BY curso_centro_idCentro, curso_idCurso, docente_usuario_idUsuario ASC";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $datos_todos=[];
+    $cont=0;
+
+    while ( $fila1=$consulta1->fetch()) {
+        $id_doof=$fila1->docente_usuario_idUsuario;
+        $id_curso=$fila1->curso_idCurso;
+        $id_centro=$fila1->curso_centro_idCentro;
+
+        $datos_curso=[$id_doof,$id_curso,$id_centro];
+
+        $datos_todos[$cont]=$datos_curso;
+        $cont++;
+    }
+
+
+
+    $conexx = null;
+    return $datos_todos;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+////////////////////////////CRUD_GRUPO//////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+
+function delete_grupo($id_grupo){
+    $conexx=conectar_BD();
+
+    $sql1="DELETE FROM grupo WHERE idGrupo=\"$id_grupo\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+    
+    $conexx = null;
+}
+
+function create_grupo($nombre_curso, $id_centro, $id_curso){
+    $conexx=conectar_BD();
+
+    $sql1="INSERT INTO grupo (nombre, curso_centro_idCentro,curso_idCurso ) VALUES (\"$nombre_curso\", \"$id_centro\", \"$id_curso\")";
 
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
 
     $conexx = null;
 }
+
+function update_grupo($nombre_grupo,$id_grupo){
+    $conexx=conectar_BD();
+
+    $sql1="UPDATE grupo SET nombre=\"$nombre_grupo\" WHERE idGrupo=\"$id_grupo\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $conexx = null;
+}
+
+function read_grupo($id_grupo){
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM grupo WHERE idGrupo=\"$id_grupo\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+    $fila1=$consulta1->fetch();
+    $id_grupo=$fila1->idGrupo;
+    $nombre=$fila1->nombre;
+    $id_curs=$fila1->curso_idCurso;
+    $id_centre=$fila1->curso_centro_idCentro;
+
+    
+
+
+    $datos_grup=[$id_grupo,$nombre,$id_curs,$id_centre];
+
+    $conexx = null;
+    return $datos_grup;
+}
+
+function read_gruposs(){
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM grupo ORDER BY curso_centro_idCentro, curso_idCurso ASC";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $datos_todos=[];
+    $cont=0;
+
+    while ( $fila1=$consulta1->fetch()) {
+        $nombre_curso=$fila1->nombre;
+        $id_grupo=$fila1->idGrupo;
+        $nombre=$fila1->nombre;
+        $id_curs=$fila1->curso_idCurso;
+        $id_centre=$fila1->curso_centro_idCentro;
+
+    
+
+
+        $datos_grup=[$id_grupo,$nombre,$id_curs,$id_centre];
+
+        $datos_todos[$cont]=$datos_grup;
+        $cont++;
+    }
+
+    $conexx = null;
+    return $datos_todos;
+}
+
 
 
 

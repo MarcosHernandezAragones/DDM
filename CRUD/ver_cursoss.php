@@ -2,7 +2,7 @@
     include_once "functions.php";
     session_start();
     
-    //$_SESSION['id_prof']=3;//test only 
+    //$_SESSION['id_prof']=4;//test only 
     $_SESSION['id_prof']=1;//test only 
 
     $chek_chek=check_doc_rol($_SESSION['id_prof']);

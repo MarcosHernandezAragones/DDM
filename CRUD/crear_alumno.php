@@ -15,6 +15,10 @@
 
 
     if (isset($_POST['nombre'])) {
+        if ($_POST["curso"] == "nil") {
+            echo "curso no seleccionado";
+            header("refresh:5;url=ver_alumno.php");
+        }
         $apellidos=$_POST['apellido'];
         $correo=$_POST['correo'];
         $DNI=$_POST['dni'];
@@ -37,6 +41,7 @@
 
         try {
             create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso);
+            
             
         } catch (Exception $th) {
             echo $th;
@@ -96,6 +101,6 @@
 
         }else{
             echo "Acceso denegado por motivos random";
-            header("refresh:2;url=ver_centro.php");
+            header("refresh:2;url=ver_alumno.php");
         }
 ?>

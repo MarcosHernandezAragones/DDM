@@ -10,7 +10,8 @@
             echo $th;
             header("refresh:5;url=ver_cursoss.php");
         }
-        header("Location: ver_cursoss.php");
+        //header("Location: ver_cursoss.php");
+        header("refresh:5;url=ver_cursoss.php");
     }
     header("Location: ver_cursoss.php");
 

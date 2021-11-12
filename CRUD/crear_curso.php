@@ -13,18 +13,27 @@
 
 
     if (isset($_POST["aux_cursed"])) {
+        $flag=true;
+        if ($_POST["centro"] == "nil") {
+            echo "centro no seleccionado";
+            header("refresh:5;url=ver_cursoss.php");
+            $flag=false;
+        }
+
         $nombre_curso=$_POST["nombre"];
         
         $id_centro=$_POST["centro"];
-
-        try {
+        if ($flag) {
+            try {
             create_curso($nombre_curso, $id_centro);
             
-        } catch (Exception $th) {
-            echo $th;
-            header("refresh:5;url=ver_cursoss.php");
+            } catch (Exception $th) {
+                echo $th;
+                header("refresh:5;url=ver_cursoss.php");
+            }
+            header("Location: ver_cursoss.php");
         }
-        header("Location: ver_cursoss.php");
+        
         
 
     } else if (($chek_chek[1] || $chek_chek[0]) && isset($_POST['confir'])){
