@@ -3,8 +3,8 @@ session_start();
 
 if (isset($_SESSION['user'])) {
 //      ENVIAR A LA PAGINA PRINCIPAL
-//        header("refresh:0;url=iniciarSesion.php");
-//    die();
+        header("refresh:0;url=iniciarSesion.php");
+    die();
 }
 
 ?>
@@ -15,13 +15,12 @@ if (isset($_SESSION['user'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DDM</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos_log.css">
 </head>
 <body>
     
 
     <section>
-
         <form action="iniciarSesion.php" method="post" id="loginbox">
             <fieldset>
                 <legend><img src="logo_login.png" alt="logo de la empresa encargada de esta pagina"></legend>

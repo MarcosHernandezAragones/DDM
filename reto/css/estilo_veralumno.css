@@ -1,0 +1,565 @@
+@import 'estilo_fijo.css';
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#titulo{
+    padding-top: 15vh;
+    text-align: center;
+    padding-bottom: 10vh;
+    font-size: 5vh;
+}
+#addAlumno{
+    margin-left: 5vh;
+    font-size: 2.5vh;
+    height: 3vh;
+    width: 90%;
+}
+
+#form_alumno{
+    order: 6;
+}
+#form_alumno_del{
+    order: 7;
+}
+#form_alumno input{
+    margin-left: 5vh;
+    font-size: 2vh;
+    height: 2.5vh;
+}
+#form_alumno_del input{
+    margin-left: 5vh;
+    font-size: 2vh;
+    height: 2.5vh;
+}
+#contenido{
+    padding-left: 5vh;
+    display: grid;
+    padding-top: 5vh;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+}
+#editar{
+    width: 10vh;
+}
+.alumno{
+    grid-column-start: 2;
+}
+.rojo{
+    color: red;
+    margin-left: 5vh;
+    order: 1;
+}
+.azul{
+    color: blue;
+    margin-left: 5vh;
+    order: 2;
+}
+.amarillo{
+    color: yellow;
+    margin-left: 5vh;
+    order: 3;
+}
+.verde{
+    color: green;
+    margin-left: 5vh;
+    order: 4;
+}
+.preguntas{
+    margin-left: 5vh;
+    order: 5;
+    color: indigo;
+}
+.atras{
+    margin-top: 30vh;
+    margin-left: 5vh;
+    width: 90%;
+    font-size: 2vh;
+    height: 3vh;
+}
+@media only screen and (min-width: 1433px) and (max-width: 1585px){
+
+    
+
+    .propGrupos{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verGrupos{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verAlumno{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verClases{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminProf{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminCentro{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .addPreguntas{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .atras
+{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 3.5vh;
+        height: 5vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1381px) and (max-width: 1432px){
+    
+    
+    
+    
+    #titulo{
+        padding-top: 5vh;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10vh;
+        font-size: 5vh;
+    }
+
+    #addAlumno{
+        margin-left: 20%;
+        font-size: 2vh;
+        height: 3vh;
+        width: 70%;
+    }
+
+    #contenido{
+        padding-left: 5vh;
+        margin-top: 2vh;
+        display: grid;
+        padding-top: 0vh;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ; 
+    }
+
+    .alumno{
+        grid-column: 1/6;
+        font-size: 3.5vh;
+        justify-self: center;
+        margin-bottom: 2vh;
+    }
+
+    .rojo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .azul{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .amarillo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .verde{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .preguntas{
+        margin-left: 2vh;
+        grid-row-start: 2;
+        color: indigo;
+    }
+
+    #form_alumno input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno_del input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+    #form_alumno_del {
+        grid-row-start: 3;
+        grid-column-start: 4;
+    }
+    .atras{
+        margin-left: 15%;
+        margin-top: 2vh;
+        width: 75%;
+        font-size: 2.5vh;
+        height: 3vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1059px) and (max-width: 1381px){
+    
+    
+    #titulo{
+        padding-top: 5vh;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10vh;
+        font-size: 5vh;
+    }
+
+    #addAlumno{
+        margin-left: 20%;
+        font-size: 2vh;
+        height: 3vh;
+        width: 70%;
+    }
+
+    #contenido{
+        padding-left: 5vh;
+        margin-top: 2vh;
+        display: grid;
+        padding-top: 0vh;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ; 
+    }
+
+    .alumno{
+        grid-column: 1/6;
+        font-size: 3.5vh;
+        justify-self: center;
+        margin-bottom: 2vh;
+    }
+
+    .rojo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .azul{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .amarillo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .verde{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .preguntas{
+        margin-left: 2vh;
+        grid-row-start: 2;
+        color: indigo;
+    }
+
+    #form_alumno input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno_del input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+    #form_alumno_del {
+        grid-row-start: 3;
+        grid-column-start: 4;
+    }
+    .atras{
+        margin-left: 15%;
+        margin-top: 2vh;
+        width: 75%;
+        font-size: 2.5vh;
+        height: 3vh;
+    }
+    
+}
+
+@media only screen and (min-width: 734px) and (max-width: 1058px){
+    
+    
+
+    #titulo{
+        padding-top: 5vh;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10vh;
+        font-size: 5vh;
+    }
+
+    #addAlumno{
+        margin-left: 20%;
+        font-size: 2vh;
+        height: 3vh;
+        width: 70%;
+    }
+
+    #contenido{
+        padding-left: 5vh;
+        margin-top: 2vh;
+        display: grid;
+        padding-top: 0vh;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ; 
+    }
+
+    .alumno{
+        grid-column: 1/6;
+        font-size: 3.5vh;
+        justify-self: center;
+        margin-bottom: 2vh;
+    }
+
+    .rojo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .azul{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .amarillo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .verde{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .preguntas{
+        margin-left: 2vh;
+        grid-row-start: 2;
+        color: indigo;
+    }
+
+    #form_alumno input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno_del input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+    #form_alumno_del {
+        grid-row-start: 3;
+        grid-column-start: 4;
+    }
+    .atras{
+        margin-left: 15%;
+        margin-top: 2vh;
+        width: 75%;
+        font-size: 2.5vh;
+        height: 3vh;
+    }
+    
+    
+}
+
+@media only screen and (min-width: 577px) and (max-width: 734px){
+    
+    
+    #titulo{
+        padding-top: 5vh;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10vh;
+        font-size: 5vh;
+    }
+
+    #addAlumno{
+        margin-left: 20%;
+        font-size: 2vh;
+        height: 3vh;
+        width: 70%;
+    }
+
+    #contenido{
+        padding-left: 5vh;
+        margin-top: 2vh;
+        display: grid;
+        padding-top: 0vh;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ; 
+    }
+
+    .alumno{
+        grid-column: 1/6;
+        font-size: 3.5vh;
+        justify-self: center;
+        margin-bottom: 2vh;
+    }
+
+    .rojo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .azul{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .amarillo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .verde{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .preguntas{
+        margin-left: 2vh;
+        grid-row-start: 2;
+        color: indigo;
+    }
+
+    #form_alumno input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno_del input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+    #form_alumno_del {
+        grid-row-start: 3;
+        grid-column-start: 4;
+    }
+    .atras{
+        margin-left: 15%;
+        margin-top: 2vh;
+        width: 75%;
+        font-size: 2.5vh;
+        height: 3vh;
+    }
+    
+    
+}
+
+@media only screen and (max-width:576px){
+    
+    
+
+    #titulo{
+        padding-top: 5vh;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10vh;
+        font-size: 5vh;
+    }
+
+    #addAlumno{
+        margin-left: 20%;
+        font-size: 2vh;
+        height: 3vh;
+        width: 70%;
+    }
+
+    #contenido{
+        padding-left: 5vh;
+        margin-top: 2vh;
+        display: grid;
+        padding-top: 0vh;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ; 
+    }
+
+    .alumno{
+        grid-column: 1/6;
+        font-size: 3.5vh;
+        justify-self: center;
+        margin-bottom: 2vh;
+    }
+
+    .rojo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .azul{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .amarillo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .verde{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .preguntas{
+        margin-left: 2vh;
+        grid-row-start: 2;
+        color: indigo;
+    }
+
+    #form_alumno input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno_del input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+    #form_alumno_del {
+        grid-row-start: 3;
+        grid-column-start: 4;
+    }
+    .atras{
+        margin-left: 15%;
+        margin-top: 2vh;
+        width: 75%;
+        font-size: 2.5vh;
+        height: 3vh;
+    }
+    
+}
