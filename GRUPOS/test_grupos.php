@@ -1,10 +1,78 @@
 <?php
-
+    include_once "../CRUD/functions.php";
 //[$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso,$amarillo,$rojo,$verde,$azul]YRGB [1,2,3,4]
 // 0-8 datos alumno 9-12 colores alumno
-$orden=[4,1,3,2];
-$num_grupos=3;
-$miembros_grupo=3;
+
+
+    // $id=$_SESSION['user'];
+    // $nombre=$_SESSION['nombre'];
+    // $centro=$_SESSION['centro'];
+    
+    
+
+    // if (isset($_POST['id_curso'])) {
+    //     $id_curso=$_POST['id_curso'];
+    // }
+ 
+    /////    TEST ONLY
+        $id_curso=1;
+
+        $centro=1;
+
+    /////
+
+
+    $groups_not_set=true;
+    $grupos_read=read_gruposs_curso($id_curso,$centro);
+
+    if ($grupos_read) {
+        
+        $groups_not_set=true;
+    }else{
+        
+        $groups_not_set=false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$orden=[4,3,1,2];//TEST ONLY
+
+$num_grupos=3;//TEST ONLY
+$miembros_grupo=6;//TEST ONLY
 
 $alumnoss[0]=[1,"y1","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];
 $alumnoss[1]=[2,"y2","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];
@@ -18,177 +86,197 @@ $alumnoss[6]=[7,"b1","aaaa","sdfg","adf","passwrd",null,1,1,25,25,25,75];
 $alumnoss[7]=[8,"b2","aaaa","sdfg","adf","passwrd",null,1,1,25,25,25,75];
 $alumnoss[8]=[9,"b3","aaaa","sdfg","adf","passwrd",null,1,1,25,25,25,75];
 
-$alumnoss[6]=[7,"r1","aaaa","sdfg","adf","passwrd",null,1,1,25,90,25,25];
-$alumnoss[7]=[8,"r2","aaaa","sdfg","adf","passwrd",null,1,1,25,90,25,25];
-$alumnoss[8]=[9,"r3","aaaa","sdfg","adf","passwrd",null,1,1,25,90,25,25];
+$alumnoss[9]=[10,"r1","aaaa","sdfg","adf","passwrd",null,1,1,25,90,25,25];
+$alumnoss[10]=[11,"r2","aaaa","sdfg","adf","passwrd",null,1,1,25,90,25,25];
+$alumnoss[11]=[12,"r3","aaaa","sdfg","adf","passwrd",null,1,1,25,90,25,25];
 
-$alumnoss[9]=[10,"mult1","aaaa","sdfg","adf","passwrd",null,1,1,80,80,25,80];
-$alumnoss[10]=[11,"mult2","aaaa","sdfg","adf","passwrd",null,1,1,80,25,80,25];
+$alumnoss[12]=[13,"mult1","aaaa","sdfg","adf","passwrd",null,1,1,80,80,25,80];
+$alumnoss[13]=[14,"mult2","aaaa","sdfg","adf","passwrd",null,1,1,80,25,80,25];
 
-$alumnoss[11]=[12,"oooooooo","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
-$alumnoss[12]=[13,"00000000000","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
+$alumnoss[14]=[15,"oooooooo","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
+$alumnoss[15]=[16,"00000000000","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
 
-$alumnoss[13]=[14,"sdfgsdf","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
-$alumnoss[14]=[15,"mudfsdflt2","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
-$alumnoss[15]=[16,"musdfsdfsdfsdflt1","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
-$alumnoss[16]=[17,"sdfsdfsdfsd","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
-
-
+$alumnoss[16]=[17,"sdfgsdf","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
+$alumnoss[17]=[18,"mudfsdflt2","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
+$alumnoss[18]=[19,"musdfsdfsdfsdflt1","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
+$alumnoss[19]=[20,"sdfsdfsdfsd","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
 
 
-
-function select_col($alumnoss,$pos_color,$grupos){
-    $alu_aux=$alumnoss;
+//if (!$groups_not_set) {
     
-    foreach ($alu_aux as $key => $row) {
-        $aux[$key] = $row[$pos_color];
-        print_r($aux[$key]);echo "ppppppppppp";
-    }
-    
-    array_multisort($aux, SORT_DESC, $alu_aux);
-    
-    $cont=0;
-    foreach ($alu_aux as $key => $row) {
 
-        if ($cont < $grupos) {
-            //print_r($alu_aux[$key]);
-            
-            $col_r[$cont]=$alu_aux[$key];
-            unset($alu_aux[$key]);
-            $cont++;
+        function order_color_select($orden,$miembros){
+            $order_selector;
+            $cont=0;
+            for ($k=0; $k < $miembros; $k++) { 
+                if ($cont == 4) {
+                    $cont=0;
+                }
+
+                $order_selector[$k]=$orden[$cont]+8;
+
+                $cont++;
+            }
+
+            return $order_selector;
         }
 
-        if ($cont == $grupos) {
+
+
+        //print_r(order_color_select($orden,$miembros_grupo));
+
+        function group_inserter_randomizer($num_grupos){
             $cont=0;
-            break;
-        }  
-
-    }
-    
-    $resultado=[$alu_aux,$col_r];
-    return $resultado;
-}
-
-function get_colores($alumnoss,$orden,$grupos){
-    $alumnoss_copy=$alumnoss;
-    $colores;
+            for ($i=0; $i < $num_grupos; $i++) { 
+                $values[$i]=$cont;
+                $cont++;
+            }
+            shuffle($values);
+            return $values;
+        }
 
 
 
-    for ($i=0; $i < count($orden); $i++) { 
-        $pos_color=$orden[$i]+8;
-        print_r($pos_color);
-        $color=select_col($alumnoss_copy,$pos_color,$grupos);
+
+        function group_select_col($alumnoss,$pos_color,$grupos){//$pos_color now int
+            $alu_aux=$alumnoss;
+            
+            foreach ($alu_aux as $key => $row) {
+                $aux[$key] = $row[$pos_color];
+                
+            }
+            
+            array_multisort($aux, SORT_DESC, $alu_aux);
+            
+            $cont=0;
+            
+            foreach ($alu_aux as $key => $row) {
+
+                if ($cont < $grupos) {
+                    //print_r($alu_aux[$key]);
+                    
+                    //$pos_rand_al=$rand_order[$cont];
+
+                    $col_r[$cont]=$alu_aux[$key];
+                    unset($alu_aux[$key]);
+                    $cont++;
+                }
+
+                if ($cont == $grupos) {
+                    $cont=0;
+                    break;
+                }  
+
+            }
+            
+            $resultado=[$alu_aux,$col_r];
+            return $resultado;
+        }
+
+        function group_naker($alumnoss,$num_grupos,$miembros_grupo,$orden){
+            $grupos;
+
+            $alu_aux=$alumnoss;
+
+            $color_selector=order_color_select($orden,$miembros_grupo);
+            for ($alal=0; $alal < $miembros_grupo; $alal++) { //posicion alumno
+                $orden_asignacion_grupo=group_inserter_randomizer($num_grupos);
+                
+
+                $varex=group_select_col($alu_aux,$color_selector[$alal],$num_grupos);
+
+                $alu_aux=$varex[0];
+                array_values($alu_aux);
+                $choosen=$varex[1];
+                
+
+                for ($gg=0; $gg < $num_grupos; $gg++) { //para cada posicion del alumno selecciona grupo
+                    $asignado=$orden_asignacion_grupo[$gg];
+                    $grupos[$gg][$alal]=$choosen[$asignado];
+
+
+
+                }
+            }
+            if (count($alu_aux) == 0) {
+                $result=[$grupos,"nil"];
+            }else {
+                $result=[$grupos,$alu_aux];
+            }
+
+
+            return $result;
+        }
+
+
+
+        function group_show($alumnoss,$num_grupos,$miembros_grupo,$orden){
+            $estragrupos=group_naker($alumnoss,$num_grupos,$miembros_grupo,$orden);
+
+            $grupos_show=$estragrupos[0];
+
+            $no_cat=array_values($estragrupos[1]);
+
+            if ($no_cat == "nil") {
+                
+            } else {
+                $nombre_auto="<div>NO_KAT";
+                echo $nombre_auto."<br>";
+                for ($al=0; $al < count($no_cat); $al++) { 
+                    echo "<div>";
+                    print_r($no_cat[$al]);
+                    echo "</div>";
+
+
+                }
+                echo "<br>brrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div><br><br>";
+            }
+            
+
+
+
+
+            
+            for ($gg=0; $gg < count($grupos_show); $gg++) { 
+                $nombre_auto="<div>Grupo_".($gg+1);
+                echo $nombre_auto."<br>";
+                for ($al=0; $al < count($grupos_show[$gg]); $al++) { 
+                    echo "<div>";
+                    print_r($grupos_show[$gg][$al]);
+                    echo "</div>";
+
+
+                }
+                echo "<br>brrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div><br><br>";
+            }
+
+
+        }
+
+
+
+
+
+        group_show($alumnoss,$num_grupos,$miembros_grupo,$orden)
 
         
-
-        $colores[$i]=$color[1];
-        $alumnoss_copy=$color[0];
-    }
-    return $colores;
-}
-
-$varex=get_colores($alumnoss,$orden,$num_grupos);
-
-$grupos;
-
-
-
-$count_al=0;
-
-
-
-for ($i=0; $i < count($varex); $i++) { //recorre colores
-    $count_grup=0;
-    for ($op=0; $op < count($varex[$i]); $op++) { //recorre alumnos en cada color (num alumnos color=num grupos)
-        
-        $varex[$i][$op];//alumno
-        
-        $grupos[$count_grup][$count_al]=$varex[$i][$op];
-        $count_grup++;
-        
-        print_r($varex[$i][$op]);
-        echo "hammertime <br>";
-        
-       
-    }
-    $count_al++;
-    echo "<br><br><br><br>aaaaaaaaaaaaaaaaa<br><br><br><br>";
-}
-
-echo "oooooooOOOOOOOOOOOOOOOOOOOOooooooooooooooooooooooOOOOOOOOOOOOOOOOOOOOOooooooooooooOOOOOOOOOOOOOOOOOOooOOOOOOOOOoooooooooOOOOOO";
-for ($i=0; $i < count($grupos); $i++) { //recorre colores
-    
-    for ($op=0; $op < count($grupos[$i]); $op++) { //recorre alumnos en cada color (num alumnos color=num grupos)
-        
-        print_r($grupos[$i][$op]);
-        echo "hammertime <br>";
-        
-        
-       
-    }
-   
-    echo "<br><br><br><br>knksdnkfmsdkfnmvsd<br><br><br><br>";
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// print_r($varex[0]);
-// $no_cat=array_diff($alumnoss, $varex[0], $varex[1], $varex[2], $varex[3]);//alumnos no introducidoesen grupo automaticamente
-
-
-
-// for ($i=0; $i < count($no_cat); $i++) { 
-//     echo "kela de thaym <br>";
-//     echo "kela de thaym  <br>";
-//     echo "kela de thaym  <br>";
-//     echo "kela de thaym  <br>";
-    
-//     for ($op=0; $op < count($no_cat[$i]); $op++) { 
-        
-//         //$no_cat[$i][$op];//alumno
-        
         
 
-        
-//         print_r($no_cat[$i][$op]);
-//         echo "stop, hammertime <br>";
-//     }
-//     echo "kela de thaym  <br>";
-//     echo "kela de thaym  <br>";
-//     echo "kela de thaym  <br>";
-//     echo "kela de thaym  <br>";
-// }
+//}
 
 
-// for ($gg=0; $gg < $num_grupos; $gg++) { 
-//     for ($op=0; $op < $miembros_grupo; $op++) { 
-        
-//     }
-// }
+
+
+
+
+
+
+
+
 
 
 
 
 ?>
+
+
