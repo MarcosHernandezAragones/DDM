@@ -1,12 +1,4 @@
 @import 'estilo_fijo.css';
-
-main{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 h1{
     order: 1;
     margin-top: 10vh;
@@ -37,7 +29,7 @@ h1{
     height: 3vh;
     width: 40%;
     font-size: 2vh;
-    color: red;
+
 }
 
 #atras{
@@ -52,38 +44,6 @@ h1{
 }
 
 @media only screen and (min-width: 1433px) and (max-width: 1585px){
-    
-    section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        color: white;
-        background-color: #592a51;
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-
-    img{
-        height: 15vh;
-        width: 15vh;
-    }
-    .gob{
-        margin-top: 1vh;
-        order: 1;
-    }
-    .centro{
-        margin-top: 1vh;
-        order: 2;
-
-    }
-    .abajo{
-        order: 3;
-        margin-top: 65vh;
-    }
-    
-
     #formulario{
         order: 2;
         display: grid;
@@ -108,7 +68,6 @@ h1{
         height: 3vh;
         width: 40%;
         font-size: 2vh;
-        color: red;
     }
     
     #atras{
@@ -125,48 +84,7 @@ h1{
 }
 
 @media only screen and (min-width: 1381px) and (max-width: 1432px){
-    
-    section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        color: white;
-        background-color: #592a51;
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-
-    img{
-        height: 15vh;
-        width: 15vh;
-    }
-    .gob{
-        margin-top: 1vh;
-        order: 1;
-    }
-    .centro{
-        margin-top: 1vh;
-        order: 2;
-
-    }
-    .abajo{
-        order: 3;
-        margin-top: 65vh;
-    }
-    .usuario_contro{
-        order: 4;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    .nombre_centro{
-        order: 5;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    
-    
+   
     #formulario{
         order: 2;
         display: grid;
@@ -191,7 +109,6 @@ h1{
         height: 3vh;
         width: 40%;
         font-size: 2vh;
-        color: red;
     }
     
     #atras{
@@ -209,47 +126,6 @@ h1{
 
 @media only screen and (min-width: 1059px) and (max-width: 1381px){
     
-    section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        color: white;
-        background-color: #592a51;
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-
-    img{
-        height: 15vh;
-        width: 15vh;
-    }
-    .gob{
-        margin-top: 1vh;
-        order: 1;
-    }
-    .centro{
-        margin-top: 1vh;
-        order: 2;
-
-    }
-    .abajo{
-        order: 3;
-        margin-top: 65vh;
-    }
-    .usuario_contro{
-        order: 4;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    .nombre_centro{
-        order: 5;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    
-    
     #formulario{
         order: 2;
         display: grid;
@@ -274,7 +150,6 @@ h1{
         height: 3vh;
         width: 40%;
         font-size: 2vh;
-        color: red;
     }
     
     #atras{
@@ -291,52 +166,6 @@ h1{
 }
 
 @media only screen and (min-width: 734px) and (max-width: 1058px){
-    
-    section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        color: white;
-        background-color: #592a51;
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-    .adminCentro{
-        margin-top: 5vh;
-        width: 35%;
-        font-size: 3.5vh;
-        height: 5vh;
-    }
-    img{
-        height: 12vh;
-        width: 12vh;
-    }
-    .gob{
-        margin-top: 1vh;
-        order: 1;
-    }
-    .centro{
-        margin-top: 1vh;
-        order: 2;
-
-    }
-    .abajo{
-        order: 3;
-        margin-top: 55vh;
-    }
-    .usuario_contro{
-        order: 4;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    .nombre_centro{
-        order: 5;
-        margin-right: 1vh;
-        text-align: right;
-    }
-
     #formulario{
         order: 2;
         display: grid;
@@ -361,7 +190,6 @@ h1{
         height: 3vh;
         width: 40%;
         font-size: 2vh;
-        color: red;
     }
     
     #atras{
@@ -379,52 +207,6 @@ h1{
 }
 
 @media only screen and (min-width: 577px) and (max-width: 734px){
-    
-    section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        color: white;
-        background-color: #592a51;
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-    .adminCentro{
-        margin-top: 5vh;
-        width: 35%;
-        font-size: 3.5vh;
-        height: 5vh;
-    }
-    img{
-        height: 12vh;
-        width: 12vh;
-    }
-    .gob{
-        margin-top: 3vh;
-        order: 1;
-    }
-    .centro{
-        margin-top: 1vh;
-        order: 2;
-
-    }
-    .abajo{
-        order: 3;
-        margin-top: 55vh;
-    }
-    .usuario_contro{
-        order: 4;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    .nombre_centro{
-        order: 5;
-        margin-right: 1vh;
-        text-align: right;
-    }
-
     #formulario{
         order: 2;
         display: grid;
@@ -449,7 +231,6 @@ h1{
         height: 3vh;
         width: 40%;
         font-size: 2vh;
-        color: red;
     }
     
     #atras{
@@ -468,51 +249,6 @@ h1{
 
 @media only screen and (max-width:576px){
     
-    section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        color: white;
-        background-color: #592a51;
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-    .adminCentro{
-        margin-top: 5vh;
-        width: 35%;
-        font-size: 3.5vh;
-        height: 5vh;
-    }
-    img{
-        height: 12vh;
-        width: 12vh;
-    }
-    .gob{
-        margin-top: 3vh;
-        order: 1;
-    }
-    .centro{
-        margin-top: 1vh;
-        order: 2;
-
-    }
-    .abajo{
-        order: 3;
-        margin-top: 55vh;
-    }
-    .usuario_contro{
-        order: 4;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    .nombre_centro{
-        order: 5;
-        margin-right: 1vh;
-        text-align: right;
-    }
-
     #formulario{
         order: 2;
         display: grid;
@@ -537,7 +273,6 @@ h1{
         height: 3vh;
         width: 50%;
         font-size: 2vh;
-        color: red;
     }
     
     #atras{

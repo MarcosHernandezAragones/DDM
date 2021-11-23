@@ -1,18 +1,18 @@
 
 <?php 
-    include_once "functions.php";
+    include_once "../functions.php";
     session_start();
 
-    $_SESSION['id_prof']=1;//test only 
-    $chek_chek=check_doc_rol($_SESSION['id_prof']);
+    
+    $chek_chek=check_doc_rol($_SESSION['user']);// entra tras enviar los datos del formulario de la misma pagina
 
     $idAlumno=$_SESSION['user'];
     $nombre=$_SESSION['nombre'];
-    $_SESSION['centro']=centroAlumno($idAlumno);
+   
     $centro = $_SESSION['centro'];
 
 
-    if (isset($_POST["aux_cursed"])) {
+    if (isset($_POST["aux_cursed"])) {//inserta los datos editados
         $id_cent=$_POST["id_cent"];
         $id_curso=$_POST["id_curso"];
         $nombre_curso=$_POST["nombre"];
@@ -49,24 +49,34 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="ver_cursoss.php" method="post">
-        <input type="submit" value="volver">
-    </form>
+    <section>
+        <img class="gob" src="" alt="">
+        <img class="centro" src="" alt="">
+        <img class="abajo" src="../logo_login.png" alt="" srcset="">
+        <p class="usuario_contro"><?php echo $nombre?></p>
+        <p class="nombre_centro"><?php echo $centro?></p>
+    </section>
+    
+    <main>
 
-    <form action="editar_curso.php" method="post">
-        <input type="hidden" name="aux_cursed" value="a">
-        <input type="hidden" name="id_cent" value="<?php echo $datos_curso_edit[2] ?>">
-        <input type="hidden" name="id_curso" value="<?php echo $datos_curso_edit[1] ?>">
-        <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre" id="nombre" value="<?php echo $datos_curso_edit[0] ?>">
-        
+        <h1>Editar curso</h1>
 
-        <input type="submit" value="Enviar">
-    </form>
+        <form action="editar_curso.php" id="formulario" method="post">
+            <input type="hidden" name="aux_cursed" value="a">
+            <input type="hidden" name="id_cent" value="<?php echo $datos_curso_edit[2] ?>">
+            <input type="hidden" name="id_curso" value="<?php echo $datos_curso_edit[1] ?>">
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" value="<?php echo $datos_curso_edit[0] ?>">
+            
+
+            <input type="submit" value="Enviar">
+        </form>
 
 
 
-
+        <button class="atras" onclick="salir('ver_cursoss.php')">Atras</button>
+    </main>
+    <script type="text/javascript" src="../funciones.js"></script>
 
 </body>
 </html>
@@ -74,7 +84,7 @@
 
 <?php
     }else {
-        echo "Acceso denegado por..... motivos?";
+        echo "Acceso denegado por..... cuestiones de guión?";
         header("refresh:5;url=ver_cursoss.php");
     }
 

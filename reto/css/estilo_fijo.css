@@ -20,12 +20,25 @@ section{
     height: 100%;
     float: left;
 }
+#menu{
+    order :3;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+#menu>a{
+    font-size: 3vh; 
+    color: white;
+    text-decoration: none;
+    justify-self: right;
+    margin-right: 2%;
+}
 main{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-
     position: absolute;
     left: 20%;
     right: 0.1%;
@@ -41,28 +54,20 @@ img{
 .centro{
     margin-top: 1vh;
     margin-right: 0.6vh;
-    order: 3;
-
+    order: 2;
 }
 .abajo{
-    order: 2;
-    margin-top: 80vh;
-}
-.usuario_contro{
+    padding-bottom: 10%;
     order: 4;
-    margin-top: -50vh;
-    margin-bottom: 55vh;
-    margin-right: 1vh;
-    text-align: right;
-    width: 100%;
+    align-self: flex-end;
 }
-.nombre_centro{
-    order: 5;
-    margin-top: -45vh;
-    margin-bottom: 45vh;
-    margin-right: 1vh;
-    text-align: right;
-    width: 100%;
+.atras{
+    order: 3;
+    margin-top: 15%;
+    margin-left: 15%;
+    width: 70%;
+    font-size: 2vh;
+    height: 3vh;
 }
 @media only screen and (min-width: 1433px) and (max-width: 1585px){
     
@@ -145,7 +150,7 @@ img{
 @media only screen and (min-width: 734px) and (max-width: 1058px){
     
     main{
-        left: 25%;
+        left: 20%;
     }
     img{
         height: 10vh;
@@ -196,7 +201,7 @@ img{
 
 @media only screen and (max-width:576px){
     main{
-        left: 25%;
+        left: 20%;
     }
     img{
         height: 10vh;

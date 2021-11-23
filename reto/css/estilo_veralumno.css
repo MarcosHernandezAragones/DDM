@@ -1,14 +1,19 @@
 @import 'estilo_fijo.css';
 
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+.invisible{
+    display: none;
 }
-#titulo{
-    padding-top: 15vh;
+
+.rotar{
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.titulo{
+    padding-top: 10vh;
     text-align: center;
-    padding-bottom: 10vh;
+    padding-bottom: 5%;
     font-size: 5vh;
 }
 #addAlumno{
@@ -16,6 +21,10 @@ main{
     font-size: 2.5vh;
     height: 3vh;
     width: 90%;
+}
+
+a:hover{
+    cursor: pointer;
 }
 
 #form_alumno{
@@ -58,7 +67,7 @@ main{
     order: 2;
 }
 .amarillo{
-    color: yellow;
+    color: orange;
     margin-left: 5vh;
     order: 3;
 }
@@ -73,76 +82,13 @@ main{
     color: indigo;
 }
 .atras{
-    margin-top: 30vh;
+    margin-top: 25%;
     margin-left: 5vh;
     width: 90%;
     font-size: 2vh;
     height: 3vh;
 }
 @media only screen and (min-width: 1433px) and (max-width: 1585px){
-
-    
-
-    .propGrupos{
-        margin-top: 15vh;
-        width: 75%;
-        font-size: 2vh;
-        height: 5vh;
-    }
-    .verGrupos{
-        margin-top: 5vh;
-        width: 35%;
-        font-size: 2vh;
-        height: 5vh;
-    }
-    .verAlumno{
-        margin-top: 5vh;
-        margin-left: 7vh;
-        width: 35%;
-        font-size: 2vh;
-        height: 5vh;
-    }
-    .verClases{
-        margin-top: 5vh;
-        width: 35%;
-        font-size: 2vh;
-        height: 5vh;
-    }
-    .adminProf{
-        margin-top: 5vh;
-        margin-left: 7vh;
-        width: 35%;
-        font-size: 2vh;
-        height: 5vh;
-    }
-    .adminCentro{
-        margin-top: 5vh;
-        width: 35%;
-        font-size: 2vh;
-        height: 5vh;
-    }
-    .addPreguntas{
-        margin-top: 5vh;
-        margin-left: 7vh;
-        width: 35%;
-        font-size: 2vh;
-        height: 5vh;
-    }
-    .atras
-{
-        margin-top: 15vh;
-        width: 75%;
-        font-size: 3.5vh;
-        height: 5vh;
-    }
-    
-}
-
-@media only screen and (min-width: 1381px) and (max-width: 1432px){
-    
-    
-    
-    
     #titulo{
         padding-top: 5vh;
         text-align: center;
@@ -160,7 +106,7 @@ main{
 
     #contenido{
         padding-left: 5vh;
-        margin-top: 2vh;
+        margin-top: 15%;
         display: grid;
         padding-top: 0vh;
         grid-template-rows: 1fr 1fr 1fr;
@@ -216,7 +162,89 @@ main{
     }
     .atras{
         margin-left: 15%;
-        margin-top: 2vh;
+        margin-top: 15%;
+        width: 75%;
+        font-size: 2.5vh;
+        height: 3vh;
+    }
+}
+
+@media only screen and (min-width: 1381px) and (max-width: 1432px){
+
+    #titulo{
+        padding-top: 5vh;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10vh;
+        font-size: 5vh;
+    }
+
+    #addAlumno{
+        margin-left: 20%;
+        font-size: 2vh;
+        height: 3vh;
+        width: 70%;
+    }
+
+    #contenido{
+        padding-left: 5vh;
+        margin-top: 15%;
+        display: grid;
+        padding-top: 0vh;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ; 
+    }
+
+    .alumno{
+        grid-column: 1/6;
+        font-size: 3.5vh;
+        justify-self: center;
+        margin-bottom: 2vh;
+    }
+
+    .rojo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .azul{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .amarillo{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .verde{
+        margin-left: 2vh;
+        grid-row-start: 2;
+    }
+    .preguntas{
+        margin-left: 2vh;
+        grid-row-start: 2;
+        color: indigo;
+    }
+
+    #form_alumno input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno_del input{
+        margin-left: 0vh;
+        font-size: 1.5vh;
+        height: 2.5vh;
+    }
+    #form_alumno {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+    #form_alumno_del {
+        grid-row-start: 3;
+        grid-column-start: 4;
+    }
+    .atras{
+        margin-left: 15%;
+        margin-top: 15%;
         width: 75%;
         font-size: 2.5vh;
         height: 3vh;
@@ -244,7 +272,7 @@ main{
 
     #contenido{
         padding-left: 5vh;
-        margin-top: 2vh;
+        margin-top: 15%;
         display: grid;
         padding-top: 0vh;
         grid-template-rows: 1fr 1fr 1fr;
@@ -300,7 +328,7 @@ main{
     }
     .atras{
         margin-left: 15%;
-        margin-top: 2vh;
+        margin-top: 15%;
         width: 75%;
         font-size: 2.5vh;
         height: 3vh;
@@ -329,7 +357,7 @@ main{
 
     #contenido{
         padding-left: 5vh;
-        margin-top: 2vh;
+        margin-top: 15%;
         display: grid;
         padding-top: 0vh;
         grid-template-rows: 1fr 1fr 1fr;
@@ -385,7 +413,7 @@ main{
     }
     .atras{
         margin-left: 15%;
-        margin-top: 2vh;
+        margin-top: 15%;
         width: 75%;
         font-size: 2.5vh;
         height: 3vh;
@@ -414,7 +442,7 @@ main{
 
     #contenido{
         padding-left: 5vh;
-        margin-top: 2vh;
+        margin-top: 15%;
         display: grid;
         padding-top: 0vh;
         grid-template-rows: 1fr 1fr 1fr;
@@ -470,7 +498,7 @@ main{
     }
     .atras{
         margin-left: 15%;
-        margin-top: 2vh;
+        margin-top: 15%;
         width: 75%;
         font-size: 2.5vh;
         height: 3vh;
@@ -500,7 +528,7 @@ main{
 
     #contenido{
         padding-left: 5vh;
-        margin-top: 2vh;
+        margin-top: 15%;
         display: grid;
         padding-top: 0vh;
         grid-template-rows: 1fr 1fr 1fr;
@@ -556,7 +584,7 @@ main{
     }
     .atras{
         margin-left: 15%;
-        margin-top: 2vh;
+        margin-top: 15%;
         width: 75%;
         font-size: 2.5vh;
         height: 3vh;

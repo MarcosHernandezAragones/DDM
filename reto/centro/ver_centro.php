@@ -1,9 +1,6 @@
 <?php
     include_once "../functions.php";
     session_start();
-    
-    //$_SESSION['id_prof']=3;//test only 
-    $_SESSION['id_prof']=1;//test only 
 
 
     $centros=read_centross();
@@ -36,7 +33,7 @@
 
     <main>
         <h1>Ver centro</h1>
-        <form action="crear_centro.php" id="addCentro" method="post">
+        <form action="crear_centro.php" class="addCentro" method="post">
             <input type="hidden" name="confir" value="a">
             <input id="addCentro" type="submit" value="Añadir Centro">
         </form>
@@ -48,20 +45,18 @@
                 $nombre_centro=$centros[$i][1];
                 $loc_centro=$centros[$i][2];
 
-            //[,,]
-                echo  "<div class='centro'>";
+                echo  "<div class='centros'>";
                     echo "<div id='nombre'>
-                            <div >$nombre_centro: </div>
-                            <div >$loc_centro</div> 
+                            <div >$nombre_centro: $loc_centro</div> 
                           </div>
-                        <form action='editar_centro.php' method='post'>
+                        <form action='editar_centro.php' id='edit' method='post'>
                             <input type='hidden' name='id_cent' value='$id_cent'>
                             <input type='submit' value='Edit'>
                         </form>
-                        <form action='delete_centro.php' method='post'>
+                        <form action='delete_centro.php' id='del' method='post'>
                             <input type='hidden' name='id_cent' value='$id_cent'>
                             <input type='submit' value='DELETE'>
-                        </form><br>";
+                        </form>";
                 echo "</div>";
             }
 

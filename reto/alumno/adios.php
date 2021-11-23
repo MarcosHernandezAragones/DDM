@@ -1,5 +1,8 @@
 <?php 
 session_start();
+$id=$_SESSION['user'];
+$nombre=$_SESSION['nombre'];
+$centro=$_SESSION['centro'];
 ?>
 
 <!DOCTYPE html>

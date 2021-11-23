@@ -1,12 +1,14 @@
 <?php 
     include_once "../functions.php";
+    include "../funciones_BBDD.php";
+    $conexion=conectarBD();
+
     session_start();
 
-    $_SESSION['id_prof']=3;//test only
-    //$_SESSION['id_alumn']=2;//test only
-
-    $cursos=select_cursos_prof($_SESSION['id_prof']);
-    //$datos_alumno=read_alumno($_SESSION['id_alumn']);
+    
+    
+    $cursos=select_cursos_prof($_SESSION['user']);//seleciona los cursos de un profesor
+    
     $id=$_SESSION['user'];
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];
@@ -22,7 +24,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo_veralumno.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Ver Alumnos</title>
     <style>
         .alumno{
             display: inline-block;
@@ -39,23 +42,13 @@
         
     </section>
     <main>
-     <!-- 
-        clase
-            alumno 1....................editar,borrar
-
-            [nombre,apellidos] [color1] [color2] [color3] [color4] [preguntas_respondidas] [edit,delete] [hidden_sh...]
-            [nombre,apellidos] [color1] [color2] [color3] [color4] [preguntas_respondidas] [edit,delete] [hidden_sh...]
-            [nombre,apellidos] [color1] [color2] [color3] [color4] [preguntas_respondidas] [edit,delete] [hidden_sh...]
-            [$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso,$amarillo,$rojo,$verde,$azul]
-      -->
-
     <?php
     
             for ($i=0; $i < count($cursos); $i++) { 
 
     ?>       
             <div id="<?php echo $cursos[$i]['name']; ?>">
-                <h2 id="titulo"><?php echo $cursos[$i]['name']; ?></h2>
+                <h2 class="titulo"><?php echo $cursos[$i]['name']; ?> <a onclick="apariencia('<?php echo $cursos[$i]['name']; ?>','flecha<?php echo $i;?>' )"><i  id="flecha<?php echo $i;?>" class="fas fa-caret-right"></i></a></h2>
             <form action="crear_alumno.php" method="post">
                 <input id="addAlumno" type="submit" value="Añadir alumno">
             </form>
@@ -69,7 +62,18 @@
                 }else{
                     for ($gg=0; $gg < count($datos_alumnos_clase); $gg++) { 
 
-                        //print_r($datos_alumnos_clase[$gg]);
+                        $idAlumno=$datos_alumnos_clase[$gg][0];
+                        $sql1="select count(idPreguntas) as num_preg_total from preguntas";
+                        $consulta = $conexion->prepare($sql1);
+                        $consulta->execute();
+                        $total_preguntas=$consulta->fetch();
+
+                        $sql2="SELECT count(preguntas_idPreguntas) as num_preg_r FROM alumno_has_preguntas WHERE alumno_usuario_idUsuario=\"$idAlumno\"";
+                        
+                        $consulta = $conexion->prepare($sql2);
+                        $consulta->execute();
+                        $respondias=$consulta->fetch();
+    
                         $nombre=$datos_alumnos_clase[$gg][1];
                         $apell=$datos_alumnos_clase[$gg][2];
 
@@ -103,7 +107,7 @@
                                 </div>  
 
                                 <div class='preguntas'>
-                                    60/80
+                                    ".$respondias->num_preg_r."/".$total_preguntas->num_preg_total."
                                 </div>
                             
                                 <div id='form_alumno'>
@@ -127,8 +131,7 @@
                     }
                 }
         ?>
-            </div>
-            </div>
+            </div></div>
     <?php
             }
 
@@ -136,5 +139,21 @@
     <button class="atras" onclick="redirigir('../profesor/profesor.php')">Atras</button>
     </main>
     <script type="text/javascript" src="../funciones.js"></script>
+    <script>
+        function apariencia(curso, idFlecha) {
+
+            //hacemos que aparezca o desaparezca el contenido del curso
+            var aux = document.getElementById(curso);
+            aux.lastChild.classList.toggle("invisible");
+            aux.children[1].classList.toggle("invisible");
+
+            console.log(idFlecha);
+
+            //cambiamos la forma de la flecha
+            document.getElementById(idFlecha).classList.toggle("rotar");
+
+            
+        }
+    </script>
 </body>
 </html>

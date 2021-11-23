@@ -7,12 +7,11 @@
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
 
-    $_SESSION['id_prof']=1;//test only 
-    $chek_chek=check_doc_rol($_SESSION['id_prof']);
+    $chek_chek=check_doc_rol($_SESSION['user']);// entra tras enviar los datos del formulario de la misma pagina
 
 
 
-    if (isset($_POST["aux_cursed"])) {
+    if (isset($_POST["aux_cursed"])) {//inserta los datos del curso en base de datos
         $flag=true;
         if ($_POST["centro"] == "nil") {
             echo "centro no seleccionado";
@@ -107,7 +106,7 @@
 
 <?php
     }else {
-        echo "Acceso denegado por motivos random";
+        echo "Treelaw";
         header("refresh:2;url=ver_cursoss.php");
     }
 

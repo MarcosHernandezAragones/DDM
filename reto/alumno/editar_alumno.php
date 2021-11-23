@@ -5,11 +5,11 @@
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
-    //select_cursos_prof(1);
-    $_SESSION['id_prof']=3;//test only
-    $cursos = select_cursos_prof($_SESSION['id_prof']);
-
     
+
+    $cursos = select_cursos_prof($_SESSION['user']);
+
+//inserta los cambios en la base de datos    
     if (isset($_POST['id_al_upd'])) {
         $apellidos=$_POST['apellido'];
         $correo=$_POST['correo'];
@@ -35,8 +35,7 @@
     }else if (isset($_POST['id_alumn'])) {
     
         $datos_alumno=read_alumno($_POST['id_alumn']);
-        //print_r($datos_alumno);
-        //echo $datos_alumno[1];
+        
 ?>
 
 
@@ -120,7 +119,4 @@
 }
 
 
-
-//print_r($datos_alumno);
-//[$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso,$amarillo,$rojo,$verde,$azul]
 ?>

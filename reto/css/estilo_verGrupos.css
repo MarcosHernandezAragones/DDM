@@ -1,0 +1,288 @@
+@import 'estilo_fijo.css';
+
+h1{
+    order: 1;
+    align-self: center;
+    margin-top: 10%;
+}
+.Grupos{
+    order: 4;
+    margin-top: 5%;
+    justify-self: center;
+    align-self: center;
+    width: 50%;
+    margin-left: 2%;
+}
+.addGrupo{
+    order: 2;
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+}
+.addGrupo>input[type="submit"]{
+    width: 50%;
+    margin-left: 25%;
+    height: 2.5vh;
+    font-size: 1.5vh;
+}
+.contenido{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.atras{
+    align-self: center;
+    order: 4;
+    width: 60%;
+    margin-top: 15vh;
+    height: 3vh;
+    font-size: 2vh;
+}
+
+@media only screen and (min-width: 1433px) and (max-width: 1585px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .Grupos{
+        order: 4;
+        margin-top: 5%;
+        justify-self: center;
+        align-self: center;
+        width: 50%;
+        margin-left: 2%;
+    }
+    .addGrupo{
+        order: 2;
+        display: flex;
+        width: 100%;
+    }
+    .addGrupo>input[type="submit"]{
+        width: 60%;
+        margin-left: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    .contenido{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 15vh;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1381px) and (max-width: 1432px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .Grupos{
+        order: 4;
+        margin-top: 5%;
+        justify-self: center;
+        align-self: center;
+        width: 50%;
+        margin-left: 2%;
+    }
+    .addGrupo{
+        order: 2;
+        display: flex;
+        width: 100%;
+    }
+    .addGrupo>input[type="submit"]{
+        width: 60%;
+        margin-left: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    .contenido{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 15vh;
+        height: 3vh;
+        font-size: 2vh;
+    }
+}
+
+@media only screen and (min-width: 1059px) and (max-width: 1381px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .Grupos{
+        order: 4;
+        margin-top: 5%;
+        justify-self: center;
+        align-self: center;
+        width: 50%;
+        margin-left: 2%;
+    }
+    .addGrupo{
+        order: 2;
+        display: flex;
+        width: 100%;
+    }
+    .addGrupo>input[type="submit"]{
+        width: 60%;
+        margin-left: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    .contenido{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 15vh;
+        height: 3vh;
+        font-size: 2vh;
+    }
+}
+
+@media only screen and (min-width: 734px) and (max-width: 1058px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .Grupos{
+        order: 4;
+        margin-top: 10%;
+        justify-self: center;
+        align-self: center;
+        width: 70%;
+    }
+    .addGrupo{
+        margin-top: 10%;
+        order: 2;
+        display: flex;
+        width: 100%;
+    }
+    .addGrupo>input[type="submit"]{
+        width: 60%;
+        margin-left: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    .contenido{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 15vh;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    
+    
+    
+}
+
+@media only screen and (min-width: 577px) and (max-width: 733px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .Grupos{
+        order: 4;
+        margin-top: 10%;
+        justify-self: center;
+        align-self: center;
+        width: 70%;
+    }
+    .addGrupo{
+        margin-top: 10%;
+        order: 2;
+        display: flex;
+        width: 100%;
+    }
+    .addGrupo>input[type="submit"]{
+        width: 60%;
+        margin-left: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    .contenido{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 15vh;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    
+}
+
+@media only screen and (max-width:576px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .Grupos{
+        order: 4;
+        margin-top: 10%;
+        justify-self: center;
+        align-self: center;
+        width: 70%;
+    }
+    .addGrupo{
+        margin-top: 10%;
+        order: 2;
+        display: flex;
+        width: 100%;
+    }
+    .addGrupo>input[type="submit"]{
+        width: 60%;
+        margin-left: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    .contenido{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 15vh;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    
+}

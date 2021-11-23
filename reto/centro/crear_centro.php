@@ -7,12 +7,11 @@
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
 
-    $_SESSION['id_prof']=1;//test only 
 
-    $chek_chek=check_doc_rol($_SESSION['id_prof']);
+    $chek_chek=check_doc_rol($_SESSION['user']);// entra tras enviar los datos del formulario de la misma pagina
 
 
-    if (isset($_POST["aux_centre"])) {
+    if (isset($_POST["aux_centre"])) {//inserta los datos del centro
         $nombre_cent=$_POST["nombre"];
         $loc_cent=$_POST["Localizacion"];
 
@@ -21,6 +20,7 @@
             
         } catch (Exception $th) {
             echo $th;
+            echo "si esta viendo, esto contacte con soporte tecnico lo antes posible";
             header("refresh:5;url=ver_centro.php");
         }
         header("Location: ver_centro.php");
@@ -88,7 +88,7 @@
 
 <?php
     }else {
-        echo "Acceso denegado por motivos random";
+        echo "DPS are the meta showoff";
         header("refresh:2;url=ver_centro.php");
     }
 

@@ -33,34 +33,39 @@
     
 
     if ($_SESSION['primera_vez']) {
+//selecciona preguntas sin responder por el alumno
         $sql="SELECT * FROM preguntas WHERE idPreguntas NOT IN (SELECT preguntas_idPreguntas FROM alumno_has_preguntas WHERE alumno_usuario_idUsuario=$idAlumno)";
         $consulta = $conexion->prepare($sql);
         $consulta->execute();
         $preguntasPorResponder = $consulta->fetchAll();
         
+//si todas las preguntas estan respondidas redirige a revisar.php
         if ($consulta->rowCount()==0) {
             $_SESSION['completado']=true;
             header("Location: revisar.php");
         }
         
+//mezcla array de preguntas
         shuffle($preguntasPorResponder);
         $_SESSION['preguntasPorResponder'] =$preguntasPorResponder;
         
-        
+        //iniciar contador de preguntas
         $_SESSION['i']=0;
         $i=$_SESSION['i'];
-
+//iniciar array de preguntas respondidas
         $preguntasRespondidas=[];
         $_SESSION['preguntasRespondidas']=$preguntasRespondidas;
 
 
     }else {
+//cargar array de preguntas por responder, preguntas respondidas y contador 
         $preguntasPorResponder = $_SESSION['preguntasPorResponder'];
         $i=$_SESSION['i'];
         
         $preguntasRespondidas = $_SESSION['preguntasRespondidas'];
     }
 
+//Contolamos si el usuario da a F5 o recarga la pagina que la pregunta no cambie
     if (isset($_POST['siguiente']) && $_POST['siguiente']==$i) {
         $preguntasRespondidas[$i]=$preguntasPorResponder[$i];
         $_SESSION['preguntasRespondidas']=$preguntasRespondidas;
@@ -75,7 +80,9 @@
         $i++;
         $_SESSION['i']=$i;  
         
-        $sql="INSERT INTO alumno_has_preguntas VALUES (\"$idAlumno\",\"$idPregunta\",\"$respuesta\")";
+
+// insertar respuesta en base de datos  
+        $sql="INSERT INTO alumno_has_preguntas VALUES($idAlumno,$idPregunta,$respuesta)";
         echo $sql;
 
         $consulta = $conexion->prepare($sql);
@@ -97,13 +104,7 @@
     <title>Preguntas Alumno</title>
 </head>
 <body>
-    <section>
-        <img class="gob" src="" alt="">
-        <img class="centro" src="" alt="">
-        <img class="abajo" src="../logo_login.png" alt="" srcset="">
-        <p class="usuario_contro"><?php echo $nombre?></p>
-        <p class="nombre_centro"><?php echo $centro?></p>
-    </section>
+    <?php include_once "../menu_fijo.php"?>
     
     <main>
         <div class="pregunta"><h1><?php echo $preguntasPorResponder[$i]->enunciado; ?></h1></div>

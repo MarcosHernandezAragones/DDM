@@ -1,1 +1,214 @@
 @import 'estilo_fijo.css';
+
+h1{
+    order: 1;
+    align-self: center;
+    margin-top: 5%;
+}
+.atras{
+    align-self: center;
+    order: 3;
+    width: 40%;
+    margin-top: 15vh;
+    font-size: 2vh;
+    height: 3vh;
+}
+#formulario{
+    order: 2;
+    align-self: center;
+    margin-top: 5%;
+    font-size: 3vh;
+}
+#formulario>input{
+    height: 3vh;
+    font-size: 2vh;
+}
+#formulario>input[type="submit"]{
+    width: 15vh;
+}
+
+@media only screen and (min-width: 1433px) and (max-width: 1585px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 5%;
+    }
+    .atras{
+        align-self: center;
+        order: 3;
+        width: 40%;
+        margin-top: 15vh;
+        font-size: 2vh;
+        height: 3vh;
+    }
+    #formulario{
+        order: 2;
+        align-self: center;
+        margin-top: 5%;
+        font-size: 3vh;
+    }
+    #formulario>input{
+        height: 3vh;
+        font-size: 2vh;
+    }
+    #formulario>input[type="submit"]{
+        width: 15vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1381px) and (max-width: 1432px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 5%;
+    }
+    .atras{
+        align-self: center;
+        order: 3;
+        width: 40%;
+        margin-top: 15vh;
+        font-size: 2vh;
+        height: 3vh;
+    }
+    #formulario{
+        order: 2;
+        align-self: center;
+        margin-top: 5%;
+        font-size: 3vh;
+    }
+    #formulario>input{
+        height: 3vh;
+        font-size: 2vh;
+    }
+    #formulario>input[type="submit"]{
+        width: 15vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1059px) and (max-width: 1381px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 5%;
+    }
+    .atras{
+        align-self: center;
+        order: 3;
+        width: 40%;
+        margin-top: 15vh;
+        font-size: 2vh;
+        height: 3vh;
+    }
+    #formulario{
+        order: 2;
+        align-self: center;
+        margin-top: 5%;
+        font-size: 3vh;
+    }
+    #formulario>input{
+        height: 3vh;
+        font-size: 2vh;
+    }
+    #formulario>input[type="submit"]{
+        width: 15vh;
+    }
+    
+}
+
+@media only screen and (min-width: 734px) and (max-width: 1058px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 5%;
+    }
+    .atras{
+        align-self: center;
+        order: 3;
+        width: 40%;
+        margin-top: 15vh;
+        font-size: 2vh;
+        height: 3vh;
+    }
+    #formulario{
+        order: 2;
+        align-self: center;
+        margin-top: 5%;
+        font-size: 3vh;
+    }
+    #formulario>input{
+        height: 3vh;
+        font-size: 2vh;
+    }
+    #formulario>input[type="submit"]{
+        width: 15vh;
+    }
+    
+    
+}
+
+@media only screen and (min-width: 577px) and (max-width: 734px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 5%;
+    }
+    .atras{
+        align-self: center;
+        order: 3;
+        width: 40%;
+        margin-top: 15vh;
+        font-size: 2vh;
+        height: 3vh;
+    }
+    #formulario{
+        order: 2;
+        align-self: center;
+        margin-top: 5%;
+        font-size: 3vh;
+    }
+    #formulario>input{
+        height: 3vh;
+        font-size: 2vh;
+    }
+    #formulario>input[type="submit"]{
+        width: 15vh;
+    }
+    
+}
+
+@media only screen and (max-width:576px){
+    
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .atras{
+        align-self: center;
+        order: 3;
+        width: 40%;
+        margin-top: 15vh;
+        font-size: 2vh;
+        height: 3vh;
+    }
+    #formulario{
+        order: 2;
+        align-self: center;
+        margin-top: 5%;
+        font-size: 2vh;
+    }
+    #formulario>input{
+        height: 3vh;
+        font-size: 2vh;
+    }
+    #formulario>input[type="submit"]{
+        width: 15vh;
+    }
+}

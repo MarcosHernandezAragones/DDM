@@ -5,15 +5,12 @@
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
-    //select_cursos_prof(1);
-
-    $_SESSION['id']=3;//test only
     
-    $cursos = select_cursos_prof($_SESSION['id']);
-    //$cursos=$_SESSION['cursos'];
-    //$cursos=["eso1"];
-
+    $cursos = select_cursos_prof($_SESSION['user']);
+     
+// Insesetar el usuario en la base de datos
     if (isset($_POST['nombre'])) {
+
         $apellidos=$_POST['apellido'];
         $correo=$_POST['correo'];
         $DNI=$_POST['dni'];
@@ -47,7 +44,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo_addAlumno.css">
-    <title>Document</title>
+    <title>Añadir Alumno</title>
 </head>
 <body>
     <section>
@@ -85,7 +82,7 @@
                     </div>
                     <div class="primeros">
                         <label class="Texto" for="contrasena">Contraseña: </label>
-                        <input  type="text" name="contrasena" id="contrasena"><!-- contraseña visible solo al crear --><br>
+                        <input  type="text" name="contrasena" id="contrasena"><br>
                     </div>
 
                     <div class="segundos" >
@@ -95,6 +92,7 @@
                             <?php 
                             for ($i=0; $i < count($cursos); $i++) { 
                                 $value_curso=$cursos[$i]["id_centro"]."!!!".$cursos[$i]["id_curso"];
+
                                 echo" <option value=\"".$value_curso."\" >".$cursos[$i]["name"]."</option>";
                             }
 

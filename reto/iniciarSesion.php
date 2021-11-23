@@ -51,19 +51,23 @@ if ($nfilas==1) {
     $nfilas=$consultaProf->rowCount();
 
     if ($nfilas==1) {
-        //Si el usuario es un profesor entramos aqui
+        //Si el usuario es un profesor entramos aqui e iniciamos todas las variables de sesion
         $fila = $consultaProf->fetch();
         $_SESSION['user']=$fila->idUsuario;
         $_SESSION['nombre']=$fila->nombre;
         $_SESSION['centro']=$fila->nombreCentro;
         $_SESSION['rol']=$fila->rol;
+        $ruta = getcwd();
+        $_SESSION['ruta_principio']=$ruta;
         //REDIRECCIONAR A PROFESOR
-        header("refresh:0;url=profesor/profesor.php");
+        header("refresh:0;url=docente/profesor.php");
     }else{
-        //Si el usuario es un profesor entramos aqui
+        //Si el usuario es un profesor entramos aqui e iniciamos todas las variables de sesion
         $fila = $consulta->fetch();
         $_SESSION['user']=$fila->idUsuario;
         $_SESSION['nombre']=$fila->nombre;
+        $ruta = getcwd();
+        $_SESSION['ruta_principio']=$ruta;
         //REDIRECCIONAR A ALUMNO
         header("refresh:0;url=alumno/alumno.php");
     }

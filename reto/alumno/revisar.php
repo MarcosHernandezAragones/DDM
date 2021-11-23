@@ -26,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo_revisarPregunta.css">
-    <title>Document</title>
+    <title>Revisar Preguntas</title>
 </head>
 <body>
     <section>
@@ -47,106 +47,70 @@
         //empezamos el formulario
         echo "<form action=\"\" method=\"POST\" id=\"formulario".$i."\" onchange=\"actualizarRespAlumno(".$preguntas[$i]->idPregunta.", 'formulario".$i."', '".$idAlumno."')\">\n";
         echo "<input type=\"hidden\" name=\"idPregunta\" value=\"".$preguntas[$i]->idPregunta."\" id=\"idPregunta\">";
-        switch ($preguntas[$i]->respuesta) {
-            case '0':               
-                echo "
-                        <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required checked>
-                        <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17>
-                        <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34>
-                        <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51>
-                        <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68>
-                        <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85>
-                        <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100>";
-                break;
-            case '17':               
-                echo "
+        
+            //inputs checkeds
+            echo "<input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required ";
+            if ($preguntas[$i]->respuesta==0){
+                echo "checked>";
+            }else{
+                echo ">";
+            }
 
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17 checked>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34>
-                    <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85>
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100>";
+            echo "<input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17 ";
+            if ($preguntas[$i]->respuesta==17){
+                echo "checked>";
+            }else{
+                echo ">";
+            }
 
-                break;
-            case '34':
-                echo "
+            echo "<input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34 ";
+            if ($preguntas[$i]->respuesta==34) {
+                echo "checked>";
+            }else{
+                echo ">";
+            }
 
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34 checked>
-                    <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85>
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100>";
+            echo "<input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51 ";
+            if ($preguntas[$i]->respuesta==51) {
+                echo "checked>";
+            }else{
+                echo ">";
+            }
 
-                break;
-            case '51':                
-                echo "
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34>
-                    <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51 checked>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85>
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100>";
+            echo "<input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68 ";
+            if ($preguntas[$i]->respuesta==68) {
+                echo "checked>";
+            }else{
+                echo ">";
+            }
 
-                break;
-            case '68':
-                echo "
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34 >
-                    <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68 checked>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85>
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100>";
+            echo "<input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85 ";
+            if ($preguntas[$i]->respuesta==85) {
+                echo "checked>";
+            }else{
+                echo ">";
+            }
 
-                break;
-            case '85':                
-                echo "
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34>
-                    <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85 checked>
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100>";
-                break;
-            case '100':                
-                echo "
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34>
-                    <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85>
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100 checked>";
-                break;
-            default:
-                echo "
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"1\" value=0 required>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"2\" value=17>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"3\" value=34>
-                    <input class=\"resp\" type=\"radio\" name=\"respuesta\" id=\"4\" value=51>
-                    <input class=\"resp_mediano\" type=\"radio\" name=\"respuesta\" id=\"5\" value=68>
-                    <input class=\"resp_grande\" type=\"radio\" name=\"respuesta\" id=\"6\" value=85>
-                    <input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100>";
-                break;            
-        } 
-                echo "  <label for=\"1\">Extremadamente en desacuerdo</label>
-                            <label for=\"2\">En desacuerdo</label>
-                            <label for=\"3\">Parcialmente en desacuerdo</label>
-                            <label for=\"4\">Neutro</label>
-                            <label for=\"5\">Parcialmente de acuerdo</label>
-                            <label for=\"6\">De acuerdo</label>
-                            <label for=\"7\">Extremadamente de acuerdo</label>
-                            <input type=\"hidden\" name=\"siguiente\" value=\"$i\" id=\"siguiente\">
-                        </form>\n";       
+            echo "<input class=\"resp_gigante\" type=\"radio\" name=\"respuesta\" id=\"7\" value=100 ";
+            if ($preguntas[$i]->respuesta==100) {
+                echo "checked>";
+            }else{
+                echo ">";
+            }
+
+        //labels de los radiobuttons
+        echo "  <label for=\"1\">Extremadamente en desacuerdo</label>
+                    <label for=\"2\">En desacuerdo</label>
+                    <label for=\"3\">Parcialmente en desacuerdo</label>
+                    <label for=\"4\">Neutro</label>
+                    <label for=\"5\">Parcialmente de acuerdo</label>
+                    <label for=\"6\">De acuerdo</label>
+                    <label for=\"7\">Extremadamente de acuerdo</label>
+                    <input type=\"hidden\" name=\"siguiente\" value=\"$i\" id=\"siguiente\">
+                </form>\n";       
     }
     ?>
-
+    <button class="salir" onclick="salir('../cerrarSesion.php')">Salir</button>
     <script src="../funciones.js"></script>
     </main>
 </body>

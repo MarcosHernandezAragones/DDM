@@ -1,1 +1,58 @@
 @import 'estilo_fijo.css';
+
+#circulo{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+    height: 30vh;
+    margin-bottom: 10%;
+}
+.cuarto-rojo {
+    width: 10vh; 
+    height: 10vh; 
+    justify-self: right;
+    align-self: flex-end;
+    background: red;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 100% 0 0 0;
+}
+.cuarto:hover{
+    cursor: pointer;
+    width: 12vh;
+    height: 12vh;
+}
+
+#lista{
+    margin-left: 10px;
+}
+.cuarto-amarillo {
+    width: 10vh; 
+    height: 10vh;
+    background: yellow;
+    align-self: flex-end;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 0 100% 0 0;
+}
+.cuarto-verde {
+    width: 10vh; 
+    height: 10vh;
+    justify-self: right;
+    background: green;
+    grid-row: 2;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 0 0 0 100%;
+}
+.cuarto-azul {
+    width: 10vh; 
+    height: 10vh;
+    grid-column: 2;
+    grid-row: 2;
+    background: blue;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 0 0 100% 0;
+}

@@ -6,13 +6,13 @@
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
     
- 
 
-    $chek_chek=check_doc_rol($_SESSION['user']);// entra tras enviar los datos del formulario de la misma pagina
+
+    $chek_chek=check_doc_rol($_SESSION['user']);
 
     if (!$chek_chek[0] && !$chek_chek[1]) {
         echo "Acceso denegado por motivos random";
-        //redirect a landpage pendiente
+        //header("refresh:2;url=ver_.php");
     }else {
         
   
@@ -29,63 +29,7 @@
                 <input type='submit' value='DELETE'>
             </form>";
    }
-        
-    function mostrar_curso_todo(){//muestra los cursos de los distintos centros y las opciones editar y borrar
-        $cursos = read_cursoss();
-
-        for ($i=0; $i < count($cursos) ; $i++) { 
-            $nombre_curso=$cursos[$i][0];
-            $id_curso=$cursos[$i][1];
-            $id_cent=$cursos[$i][2];
-            
-            $read_centro=read_centro($id_cent);
-            $nombre_centro=$read_centro[1];
-            echo "<div id='curso'>
-                <div>$nombre_curso------------$nombre_centro </div>";
-
-            write_admin_forms($id_curso,$id_cent);
-                
-            echo "</div>";
-        }
-    }
-
-    function mostrar_curso_prof_admin($id_centro_comp){//muestra los cursos que imparte el profesor y las opciones editar y borrar
-        $cursos = read_cursoss();
-
-        for ($i=0; $i < count($cursos) ; $i++) { 
-            $nombre_curso=$cursos[$i][0];
-            $id_curso=$cursos[$i][1];
-            $id_cent=$cursos[$i][2];
-            if ($id_cent == $id_centro_comp) {
-                $read_centro=read_centro($id_cent);
-                $nombre_centro=$read_centro[1];
-                echo "<div>
-                    <div>$nombre_curso------------$nombre_centro </div>";
-                
-                write_admin_forms($id_curso,$id_cent);
-          
-                echo "</div><br>";
-            }
-        }
-    }
-
-    function mostrar_curso_prof($id_centro_comp){//muestra los cursos que imparte el profesor
-        $cursos = read_cursoss();
-
-        for ($i=0; $i < count($cursos) ; $i++) { 
-            $nombre_curso=$cursos[$i][0];
-            $id_curso=$cursos[$i][1];
-            $id_cent=$cursos[$i][2];
-            if ($id_cent == $id_centro_comp) {
-                $read_centro=read_centro($id_cent);
-                $nombre_centro=$read_centro[1];
-                echo "<div>
-                    <div>$nombre_curso------------$nombre_centro </div>
-                </div>";
-            }
-        }
-    }
-
+   
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +38,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/estilo_verCursos.css">
+    <link rel="stylesheet" href="../css/estilo_elegirCursos.css">
     <title>ver clases</title>
 </head>
 <body>

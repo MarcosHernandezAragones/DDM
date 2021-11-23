@@ -7,15 +7,11 @@
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
 
-    $_SESSION['id_prof']=1;//test only 
-    $chek_chek=check_doc_rol($_SESSION['id_prof']);
+
+    $chek_chek=check_doc_rol($_SESSION['user']);// entra tras enviar los datos del formulario de la misma pagina
 
 
-
-
-
-
-    if (isset($_POST["aux_centre"])) {
+    if (isset($_POST["aux_centre"])) {//inserta los datos editados del centro
         $id_cent=$_POST["aux_centre"];
         $nombre_cent=$_POST["nombre"];
         $loc_cent=$_POST["Localizacion"];
@@ -33,7 +29,7 @@
     } else if ($chek_chek[1] && isset($_POST["id_cent"])){
         $datos_centro_edit=read_centro($_POST["id_cent"]);
 
-        //[$id_cent,$nombre_centro,$loc_centro]
+        
 
 
 ?>
@@ -94,7 +90,7 @@
 
 <?php
     }else {
-        echo "Acceso denegado por..... motivos";
+        echo "Access denied due to ........ ";
         header("refresh:5;url=ver_centro.php");
     }
 
