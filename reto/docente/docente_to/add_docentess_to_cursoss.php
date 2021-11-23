@@ -3,9 +3,9 @@
     include_once "../../functions.php";
     session_start();
 
-    $_SESSION['id_prof']=1;//test only 
 
-    $chek_chek=check_doc_rol($_SESSION['id_prof']);// $check_check = [es_admin, es_superadmin, [datos profesor]]
+
+    $chek_chek=check_doc_rol($_SESSION['user']);// $check_check = [es_admin, es_superadmin, [datos profesor]]
 
    
    

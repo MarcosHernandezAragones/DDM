@@ -5,7 +5,7 @@ include "funciones_BBDD.php";
 if (!isset($_SESSION['user'])){
     if(!isset($_POST['entrar'])){
         session_destroy();
-        header("refresh:0;url=index.php");
+        header("refresh:0;url=inicio");
         die();
     }
 }
@@ -60,7 +60,7 @@ if ($nfilas==1) {
         $ruta = getcwd();
         $_SESSION['ruta_principio']=$ruta;
         //REDIRECCIONAR A PROFESOR
-        header("refresh:0;url=docente/profesor.php");
+        header("refresh:0;url=profesor");
     }else{
         //Si el usuario es un profesor entramos aqui e iniciamos todas las variables de sesion
         $fila = $consulta->fetch();
@@ -69,11 +69,11 @@ if ($nfilas==1) {
         $ruta = getcwd();
         $_SESSION['ruta_principio']=$ruta;
         //REDIRECCIONAR A ALUMNO
-        header("refresh:0;url=alumno/alumno.php");
+        header("refresh:0;url=formularios");
     }
 
 }else{
     session_destroy();
-    header("refresh:0;url=index.php");
+    header("refresh:0;url=inicio");
 }
 ?>

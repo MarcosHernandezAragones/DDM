@@ -22,8 +22,6 @@ if (!isset($_POST["enviar"])) {
     $explicacion=$_POST['explicacion'];
     $color=$_POST['color'];
 
-    echo rojo;
-
     switch ($color) {
         case 'rojo':
             $color=rojo;

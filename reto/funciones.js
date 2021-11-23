@@ -7,6 +7,9 @@ function salir(ruta) {
     location.href=ruta;
 }
 
+
+
+
 function comprobarPregunta(){
     var pregunta = document.getElementById("pregunta").value;
     var explicacion = document.getElementById("explicacion").value;

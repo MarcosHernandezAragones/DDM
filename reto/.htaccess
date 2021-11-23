@@ -1,0 +1,55 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+  RewriteEngine On
+
+Deny from 192.168.4.62
+
+
+    #Carpeta alumno
+    RewriteRule ^adios$ alumno/adios.php  [L,NC]
+    RewriteRule ^formulario$ alumno/alumno.php  [L,NC]
+    RewriteRule ^añadir-alumno$ alumno/crear_alumno.php [L,NC]
+    RewriteRule ^editar-alumno$ alumno/editar_alumno.php [L,NC]
+    RewriteRule ^revisar-respuestas$ alumno/revisar.php [L,NC]
+    RewriteRule ^listar-alumnos$ alumno/ver_alumno.php [L,NC]
+    
+    #Carpeta centro
+    RewriteRule ^crear-centro$ centro/crear_centro.php [L,NC]
+    RewriteRule ^editar-centro$ centro/editar_centro.php [L,NC]
+    RewriteRule ^centros$ centro/ver_centro.php [L,NC]
+
+    #Carpeta cursos
+    RewriteRule ^añadir-cursos$ cursos/crear_curso.php [L,NC]
+    RewriteRule ^editar-curso$ cursos/editar_curso.php [L,NC]
+    RewriteRule ^curso$ cursos/ver_cursoss.php [L,NC]  
+
+    #Carpeta docente_to
+    RewriteRule ^añadir-docente-a-curso$ docente/docente_to/add_docentess_to_cursoss.php [L,NC]
+    RewriteRule ^ver-cursos-docente$ docente/docente_to/ver_curso_docentess.php [L,NC]
+
+    #Carpeta docente
+    RewriteRule ^añadir-profesor$ docente/crear_docente.php [L,NC]
+    RewriteRule ^editar-profesor$ docente/editar_docente.php [L,NC]
+    RewriteRule ^elegir$ docente/elegir_curso.php [L,NC]
+    RewriteRule ^profesor$ docente/profesor.php [L,NC]
+    RewriteRule ^proponerGrupos$ docente/propGrupos.php[L,NC]
+    RewriteRule ^profesores$ docente/ver_docente.php [L,NC]
+    
+    #Carpeta grupos
+    RewriteRule ^añadir-grupo$ grupos/crear_grupos.php [L,NC]
+    RewriteRule ^editar-grupo$ grupos/editar_grupo.php [L,NC]
+    RewriteRule ^grupo$ grupos/ver_grupos.php [L,NC]
+    
+    #Carpeta preguntas
+    RewriteRule ^crear-preguntas$ preguntas/CRUDPreguntas.php [L,NC]
+    RewriteRule ^ver-preguntas$ preguntas/ver_Preguntas.php [L,NC]
+
+    #Contenido Carpeta padre
+    RewriteRule ^inicio$ /index.php [L,NC]
+    RewriteRule ^menu_fijo$ /menu_fijo.php [L,NC]
+
+
+    
+    
+    
+</IfModule>

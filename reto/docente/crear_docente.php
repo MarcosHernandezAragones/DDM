@@ -62,14 +62,9 @@
     <title>Crear Docente</title>
 </head>
 <body>
-    <section>
-        <img class="gob" src="" alt="">
-        <img class="centro" src="" alt="">
-        <img class="abajo" src="../logo_login.png" alt="" srcset="">
-        <p class="usuario_contro"><?php echo $nombre?></p>
-        <p class="nombre_centro"><?php echo $centro?></p>
         
-    </section>
+<?php include_once "../menu_fijo.php"?>
+
     
     <main>
             <h1>Crear Docente</h1>
