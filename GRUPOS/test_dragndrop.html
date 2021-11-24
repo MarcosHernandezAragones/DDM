@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grupo1{
+            width: 20vw;
+            height: 20vh;
+            background-color: aqua;
+        }
+        .grupo2{
+            width: 20vw;
+            height: 20vh;
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="arr"  draggable="true" ondragstart="drag(event)"  width="250" height="200">bbbbbbbbbbbbbbbbbb</div><br><br><br>
+
+    <div class="grupo1" id="sol"  ondrop="drop(event)" ondragover="allowDrop(event)" width="250" height="200"></div>
+    <div class="grupo2" id="sol"  ondrop="drop(event)" ondragover="allowDrop(event)" width="250" height="200"></div>
+
+
+
+
+
+
+</body>
+</html>
+
+<script>
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+function drop(ev) {
+    
+    ev.preventDefault();
+    //document.getElementById('sol').innerHTML=55555555555555555555555555555;
+    
+    //document.getElementById("arr").parentNode.removeChild(document.getElementById("arr"));
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
+</script>

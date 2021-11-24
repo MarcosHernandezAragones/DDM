@@ -1,59 +1,35 @@
-<?php
-
-    include_once "../CRUD/functions.php";
-    include_once "test_grupos.php";
-
-    $alumnoss=read_alumnoss(1,1);
-    
-
-    ///////////////////test
-    $num_grupos=2;
-    $miembros_grupo=4;
-    $orden=[4,3,1,2];
-
-
-    $alumnoss_aux=group_maker($alumnoss,$num_grupos,$miembros_grupo,$orden);
-
-    $alumnoss_gru=$alumnoss_aux[0];
-    $alumnoss_nokat=$alumnoss_aux[1];
-    $alumnoss_nokat=array_values($alumnoss_nokat);
-
-    
-    $al_nokat_jso=json_encode($alumnoss_nokat);
-
-    $al_gru_jso=json_encode($alumnoss_gru);
-?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <style>
-        #test > div{
-            width: 30vw;
-            height: 30vh;
-            background-color: #ddd;
-            border: 3px solid blue;
-        }
-        .alumno{
-            width:80%;
-            height: 15%;
-            background-color: aqua;
-        }
-
-    </style>
-
+<style>
+.droptarget {
+  float: left; 
+  width: 400px; 
+  height: 100px;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
 </head>
 <body>
-    <div id="test"></div>
-</body>
-</html>
+
+<p>Drag the p element back and forth between the two rectangles:</p>
+
+<div class="droptarget">
+  <p draggable="true" id="dragtarget">Drag me!</p>
+  
+  <p draggable="true" id="dragtarget23">Drag me!2333333333333333333333333333333333</p>
+</div>
+
+<div class="droptarget"></div>
+
+
+<!--
+<p style="clear:both;"><strong>Note:</strong> drag events are not supported in Internet Explorer 8 and earlier versions or Safari 5.1 and earlier versions.</p>
+
+<p id="demo"></p>-->
+
 <script>
 /* Events fired on the drag target */
 
@@ -70,7 +46,7 @@ document.addEventListener("dragstart", function(event) {
 
 // While dragging the p element, change the color of the output text
 document.addEventListener("drag", function(event) {
-  //document.getElementById("demo").style.color = "red";
+  document.getElementById("demo").style.color = "red";
 });
 
 // Output some text when finished dragging the p element and reset the opacity
@@ -84,7 +60,7 @@ document.addEventListener("dragend", function(event) {
 // When the draggable p element enters the droptarget, change the DIVS's border style
 document.addEventListener("dragenter", function(event) {
   if ( event.target.className == "droptarget" ) {
-    event.target.style.border = "3px solid red";
+    event.target.style.border = "3px dotted red";
   }
 });
 
@@ -116,14 +92,6 @@ document.addEventListener("drop", function(event) {
   }
 });
 </script>
-<script src="group_gen.js"></script>
 
-<script>
-
-    
-    show_jso_nokat(<?php echo $al_nokat_jso ?>)
-    show_jso_gru(<?php echo $al_gru_jso ?>)
-</script>
-
-
-
+</body>
+</html>

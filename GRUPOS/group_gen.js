@@ -4,7 +4,7 @@ $orden=[4,3,1,2];//TEST ONLY
 
 $num_grupos=3;//TEST ONLY
 $miembros_grupo=6;//TEST ONLY
-// var $alumnoss=[]
+// var $alumnoss=[]                         VALORES TEST AQUI RASCAESQUINAS
 // $alumnoss[0]=[1,"y1","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];//YRGB
 // $alumnoss[1]=[2,"y2","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];
 // $alumnoss[2]=[3,"y3","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];
@@ -151,14 +151,18 @@ function order_by_color(jso) {
         
     }
 
-    document.write(red)
-    document.write("<br>")
-    document.write(green)
-    document.write("<br>")
-    document.write(yellow)
-    document.write("<br>")
-    document.write(blue)
-    document.write("<br>") 
+    // document.write(red)
+    // document.write("<br>")
+    // document.write(green)
+    // document.write("<br>")
+    // document.write(yellow)
+    // document.write("<br>")
+    // document.write(blue)
+    // document.write("<br>") 
+    for (let reeee = 0; reeee < green.length; reeee++) {
+        document.write(blue[reeee]+"---")
+        
+    }
         
 }
 
@@ -248,333 +252,88 @@ function order_by_color(jso) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-        function order_color_select($orden,$miembros){
-            var $order_selector=[];
-            var $cont=0;
-            for ($k=0; $k < $miembros; $k++) { 
-                if ($cont == 4) {
-                    $cont=0;
-                }
-
-                $order_selector[$k]=$orden[$cont]+8;
-
-                $cont++;
-            }
-
-            return $order_selector;
-        }
-
-
-
+function show_jso_gru(grupos_we) {
+    var gen_cont=document.getElementById("test")
+    //gen_cont.setAttribute('draggable',"true")
+    //gen_cont.setAttribute('ondragstart',"drag(event)")
+
+    for (let gru = 0; gru < grupos_we.length; gru++) {
+        var cont_gru=document.createElement("div")
+        var title=document.createElement("h1")
         
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
+        title.innerHTML="grupo_"+gru
 
-
-        function group_inserter_randomizer($num_grupos){
-            $cont=0;
-            var $values=[]
-            for ($i=0; $i < $num_grupos; $i++) { 
-                $values[$i]=$cont;
-                $cont++;
-            }
-            shuffle($values);
-            return $values;
-        }
-
-
-
-
-
-
-
-
-
-
-
-        function sortByColumn(a, colIndex){
-
-            a.sort(sortFunction);
-        
-            function sortFunction(a, b) {
-                if (a[colIndex] === b[colIndex]) {
-                    return 0;
-                }
-                else {
-                    return (a[colIndex] > b[colIndex]) ? -1 : 1;
-                }
-            }
-        
-            return a;
-        }
-
-
-
-
-
-        function group_select_col($alumnoss,$pos_color,$grupos){//$pos_color now int
-            var $alu_aux=$alumnoss;
-
-            var sorted_a = sortByColumn($alu_aux, $pos_color);
-
-            
-
-            var gru=[];
-            
-            for (let i = 0; i < sorted_a.length; i++) {
-                if (i == $grupos) {
-                    break;
-                }
-                gru[i]=sorted_a[i]
-
-                sorted_a.splice(0,1);
-
-
-                
-            }
-            
-            
-            
-            
-            var resultado=[sorted_a,gru];
-            
-
-        
-            return resultado;
-        }
+        //cont_gru.appendChild(title)
+        cont_gru.className="droptarget"
 
 
         
 
-        function group_naker($alumnoss,$num_grupos,$miembros_grupo,$orden){
-            var $grupos=[];
-            for(var i=0; i<$num_grupos; i++) {
-                $grupos[i] = new Array($miembros_grupo);
-            }
 
+        //document.writeln("<h1>grupo_"+gru+"</h1>")
+        for (let al = 0; al < grupos_we[gru].length; al++) {
+            var al_gru=document.createElement("div")
+            var id_al="alumno_"+grupos_we[gru][al][0]
+            al_gru.setAttribute("id",id_al)
+            al_gru.setAttribute("class","alumno")
 
-            var $alu_aux=$alumnoss;
-            
-
-            var $color_selector=order_color_select($orden,$miembros_grupo);
-            
-            for ($alal=0; $alal < $miembros_grupo; $alal++) { //posicion alumno
-                var $orden_asignacion_grupo=group_inserter_randomizer($num_grupos);
-                
-
-                var $varex=group_select_col($alu_aux,$color_selector[$alal],$num_grupos);
-                
-                $alu_aux=$varex[0];
-                
-                var $choosen=$varex[1];
-                
-                
-                for ($gg=0; $gg < $num_grupos; $gg++) { //para cada posicion del alumno selecciona grupo
-                    var $asignado=$orden_asignacion_grupo[$gg];
-                    
-                    $grupos[$gg];
-                    $grupos[$gg][$alal]=$choosen[$asignado];
-                    
-
-
-                }
-            }
-            if ($alu_aux.lenth == 0) {
-                var $result=[$grupos,"nil"];
-            }else {
-                var $result=[$grupos,$alu_aux];
-            }
+            al_gru.setAttribute('draggable',"true")
             
             
-            return $result;
+
+
+
+            
+            al_gru.innerHTML=grupos_we[gru][al][1]+" "+grupos_we[gru][al][2]
+
+
+
+            
+            console.log(grupos_we[gru][al][1])
+            cont_gru.appendChild(al_gru)
         }
+        gen_cont.appendChild(cont_gru)
+        
+    }
 
 
+}
 
-        function group_show($alumnoss,$num_grupos,$miembros_grupo,$orden){
-            var bodyy=document.getElementById("test");
-            
-            var $estragrupos=group_naker($alumnoss,$num_grupos,$miembros_grupo,$orden);
 
-            
+function show_jso_nokat(nokats) {
+        var gen_cont=document.getElementById("test")
+        var cont_nok=document.createElement("div")
+        var title=document.createElement("h1")
+        
+        title.innerHTML="NO KAT"
 
-            var $grupos_show=$estragrupos[0];
-            
-            var $no_cat=$estragrupos[1];
+        //cont_nok.appendChild(title)
+        cont_nok.className="droptarget"
 
-            if ($no_cat == "nil") {
-                
-            } else {
-                var cont_nokat=document.createElement("div")
-
-                var title=document.createElement("h1")
-                title.innerHTML="NO KAT"
-                cont_nokat.appendChild(title)
-                
-                for ($al=0; $al < $no_cat.length-1; $al++) { 
-                    
-                    
-                    var nokat_childe=document.createElement("div")
-                    nokat_childe.innerHTML=$no_cat[$al];
-                    cont_nokat.appendChild(nokat_childe)
-
-                }
-
-                bodyy.appendChild(cont_nokat);
-                
-            }
-            
-
-            
-
-            for ($gg=0; $gg < $grupos_show.length; $gg++) { 
-                var cont_kat=document.createElement("div")
-                var title=document.createElement("h1")
-                title.innerHTML="Grupo_"+$gg
-                cont_kat.appendChild(title)
-
-                
-                for ($al=0; $al < $grupos_show[$gg].length; $al++) { 
-                    
-
-                    var alumno=document.createElement("div")
-                    alumno.innerHTML=$grupos_show[$gg][$al]
-                    var br=document.createElement("div")
-                    br.innerHTML="<br>"
-                    cont_kat.appendChild(alumno)
-                    cont_kat.appendChild(br)
-                }
-                bodyy.appendChild(cont_kat)
-                
-            }
 
         
+
+
+        
+        for (let al = 0; al < nokats.length; al++) {
+            var al_gru=document.createElement("div")
+            var id_al="alumno_"+nokats[al][0]
+            al_gru.setAttribute("id",id_al)
+            al_gru.innerHTML=nokats[al][1]+" "+nokats[al][2]
+            al_gru.setAttribute("class","alumno")
+
+
+            al_gru.setAttribute('draggable',"true")
+            
+            
+
+
+
+            
+            console.log(nokats[1])
+            cont_nok.appendChild(al_gru)
         }
+        gen_cont.appendChild(cont_nok)
+}
 
 
-
-
-
-       //group_show($alumnoss,$num_grupos,$miembros_grupo,$orden);

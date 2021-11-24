@@ -64,15 +64,15 @@
 
 
 
+///////////////valores test aqui PELLIZCABOMBILLAS
 
 
 
 
+//$orden=[4,3,1,2];//TEST ONLY
 
-$orden=[4,3,1,2];//TEST ONLY
-
-$num_grupos=3;//TEST ONLY
-$miembros_grupo=6;//TEST ONLY
+//$num_grupos=3;//TEST ONLY
+//$miembros_grupo=6;//TEST ONLY
 
 $alumnoss[0]=[1,"y1","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];
 $alumnoss[1]=[2,"y2","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];
@@ -173,7 +173,7 @@ $alumnoss[19]=[20,"sdfsdfsdfsd","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
             return $resultado;
         }
 
-        function group_naker($alumnoss,$num_grupos,$miembros_grupo,$orden){
+        function group_maker($alumnoss,$num_grupos,$miembros_grupo,$orden){
             $grupos;
 
             $alu_aux=$alumnoss;
@@ -210,54 +210,54 @@ $alumnoss[19]=[20,"sdfsdfsdfsd","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
 
 
 
-        function group_show($alumnoss,$num_grupos,$miembros_grupo,$orden){
-            $estragrupos=group_naker($alumnoss,$num_grupos,$miembros_grupo,$orden);
+        // function group_show($alumnoss,$num_grupos,$miembros_grupo,$orden){
+        //     $estragrupos=group_maker($alumnoss,$num_grupos,$miembros_grupo,$orden);
 
-            $grupos_show=$estragrupos[0];
+        //     $grupos_show=$estragrupos[0];
 
-            $no_cat=array_values($estragrupos[1]);
+        //     $no_cat=array_values($estragrupos[1]);
 
-            if ($no_cat == "nil") {
+        //     if ($no_cat == "nil") {
                 
-            } else {
-                $nombre_auto="<div>NO_KAT";
-                echo $nombre_auto."<br>";
-                for ($al=0; $al < count($no_cat); $al++) { 
-                    echo "<div>";
-                    print_r($no_cat[$al]);
-                    echo "</div>";
+        //     } else {
+        //         $nombre_auto="<div>NO_KAT";
+        //         echo $nombre_auto."<br>";
+        //         for ($al=0; $al < count($no_cat); $al++) { 
+        //             echo "<div>";
+        //             print_r($no_cat[$al]);
+        //             echo "</div>";
 
 
-                }
-                echo "<br>brrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div><br><br>";
-            }
+        //         }
+        //         echo "<br>brrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div><br><br>";
+        //     }
             
 
 
 
 
             
-            for ($gg=0; $gg < count($grupos_show); $gg++) { 
-                $nombre_auto="<div>Grupo_".($gg+1);
-                echo $nombre_auto."<br>";
-                for ($al=0; $al < count($grupos_show[$gg]); $al++) { 
-                    echo "<div>";
-                    print_r($grupos_show[$gg][$al]);
-                    echo "</div>";
+        //     for ($gg=0; $gg < count($grupos_show); $gg++) { 
+        //         $nombre_auto="<div>Grupo_".($gg+1);
+        //         echo $nombre_auto."<br>";
+        //         for ($al=0; $al < count($grupos_show[$gg]); $al++) { 
+        //             echo "<div>";
+        //             print_r($grupos_show[$gg][$al]);
+        //             echo "</div>";
 
 
-                }
-                echo "<br>brrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div><br><br>";
-            }
+        //         }
+        //         echo "<br>brrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div><br><br>";
+        //     }
 
 
-        }
+        // }
 
 
 
 
 
-        group_show($alumnoss,$num_grupos,$miembros_grupo,$orden)
+        // group_show($alumnoss,$num_grupos,$miembros_grupo,$orden)
 
         
         
@@ -270,9 +270,15 @@ $alumnoss[19]=[20,"sdfsdfsdfsd","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
 
 
 
-
-
-
+/////////////////////////////////////////////////////////////mostrar grupos guardados:
+/////////////////////////////////////////////////////////////result=[[id_grupo,nombre_grupo,[[al1],[al2],...]],[id_grupo2,nombre_grupo2,[[al3],[al4],...],...]];
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////request: datos alumno curso, datos grupos curso
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////datos alumno curso => read_alumnoss($curso,$centro)
+/////////////////////////////////////////////////////////////datos grupos curso => read_grupo_curso($id_grupo,$id_curso,$id_centro)
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////if al[grupo]!=null && al[grupo]==idgrupo 
 
 
 
