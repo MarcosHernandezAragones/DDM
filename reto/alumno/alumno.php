@@ -3,12 +3,12 @@
 
     if (isset($_SESSION['rol'])) {
         session_destroy();
-        header("refresh:0;url=../index.php");
+        header("refresh:0;url=inicio");
     }
 
     if (isset($_SESSION['completado']) && $_SESSION['completado']==true ) {
         session_destroy();
-        header("refresh:0;url=../index.php");
+        header("refresh:0;url=inicio");
     }
 
     if (!isset($_SESSION['primera_vez'])) {
@@ -20,7 +20,7 @@
 
     if(isset($_POST['enviar'])){
 
-        header("refresh:0;url=adios.php");
+        header("refresh:0;url=adios");
 
     }
 
@@ -42,7 +42,7 @@
 //si todas las preguntas estan respondidas redirige a revisar.php
         if ($consulta->rowCount()==0) {
             $_SESSION['completado']=true;
-            header("Location: revisar.php");
+            header("Location:revisar-respuestas");
         }
         
 //mezcla array de preguntas
@@ -132,12 +132,12 @@
         <?php 
             if ($i!=count($preguntasPorResponder)-1) {
                 echo "<input type=\"submit\" name=\"boton\" value=\"Siguiente\" id=\"next\" form=\"form_respuestas\">";
-            }else echo "<input type=\"submit\" name=\"enviar\" value=\"Enviar Respuestas\" onclick=\"redirigir('adios.php')\" id=\"finish\" form=\"form_respuestas\">";
+            }else echo "<input type=\"submit\" name=\"enviar\" value=\"Enviar Respuestas\" onclick=\"redirigir('adios')\" id=\"finish\" form=\"form_respuestas\">";
         ?>
         
         
-        <button class="salir" onclick="salir('../cerrarSesion.php')">Salir</button>
+        <button class="salir" onclick="salir('cerrar-Sesion')">Salir</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>

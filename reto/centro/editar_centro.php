@@ -21,9 +21,9 @@
             
         } catch (Exception $th) {
             echo $th;
-            header("refresh:15;url=ver_centro.php");
+            header("refresh:0;url=centros");
         }
-        header("Location: ver_centro.php");
+        header("Location: centros");
        
 
     } else if ($chek_chek[1] && isset($_POST["id_cent"])){
@@ -54,11 +54,11 @@
     
     <main>
         <h1>Editar el centro <?php echo $centro?></h1>
-        <form class="atras" action="ver_centro.php" method="post">
+        <form class="atras" action="centros" method="post">
             <input type="submit" value="volver">
         </form>
 
-        <form action="editar_centro.php" id="editarCentro" method="post">
+        <form action="editar-centro" id="editarCentro" method="post">
             <div id="primero">
                 <input type="hidden" name="aux_centre" value="<?php echo $datos_centro_edit[0] ?>">
                 <label for="nombre">Nombre: </label>
@@ -86,7 +86,7 @@
 <?php
     }else {
         echo "Access denied due to ........ ";
-        header("refresh:5;url=ver_centro.php");
+        header("refresh:0;url=centros");
     }
 
 

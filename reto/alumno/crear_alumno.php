@@ -28,9 +28,9 @@
             
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_alumno.php");
+            header("refresh:0;url=listar-alumnos");
         }
-        header("Location: ver_alumno.php");
+        header("Location: listar-alumnos");
     }else{
     
 
@@ -50,40 +50,39 @@
         
 <?php include_once "../menu_fijo.php"?>
 
-
         <main>
             <h1>Añadir Alumno</h1>
-            <button class="atras" onclick="redirigir('ver_alumno.php')">Atras</button>
+
 
             <div id="formulario">
                 
-                <form action="crear_alumno.php" method="post">
+                <form action="add-alumno" method="post">
                     <div class="primeros">
                         <label class="Texto" for="nombre">Nombre: </label>
-                        <input  type="text" name="nombre" id="nombre">
+                        <input  type="text" name="nombre" id="nombre" required>
                     </div>
 
                     <div class="segundos" >
                         <label class="Texto" for="apellido">Apellidos: </label>
-                        <input class="input" type="text" name="apellido" id="apellido"><br>
+                        <input class="input" type="text" name="apellido" id="apellido" required><br>
                     </div>
                     <div class="primeros">
                         <label class="Texto" for="dni">DNI: </label>
-                        <input  type="text" name="dni" id="dni">
+                        <input  type="text" name="dni" id="dni" required>
                     </div>
 
                     <div class="segundos" >
                         <label class="Texto" for="correo">E-mail: </label>
-                        <input class="input" type="email" name="correo" id="correo"><br>
+                        <input class="input" type="email" name="correo" id="correo" required><br>
                     </div>
                     <div class="primeros">
                         <label class="Texto" for="contrasena">Contraseña: </label>
-                        <input  type="text" name="contrasena" id="contrasena"><br>
+                        <input  type="text" name="contrasena" id="contrasena" required><br>
                     </div>
 
                     <div class="segundos" >
                         <label class="Texto" for="curso">Curso: </label>
-                        <select class="input" name="curso" id="curso">
+                        <select class="input" name="curso" id="curso" required>
                             <option value="nil" selected>-----------------</option>
                             <?php 
                             for ($i=0; $i < count($cursos); $i++) { 
@@ -102,7 +101,7 @@
             </form>
             </div>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 

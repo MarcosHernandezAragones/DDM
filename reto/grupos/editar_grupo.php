@@ -20,10 +20,10 @@
             update_grupo($nombre_grupo,$id_grupo);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:15;url=ver_grupos.php");
+            header("refresh:0;url=grupo");
         }
-        //header("Location: ver_grupos.php");
-        header("refresh:15;url=ver_grupos.php");
+        //header("Location: grupo");
+        header("refresh:0;url=grupo");
        
 
     } else if ( isset($_POST["group"])){
@@ -47,11 +47,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="ver_grupos.php" method="post">
+    <form action="grupo" method="post">
         <input type="submit" value="volver">
     </form>
 
-    <form action="editar_grupo.php" method="post">
+    <form action="editar-grupo" method="post">
         <input type="hidden" name="aux_cursed" value="<?php echo $grupo[0] ?>">
         
         <label for="nombre">Nombre: </label>
@@ -72,7 +72,7 @@
 <?php
     }else {
         echo "Acceso denegado por..... motivos?";
-        header("refresh:5;url=ver_grupos.php");
+        header("refresh:0;url=grupo");
     }
 
 

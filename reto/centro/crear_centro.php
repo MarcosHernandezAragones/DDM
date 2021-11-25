@@ -21,9 +21,9 @@
         } catch (Exception $th) {
             echo $th;
             echo "si esta viendo, esto contacte con soporte tecnico lo antes posible";
-            header("refresh:5;url=ver_centro.php");
+            header("refresh:5;url=centros");
         }
-        header("Location: ver_centro.php");
+        header("Location: centros");
 
     } else if ($chek_chek[1] && isset($_POST['confir'])){
 
@@ -51,23 +51,23 @@
 
     <main>
         <h1>Crear Centro</h1>
-        <form action="ver_centro.php" id="atras" method="post">
+        <form action="centros" id="atras" method="post">
             <input type="submit" value="volver">
         </form>
 
-        <form action="crear_centro.php" id="formulario" method="post">
+        <form action="crear-centro" id="formulario" method="post">
             <div id="primero">
                 <input type="hidden" name="aux_centre" value="a">
                 <label for="nombre">Nombre: </label>
             </div>
             <div id="segundo">
-                <input type="text" name="nombre" id="nombre">
+                <input type="text" name="nombre" id="nombre" required>
             </div>
             <div id="primero">
                 <label for="Localizacion">Localizacion: </label>
             </div>
             <div id="segundo">
-                <input type="text" name="Localizacion" id="Localizacion"><br>
+                <input type="text" name="Localizacion" id="Localizacion" required><br>
             </div>
 
             <input type="submit" value="Enviar">
@@ -84,7 +84,7 @@
 <?php
     }else {
         echo "DPS are the meta showoff";
-        header("refresh:2;url=ver_centro.php");
+        header("refresh:0;url=centros");
     }
 
 

@@ -8,19 +8,10 @@
             delete_docente($_POST['id_doof']);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_docente.php");
+            header("refresh:0;url=profesores");
         }
-        header("Location: ver_docente.php");
+        header("Location: profesores");
     }
-    header("Location: ver_docente.php");
-
-
-
-
-
-
-
-
-
+    header("Location: profesores");
 
 ?>

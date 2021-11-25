@@ -17,7 +17,7 @@
     if (isset($_POST["add_doc"])) {// entra tras enviar los datos del formulario de la misma pagina
         if ($_POST["curso"] == "nil" || $_POST["add_doc"] == "nil" ) {
             echo "curso no seleccionado";
-            header("refresh:0;url=../editar_docente.php");
+            header("refresh:0;url=editar-profesor");
         }
         
         $id_doof=$_POST["add_doc"];
@@ -33,10 +33,10 @@
             
         } catch (Exception $th) {
             echo $th;
-            header("refresh:0;url=../editar_docente.php");
+            header("refresh:0;url=editar-profesor");
         }
-        //header("Location: ver_curso_docentess.php");
-        header("refresh:0;url=../editar_docente.php");
+        //header("Location: ver-cursos-docente");
+        header("refresh:0;url=editar-profesor");
 
     } else if (isset($_POST['confir'])){//entra desde el formulario de la pagina ver_
 
@@ -69,7 +69,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="ver_curso_docentess.php" method="post">
+    <form action="ver-cursos-docente" method="post">
         <input type="submit" value="volver">
     </form>
         <br><br>
@@ -112,7 +112,7 @@
 <?php
     }else {
         echo "Access denied: only protoss or zerg allowed";
-        header("refresh:2;url=../editar_docente.php");
+        header("refresh:0;url=editar-profesor");
     }
 
 

@@ -1,6 +1,6 @@
 <?php session_start();
-    include_once("../funciones_BBDD.php");
-    include_once("../functions.php");
+    include_once "../funciones_BBDD.php";
+    include_once "../functions.php";
     $id=$_SESSION['user'];
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];

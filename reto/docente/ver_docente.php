@@ -35,12 +35,12 @@
             echo "<div >$nombre </div>  <div >$apellidos</div> <div >$correo</div>";
             
             echo "<div >$rol</div> <div >$centro</div> 
-            <form action='editar_docente.php' method='post'>
+            <form action='editar-profesor' method='post'>
                 <input type='hidden' name='id_doof' value='$id_prof'>
                 <input type='submit' value='Edit'>
             </form>" 
             ;
-            echo  "<form action='delete_docente.php' method='post'><input type='hidden' name='id_doof' value='$id_prof'><input type='submit' value='DELETE'></form></div><br>";
+            echo  "<form action='eliminar-profesor' method='post'><input type='hidden' name='id_doof' value='$id_prof'><input type='submit' value='DELETE'></form></div><br>";
 
         }
         echo "<div>";
@@ -86,10 +86,10 @@
     
     <main>
         <h1>Ver Docentes</h1>
-        <form action="crear_docente.php" id="addDocente" method="post">
+        <form action="add-profesor" id="addDocente" method="post">
             <input type="hidden" name="confir" value="a">
             <input type="submit" value="Añadir Docente">
-            <input type="button"  onclick="salir('docente_to/add_docente_to_curso.php')" value="Añadir a un curso">
+            <input type="button"  onclick="salir('ver-cursos-docente')" value="Añadir a un curso">
         </form>
 
 
@@ -111,8 +111,7 @@
         
     ?>
 
-    <button class="atras" onclick="salir('profesor.php')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 </head>
 <body>
         
-<?php include_once "../menu_fijo.php"?>
+<?php include_once "../../menu_fijo.php"?>
 
     
     <main>
@@ -41,7 +41,7 @@
                        
                 
         ?>
-        <form action='add_docentess_to_cursoss.php' class="addDocente" method='post'>
+        <form action='add-docente-a-curso' class="addDocente" method='post'>
             <input type="hidden" name="confir" value="<?php  echo $chek_chek[2][0]  ?>">
             <input type="hidden" name="centre" value="<?php  echo $chek_chek[2][7]  ?>">
             <input type='submit' value='Añadir Docente a curso'>
@@ -89,7 +89,7 @@
                                 
                 ?>
 
-                <form action="delete_docente_from_curso.php" class="delDocente" method="post">
+                <form action="eliminar-docente-de-curso" class="delDocente" method="post">
                     <input type="hidden" name="doc_doc" value="<?php  echo $cursos_has_docentes[$i][0] //id profesor ?>">
                     <input type="hidden" name="curse" value="<?php  echo $cursos_has_docentes[$i][1] //id curso ?>">
                     <input type="hidden" name="centre" value="<?php  echo $cursos_has_docentes[$i][2] //id centro ?>">
@@ -106,9 +106,8 @@
                     }
                 ?>
             </div>
-        <button class="atras" onclick="salir('../ver_docente.php')">Atras</button>
     </main>
-    <script type="text/javascript" src="../../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 

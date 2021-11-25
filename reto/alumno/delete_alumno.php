@@ -6,11 +6,11 @@
             delete_alumnos($_POST['id_alumn']);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_alumno.php");
+            header("refresh:0;url=listar-alumnos");
         }
-        header("Location: ver_alumno.php");
+        header("Location: listar-alumnos");
     } else {
-        header("Location: ver_alumno.php");
+        header("Location: listar-alumnos");
     }
 
 ?>

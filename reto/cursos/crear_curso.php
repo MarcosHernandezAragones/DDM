@@ -15,7 +15,7 @@
         $flag=true;
         if ($_POST["centro"] == "nil") {
             echo "centro no seleccionado";
-            header("refresh:5;url=ver_cursoss.php");
+            header("refresh:0;url=curso");
             $flag=false;
         }
 
@@ -28,9 +28,9 @@
             
             } catch (Exception $th) {
                 echo $th;
-                header("refresh:5;url=ver_cursoss.php");
+                header("refresh:0;url=curso");
             }
-            header("Location: ver_cursoss.php");
+            header("Location: curso");
         }
         
         
@@ -62,19 +62,19 @@
         <h1>Crear Curso</h1>
 
 
-        <form action="crear_curso.php" method="post" id="formulario">
+        <form action="add-curso" method="post" id="formulario">
             <div id="uno">
                 <input type="hidden" name="aux_cursed" value="a">
                 <label for="nombre">Nombre: </label>
             </div>
             <div>
-                <input type="text" name="nombre" id="nombre">
+                <input type="text" name="nombre" id="nombre" required>
             </div>
             <div id="uno">
                 <label for="centro">Centro: </label>
             </div>
             <div>
-                <select name="centro" id="centro">
+                <select name="centro" id="centro"required>
                     <option value="nil" selected>-----------------</option>
                     <?php 
                     for ($i=0; $i < count($centros); $i++) { 
@@ -89,9 +89,9 @@
         </form>
 
 
-        <button class="atras" onclick="salir('ver_cursoss.php')">Atras</button>
+        <button class="atras" onclick="salir('curso')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 
 
@@ -102,7 +102,7 @@
 <?php
     }else {
         echo "Treelaw";
-        header("refresh:2;url=ver_cursoss.php");
+        header("refresh:0;url=curso");
     }
 
 

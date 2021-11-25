@@ -8,14 +8,14 @@ define('verde',3);
 define('azul',4);
 
 if (!isset($_POST["subir"])) {
-    header("refresh:3;url=index.php");
+    header("refresh:0;url=inicio");
     echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
 }elseif (!isset($_SESSION['rol'])) {
-    header("refresh:3;url=index.php");
+    header("refresh:0;url=inicio");
     echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
 
 }elseif ($_SESSION['rol']<3) {
-    header("refresh:3;url=index.php");
+    header("refresh:0;url=inicio");
     echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
 }else{
 
@@ -84,7 +84,7 @@ if (!isset($_POST["subir"])) {
 
     if(!$error){
         $_SESSION['mensajeFich'] = "Los datos han sido introducidos correctamente";
-        header("refresh:0;url=CRUDPreguntas.php");
+        header("refresh:0;url=crear-preguntas");
     }
     
 

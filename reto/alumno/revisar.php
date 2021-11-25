@@ -106,8 +106,8 @@
                 </form>\n";       
     }
     ?>
-    <button class="salir" onclick="salir('../cerrarSesion.php')">Salir</button>
-    <script src="../funciones.js"></script>
+    <button class="salir" onclick="salir('cerrar-sesion')">Salir</button>
+    <script src="funciones-js"></script>
     </main>
 </body>
 </html>

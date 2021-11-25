@@ -8,14 +8,14 @@ define('verde',3);
 define('azul',4);
 
 if (!isset($_POST["enviar"])) {
-    header("refresh:3;url=index.php");
+    header("refresh:0;url=inicio");
     echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
 }elseif (!isset($_SESSION['rol'])) {
-    header("refresh:3;url=index.php");
+    header("refresh:0;url=inicio");
     echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
 
 }elseif ($_SESSION['rol']<3) {
-    header("refresh:3;url=index.php");
+    header("refresh:0;url=inicio");
     echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
 }else{
     $pregunta=$_POST['pregunta'];
@@ -53,7 +53,7 @@ if (!isset($_POST["enviar"])) {
     $nfilas=$consulta->rowCount();
     
     if ($nfilas==1) {
-        header("refresh:0;url=CRUDPreguntas.php");
+        header("refresh:0;url=crear-preguntas");
         $_SESSION['mensaje'] = "Los datos han sido introducidos correctamente";
     }else $_SESSION['mensaje'] = "<strong>Ha habido un error al introducir los datos</strong>";
     

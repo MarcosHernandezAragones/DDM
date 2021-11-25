@@ -1,5 +1,5 @@
 <?php
-    include_once "functions.php";
+    include_once "../functions.php";
     session_start();
 
 
@@ -8,11 +8,11 @@
             delete_grupo($_POST['group']);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_grupos.php");
+            header("refresh:0;url=grupo");
         }
-        header("Location: ver_grupos.php");
+        header("Location: grupo");
     }
-    header("Location: ver_grupos.php");
+    header("Location: grupo");
 
 
 

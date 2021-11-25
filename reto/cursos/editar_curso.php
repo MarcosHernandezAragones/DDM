@@ -22,9 +22,9 @@
             
         } catch (Exception $th) {
             echo $th;
-            header("refresh:15;url=ver_cursoss.php");
+            header("refresh:0;url=curso");
         }
-        header("Location: ver_cursoss.php");
+        header("Location: curso");
        
 
     } else if ($chek_chek[1] && (isset($_POST["id_cent"]) && isset($_POST["id_curso"]))){
@@ -57,7 +57,7 @@
 
         <h1>Editar curso</h1>
 
-        <form action="editar_curso.php" id="formulario" method="post">
+        <form action="editar-curso" id="formulario" method="post">
             <input type="hidden" name="aux_cursed" value="a">
             <input type="hidden" name="id_cent" value="<?php echo $datos_curso_edit[2] ?>">
             <input type="hidden" name="id_curso" value="<?php echo $datos_curso_edit[1] ?>">
@@ -70,9 +70,9 @@
 
 
 
-        <button class="atras" onclick="salir('ver_cursoss.php')">Atras</button>
+        <button class="atras" onclick="salir('curso')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 
 </body>
 </html>
@@ -81,7 +81,7 @@
 <?php
     }else {
         echo "Acceso denegado por..... cuestiones de guión?";
-        header("refresh:5;url=ver_cursoss.php");
+        header("refresh:0;url=curso");
     }
 
 

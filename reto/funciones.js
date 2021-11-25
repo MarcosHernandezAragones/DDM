@@ -58,7 +58,7 @@ function actualizarRespAlumno(idPregunta, idForm, idAlum){
 
 
 
-    fetch("update_respuesta.php?idAlumno="+idAlum+"&idPregunta="+idPregunta+"&respuesta="+respuesta);
+    fetch("editar-respuesta?idAlumno="+idAlum+"&idPregunta="+idPregunta+"&respuesta="+respuesta);
 
 }
 

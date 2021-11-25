@@ -44,7 +44,6 @@ a:hover{
     height: 2.5vh;
 }
 #contenido{
-    padding-left: 5vh;
     display: grid;
     padding-top: 5vh;
     grid-template-rows: 1fr;
@@ -105,7 +104,6 @@ a:hover{
     }
 
     #contenido{
-        padding-left: 5vh;
         margin-top: 15%;
         display: grid;
         padding-top: 0vh;
@@ -187,7 +185,6 @@ a:hover{
     }
 
     #contenido{
-        padding-left: 5vh;
         margin-top: 15%;
         display: grid;
         padding-top: 0vh;
@@ -271,7 +268,6 @@ a:hover{
     }
 
     #contenido{
-        padding-left: 5vh;
         margin-top: 15%;
         display: grid;
         padding-top: 0vh;
@@ -356,7 +352,6 @@ a:hover{
     }
 
     #contenido{
-        padding-left: 5vh;
         margin-top: 15%;
         display: grid;
         padding-top: 0vh;
@@ -441,7 +436,6 @@ a:hover{
     }
 
     #contenido{
-        padding-left: 5vh;
         margin-top: 15%;
         display: grid;
         padding-top: 0vh;
@@ -520,14 +514,13 @@ a:hover{
     }
 
     #addAlumno{
-        margin-left: 20%;
+        margin-left: 15%;
         font-size: 2vh;
         height: 3vh;
         width: 70%;
     }
 
     #contenido{
-        padding-left: 5vh;
         margin-top: 15%;
         display: grid;
         padding-top: 0vh;

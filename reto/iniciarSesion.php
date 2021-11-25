@@ -69,7 +69,7 @@ if ($nfilas==1) {
         $ruta = getcwd();
         $_SESSION['ruta_principio']=$ruta;
         //REDIRECCIONAR A ALUMNO
-        header("refresh:0;url=formularios");
+        header("refresh:0;url=formulario");
     }
 
 }else{

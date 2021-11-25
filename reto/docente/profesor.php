@@ -30,24 +30,24 @@
     
     <main>
         <h1><?php echo $nombre?></h1>
-        <button class="propGrupos" onclick="redirigir('elegir_curso.php')">Proponer Grupos</button>
-        <button class="verGrupos" onclick="redirigir('../grupos/ver_grupos.php')">Organizar Grupos</button>
-        <button class="verAlumno" onclick="redirigir('../alumno/ver_alumno.php')">Organizar Alumnos</button>
+        <button class="propGrupos" onclick="redirigir('elegir')">Proponer Grupos</button>
+        <button class="verGrupos" onclick="redirigir('grupo')">Organizar Grupos</button>
+        <button class="verAlumno" onclick="redirigir('listar-alumnos')">Organizar Alumnos</button>
 
         <?php 
         
         if ($rol>1) {
-            echo  "<button class=\"verClases\" onclick=\"redirigir('../cursos/ver_cursoss.php')\">Administrar Clases</button>";
-            echo "<button class=\"adminProf\" onclick=\"redirigir('ver_docente.php')\">Administrar Profesores</button>";
+            echo  "<button class=\"verClases\" onclick=\"redirigir('curso')\">Administrar Clases</button>";
+            echo "<button class=\"adminProf\" onclick=\"redirigir('profesores')\">Administrar Profesores</button>";
         }
 
         if ($rol>2) {   
-            echo "<button class=\"adminCentro\" onclick=\"redirigir('../centro/ver_centro.php')\">Administrar Centros</button>";
-            echo "<button class=\"addPreguntas\" onclick=\"redirigir('../preguntas/CRUDPreguntas.php')\">Administrar Preguntas</button>";
+            echo "<button class=\"adminCentro\" onclick=\"redirigir('centros')\">Administrar Centros</button>";
+            echo "<button class=\"addPreguntas\" onclick=\"redirigir('crear-preguntas')\">Administrar Preguntas</button>";
         }
         ?>
-        <button class="salir" onclick="salir('../cerrarSesion.php')">Salir</button>
+        <button class="salir" onclick="salir('cerrar-sesion')">Salir</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>

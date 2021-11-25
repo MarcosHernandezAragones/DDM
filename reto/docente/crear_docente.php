@@ -12,12 +12,12 @@
         $flag=true;
         if ($_POST["centro"] == "nil") {
             echo "centro no seleccionado";
-            header("refresh:5;url=ver_cursoss.php");
+            header("refresh:0;url=profesores");
             $flag=false;
         }
         if ($_POST["rol"] == "nil") {
             echo "rol no seleccionado";
-            header("refresh:5;url=ver_cursoss.php");
+            header("refresh:0;url=profesores");
             $flag=false;
         }
 
@@ -40,12 +40,12 @@
             
             } catch (Exception $th) {
                 echo $th;
-                header("refresh:5;url=ver_docente.php");
+                header("refresh:0;url=profesores");
             }
-            header("Location: ver_docente.php");
+            header("Location: profesores");
         }
         
-        //header("refresh:15;url=ver_docente.php");
+        //header("refresh:15;url=profesores");
     }elseif (isset($_POST['confir'])){
         $centros=read_centross();
         $rolarr=read_rolss();
@@ -68,43 +68,43 @@
     
     <main>
             <h1>Crear Docente</h1>
-        <form action="crear_docente.php" id="formulario" method="post">
+        <form action="add-profesor" id="formulario" method="post" onsubmit="return comprobar()">
             <div id="primero">
                 <label for="nombre">Nombre: </label>
             </div>
             <div>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" required>
             </div>
             <div id="primero">
             <label for="apellido">Apellidos: </label>
             </div>
             <div>
-            <input type="text" name="apellido" id="apellido">
+            <input type="text" name="apellido" id="apellido" required>
             </div>
             <div id="primero">
             <label for="dni">DNI: </label>
             </div>
             <div>
-            <input type="text" name="dni" id="dni">
+            <input type="text" name="dni" id="dni" required>
             </div>
             <div id="primero">
             <label for="correo">E-mail: </label>
             </div>
             <div>
-            <input type="email" name="correo" id="correo">
+            <input type="email" name="correo" id="correo" required>
             </div>
             <div id="primero">
             <label for="contrasena">Contraseña del profesor: </label>
             </div>
             <div>
-            <input type="text" name="contrasena" id="contrasena"><!-- contraseña visible solo al crear --><br>
+            <input type="text" name="contrasena" id="contrasena" required><!-- contraseña visible solo al crear --><br>
             </div>
             <div id="primero">
 
             <label for="centro">Centro: </label>
             </div>
             <div>
-            <select name="centro" id="centro">
+            <select name="centro" id="centro"  required>
                 <option value="nil" selected>-----------------</option>
                 <?php 
                 for ($i=0; $i < count($centros); $i++) { 
@@ -120,7 +120,7 @@
             <label for="rol">Rol: </label>
             </div>
             <div>
-            <select name="rol" id="rol">
+            <select name="rol" id="rol"  required>
                 <option value="nil" selected>-----------------</option>
                 <?php 
                 for ($i=0; $i < count($rolarr); $i++) { 
@@ -137,9 +137,23 @@
         
 
         </form>
-        <button class="atras" onclick="salir('ver_docente.php')">Atras</button>
+        <button class="atras" onclick="salir('profesores')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
+    <script>
+        function comprobar(){
+            
+            if (document.getElementById("centro").value=="nil") {
+                alert("El profesor debe tener un centro para poder añadirlo")
+                return false;
+            }else if(document.getElementById("rol").value=="nil"){
+                alert("El profesor debe tener un rol para poder añadirlo")
+                return false;
+            }         
+            
+            
+        }   
+    </script>
 </body>
 </html>
 
@@ -147,6 +161,6 @@
 
         }else{
             echo "Tankers are beggers";
-            header("refresh:2;url=ver_docente.php");
+            header("refresh:0;url=profesores");
         }
 ?>

@@ -13,11 +13,12 @@ echo "<section>
         <div id='menu'>";
 
         if($rol==0) {
-            echo "<p class=\"usuario_contro\"><$nombre</p>";
+            echo "<p class=\"usuario_contro\">$nombre</p>";
             echo "<a href=\"revisar-respuestas\">Revisar respuestas</a>";
         }
         
         if($rol>0){
+            echo "<a href=\"profesor\">Inicio</a>";
             echo "<a href=\"elegir\">Proponer Grupos</a>";
             echo "<a href=\"grupo\">Organizar Grupos</a>";
             echo "<a href=\"listar-alumnos\">Organizar Alumnos</a>";

@@ -29,9 +29,9 @@
             update_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso,$idGrupo,$id_alumno);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_alumno.php");
+            header("refresh:0;url=listar-alumno");
         }
-        header("Location: ver_alumno.php");
+        header("Location: listar-alumno");
     }else if (isset($_POST['id_alumn'])) {
     
         $datos_alumno=read_alumno($_POST['id_alumn']);
@@ -53,11 +53,12 @@
         
 <?php include_once "../menu_fijo.php"?>
 
+
     <main>
         <h1>Añadir Alumno</h1>
-        <button class="atras" onclick="redirigir('ver_alumno.php')">Atras</button>
+ 
         <div id="formulario">
-            <form action="editar_alumno.php" method="post">
+            <form action="editar-alumno" method="post">
                 <input type="hidden" name="id_al_upd" value="<?php echo $datos_alumno[0] ?>">
 
                 <div>
@@ -105,13 +106,13 @@
             </form>
             </div>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 <?php
 
 }else {
-    header("Location: ver_alumno.php");
+    header("Location: listar-alumno");
 }
 
 

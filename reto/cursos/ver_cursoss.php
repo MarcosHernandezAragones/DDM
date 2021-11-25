@@ -18,12 +18,12 @@
   
    function write_admin_forms($id_curso,$id_cent){
        echo "
-            <form action='editar_curso.php' method='post'>
+            <form action='editar-curso' method='post'>
                 <input type='hidden' name='id_curso' value='$id_curso'>
                 <input type='hidden' name='id_cent' value='$id_cent'>
                 <input type='submit' value='Edit'>
             </form>
-            <form action='delete_curso.php' method='post'>
+            <form action='eliminar-curso' method='post'>
             <input type='hidden' name='id_curso' value='$id_curso'>
                 <input type='hidden' name='id_cent' value='$id_cent'>
                 <input type='submit' value='DELETE'>
@@ -32,7 +32,6 @@
         
     function mostrar_curso_todo(){//muestra los cursos de los distintos centros y las opciones editar y borrar
         $cursos = read_cursoss();
-
         for ($i=0; $i < count($cursos) ; $i++) { 
             $nombre_curso=$cursos[$i][0];
             $id_curso=$cursos[$i][1];
@@ -109,7 +108,7 @@
             
 
         ?>
-                <form action='crear_curso.php' id='addCentro' method='post'>
+                <form action='add-curso' id='addCentro' method='post'>
                     <input type="hidden" name="confir" value="a">
                     <input type='submit' value='AÑADIR CURSO'>
                 </form>
@@ -130,9 +129,9 @@
         ?>
     </div>
         
-        <button class="atras" onclick="salir('../profesor/profesor.php')">Atras</button>
+
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 

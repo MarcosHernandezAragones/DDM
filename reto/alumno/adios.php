@@ -23,10 +23,10 @@ $centro=$_SESSION['centro'];
 
         <h1>Todas las preguntas han sido respondidas muchas gracias</h1>
 
-        <button id="revisar" onclick="redirigir('revisar.php')">Revisar Preguntas</button>
-        <button class="salir" onclick="salir('../cerrarSesion.php')">Salir</button>
+        <button id="revisar" onclick="redirigir('revisar-respuestas')">Revisar Preguntas</button>
+        <button class="salir" onclick="salir('cerrar-sesion')">Salir</button>
 
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>

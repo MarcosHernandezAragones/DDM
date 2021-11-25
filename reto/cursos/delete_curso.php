@@ -8,12 +8,12 @@
             delete_curso($_POST['id_curso'], $_POST['id_cent']);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_cursoss.php");
+            header("refresh:0;url=curso");
         }
-        header("Location: ver_cursoss.php");
-        //header("refresh:5;url=ver_cursoss.php");
+        header("Location: curso");
+        //header("refresh:5;url=curso");
     }
-    header("Location: ver_cursoss.php");
+    header("Location: curso");
 
 
 

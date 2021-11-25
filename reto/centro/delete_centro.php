@@ -8,11 +8,11 @@
             delete_centro($_POST['id_cent']);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_centro.php");
+            header("refresh:0;url=centros");
         }
-        header("Location: ver_centro.php");
+        header("Location: centros");
     }
-    header("Location: ver_centro.php");
+    header("Location: centros");
 
 
 

@@ -21,10 +21,10 @@
             
         } catch (Exception $th) {
             echo $th;
-            header("refresh:15;url=ver_grupos.php");
+            header("refresh:0;url=grupo");
         }
-        header("Location: ver_grupos.php");
-        //header("refresh:15;url=ver_grupos.php");
+        header("Location: grupo");
+        //header("refresh:15;url=grupo");
 
     } else if ($_POST['curse']){
 
@@ -52,11 +52,11 @@
     <main> 
         <h1>Crear Grupo</h1>
 
-        <form action="crear_grupo.php" id="formulario" method="post">
+        <form action="add-grupo" id="formulario" method="post">
             <input type="hidden" name="aux_centre" value="<?php echo $_POST['centre'] ?>">
             <input type="hidden" name="aux_curse" value="<?php echo $_POST['curse'] ?>">
             <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" required>
             
 
             <input type="submit" value="Enviar">
@@ -65,9 +65,9 @@
 
 
 
-        <button class="atras" onclick="redirigir('../profesor/profesor.php')">Atras</button>
+        <button class="atras" onclick="redirigir('profesor')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 
@@ -75,7 +75,7 @@
 <?php
     }else {
         echo "Access denied: karen alert";
-        header("refresh:2;url=ver_grupos.php");
+        header("refresh:0;url=grupo");
     }
 
 

@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['user'])) {
 //      ENVIAR A LA PAGINA PRINCIPAL
-        header("refresh:0;url=iniciarSesion.php");
+        header("refresh:0;url=iniciar-sesion");
     die();
 }
 
@@ -21,7 +21,7 @@ if (isset($_SESSION['user'])) {
     
 
     <section>
-        <form action="iniciarSesion.php" method="post" id="loginbox">
+        <form action="iniciar-sesion" method="post" id="loginbox">
             <fieldset>
                 <legend><img src="logo_login.png" alt="logo de la empresa encargada de esta pagina"></legend>
             

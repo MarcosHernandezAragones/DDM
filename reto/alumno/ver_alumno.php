@@ -33,8 +33,10 @@
     </style>
 </head>
 <body>
-        
+
+
 <?php include_once "../menu_fijo.php"?>
+
 
     <main>
     <?php
@@ -44,7 +46,7 @@
     ?>       
             <div id="<?php echo $cursos[$i]['name']; ?>">
                 <h2 class="titulo"><?php echo $cursos[$i]['name']; ?> <a onclick="apariencia('<?php echo $cursos[$i]['name']; ?>','flecha<?php echo $i;?>' )"><i  id="flecha<?php echo $i;?>" class="fas fa-caret-right"></i></a></h2>
-            <form action="crear_alumno.php" method="post">
+            <form action="add-alumno" method="post">
                 <input id="addAlumno" type="submit" value="Añadir alumno">
             </form>
 
@@ -106,14 +108,14 @@
                                 </div>
                             
                                 <div id='form_alumno'>
-                                    <form action='editar_alumno.php' method='post'>
+                                    <form action='editar-alumno' method='post'>
                                         <input type='hidden' name='id_alumn' value='$id_alumno'>
                                         <input type='submit' id='editar'value='Edit'>
                                     </form>
                                 </div> 
 
                                 <div id='form_alumno_del'>
-                                    <form action='delete_alumno.php' method='post'>
+                                    <form action='eliminar-alumno' method='post'>
                                         <input type='hidden' name='id_alumn' value='$id_alumno'> 
                                         <input type='submit' id='editar' value='DELETE'>
                                     </form>
@@ -131,9 +133,8 @@
             }
 
     ?>
-    <button class="atras" onclick="redirigir('../profesor/profesor.php')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
     <script>
         function apariencia(curso, idFlecha) {
 

@@ -33,11 +33,11 @@
             update_docente($apellidos,$correo,$DNI,$nombre,$passwrd,$id_prof,$idCentro,$idRol);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:5;url=ver_docente.php");
+            header("refresh:0;url=profesores");
         }
         
-        //header("refresh:5;url=ver_docente.php");
-        header("Location: ver_docente.php");
+        //header("refresh:5;url=profesores");
+        header("Location: profesores");
     }else if (isset($_POST['id_doof'])) {
     
         $datos_docente=read_docente($_POST['id_doof']);
@@ -64,7 +64,7 @@
     
     <main>
         <h1>Editar Docente</h1>
-        <form action="editar_docente.php" id="formulario" method="post">
+        <form action="editar-profesor" id="formulario" method="post">
             <div id="primero">
             <input type="hidden" name="id_al_upd" value="<?php echo $datos_docente[0] ?>">
             <label for="nombre">Nombre: </label>
@@ -149,15 +149,15 @@
 
         </form>
 
-    <button class="atras" onclick="salir('ver_docente.php')">Atras</button>
+    <button class="atras" onclick="salir('profesores')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 <?php
 
 }else {
-    header("Location: ver_docente.php");
+    header("Location: profesores");
 }
 
 ?>

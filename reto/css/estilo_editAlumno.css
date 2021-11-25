@@ -10,10 +10,10 @@ h1{
     order: 1;
     width: 100%;
     text-align: center;
-    margin-top: 15vh;
+    margin-top: 10%;
 }
 #formulario{
-    margin-top: 10vh;
+    margin-top: 10%;
     order: 2;
  
 }
@@ -524,56 +524,6 @@ form>div{
 
 @media only screen and (max-width:576px){
     
-    section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        color: white;
-        background-color: #592a51;
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-    h1{
-        order: 1;
-        width: 100%;
-        text-align: center;
-        margin-top: 5vh;
-    }
-    .adminCentro{
-        margin-top: 5vh;
-        width: 35%;
-        font-size: 3.5vh;
-        height: 5vh;
-    }
-    img{
-        height: 12vh;
-        width: 12vh;
-    }
-    .gob{
-        margin-top: 3vh;
-        order: 1;
-    }
-    .centro{
-        margin-top: 1vh;
-        order: 2;
-
-    }
-    .abajo{
-        order: 3;
-        margin-top: 55vh;
-    }
-    .usuario_contro{
-        order: 4;
-        margin-right: 1vh;
-        text-align: right;
-    }
-    .nombre_centro{
-        order: 5;
-        margin-right: 1vh;
-        text-align: right;
-    }
 
     form{
         display: grid;

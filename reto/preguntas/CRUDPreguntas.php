@@ -4,11 +4,11 @@
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];
     if (!isset($_SESSION['rol'])) {
-        header("refresh:3;url=index.php");
+        header("refresh:0;url=inicio");
         echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
 
     }elseif ($_SESSION['rol']<3) {
-        header("refresh:3;url=index.php");
+        header("refresh:0;url=inicio");
         echo "Usted no puede estar aqui, en 3 segundos sera redireccionado";
     }else{
         $rol=$_SESSION['rol'];
@@ -41,7 +41,7 @@
 
     <main>
         <div id="unaPre">
-            <form action="addPregunta.php" id="una" method="post" onsubmit="return comprobarPregunta()">  
+            <form action="add-pregunta" id="una" method="post" onsubmit="return comprobarPregunta()">  
                 <h1>Introducir una sola pregunta</h1>
 
                 <div id="primero">
@@ -77,7 +77,7 @@
 
 
     
-        <form action="insertarFichero.php" id="varias" method="post" enctype="multipart/form-data">  
+        <form action="insertar-fichero" id="varias" method="post" enctype="multipart/form-data">  
         
             <h1>INTRODUCIR VARIAS PREGUNTAS</h1>
 
@@ -87,9 +87,9 @@
         </form>
     </div>
        
-    <button class="atras" onclick="redirigir('../profesor/profesor.php')">Atras</button>
+    <button class="atras" onclick="redirigir('profesor')">Atras</button>
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 

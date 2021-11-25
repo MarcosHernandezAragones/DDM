@@ -47,7 +47,7 @@
             echo "</h1>";
 
         ?>
-            <form action='crear_grupo.php' class="addGrupo" method='post'>
+            <form action='add-grupo' class="addGrupo" method='post'>
                 <input type="hidden" name="curse" value="<?php echo $grupos[$i][2] ?>">
                 <input type="hidden" name="centre" value="<?php echo $grupos[$i][3] ?>">
                 <input type='submit' value='Añadir Grupo'>
@@ -62,12 +62,12 @@
 
             <div class="contenido"><?php echo $grupos[$i][1] ?>
 
-                <form action='editar_grupo.php' method='post'>
+                <form action='editar-grupo' method='post'>
                     <input type="hidden" name="group" value="<?php echo $grupos[$i][0] ?>">
                     <input type='submit' value='Editar Grupo'>
                 </form>
 
-                <form action='delete_grupo.php' method='post'>
+                <form action='eliminar-grupo' method='post'>
                     <input type="hidden" name="group" value="<?php echo $grupos[$i][0] ?>">
                     
                     <input type='submit' value='Borrar Grupo'>
@@ -84,9 +84,9 @@
         }
         ?>
       
-      <button class="atras" onclick="redirigir('../profesor/profesor.php')">Atras</button>
+
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </html>
 
 

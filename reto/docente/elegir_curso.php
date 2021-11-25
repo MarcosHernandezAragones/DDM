@@ -14,7 +14,7 @@
    function write_redirect_form($id_curso,$name){
        
        echo "
-            <form action='propGrupos.php' method='post'>
+            <form action='proponerGrupos' method='post'>
                 <input type='hidden' name='id_curso' value='$id_curso'>
                 
                 <input type='submit' value='$name'>
@@ -24,14 +24,7 @@
 
 //    $cursos[$cont]["id_centro"]=$fila->curso_centro_idCentro;
 //    $cursos[$cont]["id_curso"]=$fila->curso_idCurso;
-//    $cursos[$cont]["name"]=select_name_curso($fila->curso_idCurso,$fila->curso_centro_idCentro);
-
-
-
-
-
-        
-    
+//    $cursos[$cont]["name"]=select_name_curso($fila->curso_idCurso,$fila->curso_centro_idCentro);   
 
 ?>
 
@@ -64,8 +57,8 @@
         ?>
     </div>
         
-        <button class="atras" onclick="salir('../docente/profesor.php')">Atras</button>
+
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>

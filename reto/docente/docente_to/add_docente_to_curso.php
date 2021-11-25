@@ -22,7 +22,7 @@
     if (isset($_POST["add_doc"])) {// entra tras enviar los datos del formulario de la misma pagina
         if ($_POST["curso"] == "nil") {
             echo "curso no seleccionado";
-            header("refresh:0;url=ver_curso_docentess.php");
+            header("refresh:0;url=ver-cursos-docente");
         }
         
         $id_doof=$_POST["add_doc"];
@@ -38,10 +38,10 @@
             
         } catch (Exception $th) {
             echo $th;
-            header("refresh:0;url=ver_curso_docentess.php");
+            header("refresh:0;url=ver-cursos-docente");
         }
-        //header("Location: ver_curso_docentess.php");
-        header("refresh:0;url=ver_curso_docentess.php");
+        //header("Location: ver-cursos-docente");
+        header("refresh:0;url=ver-cursos-docente");
 
     } else if (isset($_POST['confir'])){
         $cursos=read_cursoss();
@@ -77,11 +77,11 @@
 
     
     <main>
-        <form action="ver_curso_docentess.php" method="post">
+        <form action="ver-cursos-docente" method="post">
             <input type="submit" value="volver">
         </form>
             <br><br>
-        <form action="add_docente_to_curso.php" method="post">
+        <form action="#" method="post">
             <input type="hidden" name="add_doc" value="<?php echo $chek_chek[2][0] ?>">
             <select name="curso" id="curso">
                 <option value="nil" selected>-----------------</option>
@@ -101,9 +101,9 @@
 
 
 
-        <button class="atras" onclick="salir('../ver_docente.php')">Atras</button>
+        <button class="atras" onclick="salir('profesores')">Atras</button>
     </main>
-    <script type="text/javascript" src="../../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
 
@@ -111,7 +111,7 @@
 <?php
     }else {
         echo "UNEXPECTED ERROR: DMTT";
-        header("refresh:0;url=ver_curso_docentess.php");
+        header("refresh:0;url=ver-cursos-docente");
     }
 
 

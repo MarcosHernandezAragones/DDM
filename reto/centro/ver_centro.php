@@ -29,7 +29,7 @@
 
     <main>
         <h1>Ver centro</h1>
-        <form action="crear_centro.php" class="addCentro" method="post">
+        <form action="crear-centro" class="addCentro" method="post">
             <input type="hidden" name="confir" value="a">
             <input id="addCentro" type="submit" value="Añadir Centro">
         </form>
@@ -45,11 +45,11 @@
                     echo "<div id='nombre'>
                             <div >$nombre_centro: $loc_centro</div> 
                           </div>
-                        <form action='editar_centro.php' id='edit' method='post'>
+                        <form action='editar-centro' id='edit' method='post'>
                             <input type='hidden' name='id_cent' value='$id_cent'>
                             <input type='submit' value='Edit'>
                         </form>
-                        <form action='delete_centro.php' id='del' method='post'>
+                        <form action='eliminar-centro' id='del' method='post'>
                             <input type='hidden' name='id_cent' value='$id_cent'>
                             <input type='submit' value='DELETE'>
                         </form>";
@@ -59,8 +59,8 @@
 
 
         ?>
-    <button class="atras" onclick="salir('../profesor/profesor.php')">Atras</button>
+
     </main>
-    <script type="text/javascript" src="../funciones.js"></script>
+    <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>
