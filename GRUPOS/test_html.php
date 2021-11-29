@@ -2,26 +2,58 @@
 
     include_once "../CRUD/functions.php";
     include_once "test_grupos.php";
-
-    $alumnoss=read_alumnoss(1,1);
+    $first_time=true;
     
-
-    ///////////////////test
+///////////////////test
     $num_grupos=2;
     $miembros_grupo=4;
     $orden=[4,3,1,2];
 
+    $id_curso=1;
+    $id_centro=1;
 
-    $alumnoss_aux=group_maker($alumnoss,$num_grupos,$miembros_grupo,$orden);
 
-    $alumnoss_gru=$alumnoss_aux[0];
-    $alumnoss_nokat=$alumnoss_aux[1];
-    $alumnoss_nokat=array_values($alumnoss_nokat);
-
+    $alumnoss=read_alumnoss($id_curso,$id_centro);
     
-    $al_nokat_jso=json_encode($alumnoss_nokat);
+    $grupos_clase=read_grupo_curso($id_curso,$id_centro);
+    //print_r($grupos_clase);
 
-    $al_gru_jso=json_encode($alumnoss_gru);
+    if (count($grupos_clase) != 0) {
+      $first_time=false;
+
+      $al_sort=alumno_has_group($alumnoss);
+      
+      $al_nokat=$al_sort[0];
+      $al_nokat=array_values($al_nokat);
+
+      $al_cat=$al_sort[1];
+      
+      $al_cat=array_values($al_cat);
+      
+
+      //$grup_BD=sort_group_BBDD($grupos_clase,$al_cat);
+
+
+      $grupos_w=json_encode($grupos_clase);
+
+      $al_nokat_jso=json_encode($al_nokat);
+
+      $al_gru_jso=json_encode($al_cat);
+
+    }else {
+      $alumnoss_aux=group_maker($alumnoss,$num_grupos,$miembros_grupo,$orden);
+
+      $alumnoss_gru=$alumnoss_aux[0];
+      $alumnoss_nokat=$alumnoss_aux[1];
+      //$alumnoss_nokat=array_values($alumnoss_nokat);
+
+      
+      $al_nokat_jso=json_encode($alumnoss_nokat);
+
+      $al_gru_jso=json_encode($alumnoss_gru);
+    }
+    
+    
 ?>
 
 
@@ -40,6 +72,7 @@
             height: 30vh;
             background-color: #ddd;
             border: 3px solid blue;
+            display: inline-block;
         }
         .alumno{
             width:80%;
@@ -51,7 +84,20 @@
 
 </head>
 <body>
+
+
     <div id="test"></div>
+    
+    <form action="asignar_grupos.php" method="post">
+      <input id="devolver" type="hidden" name="gru2" value="">
+    <input type="submit" onclick="return get_group()" name="gru" value="GUARDAR">
+    </form>
+    <button onclick="creat_empty_gru()">+ GRUP</button>
+
+
+
+
+
 </body>
 </html>
 <script>
@@ -118,12 +164,27 @@ document.addEventListener("drop", function(event) {
 </script>
 <script src="group_gen.js"></script>
 
-<script>
+<?php
+  if ($first_time) {
+?>
 
-    
-    show_jso_nokat(<?php echo $al_nokat_jso ?>)
+<script>
     show_jso_gru(<?php echo $al_gru_jso ?>)
 </script>
 
+<?php
+}else{
+?>
+
+<script>
+    show_jso_gru_BD(<?php echo $grupos_w ?>,<?php echo $al_gru_jso ?>)
+</script>
+
+<?php
+}
+?>
 
 
+<script>    
+    show_jso_nokat(<?php echo $al_nokat_jso ?>)
+</script>

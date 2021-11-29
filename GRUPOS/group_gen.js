@@ -259,19 +259,21 @@ function show_jso_gru(grupos_we) {
 
     for (let gru = 0; gru < grupos_we.length; gru++) {
         var cont_gru=document.createElement("div")
-        var title=document.createElement("h1")
         
-        title.innerHTML="grupo_"+gru
+        
+        
 
         //cont_gru.appendChild(title)
         cont_gru.className="droptarget"
-
+        id_grup="grupoini_"+gru
+        cont_gru.id=id_grup
 
         
 
-
+        
         //document.writeln("<h1>grupo_"+gru+"</h1>")
         for (let al = 0; al < grupos_we[gru].length; al++) {
+            console.log(grupos_we[gru][al])
             var al_gru=document.createElement("div")
             var id_al="alumno_"+grupos_we[gru][al][0]
             al_gru.setAttribute("id",id_al)
@@ -289,9 +291,14 @@ function show_jso_gru(grupos_we) {
 
 
             
-            console.log(grupos_we[gru][al][1])
+            //console.log(grupos_we[gru][al][1])
             cont_gru.appendChild(al_gru)
         }
+        var lbl=document.createElement("label")
+        lbl.setAttribute("for",id_grup)
+        lbl.innerHTML="grupo_"+(gru+1)
+
+        gen_cont.appendChild(lbl)
         gen_cont.appendChild(cont_gru)
         
     }
@@ -303,15 +310,16 @@ function show_jso_gru(grupos_we) {
 function show_jso_nokat(nokats) {
         var gen_cont=document.getElementById("test")
         var cont_nok=document.createElement("div")
-        var title=document.createElement("h1")
         
-        title.innerHTML="NO KAT"
+        
+        
 
         //cont_nok.appendChild(title)
         cont_nok.className="droptarget"
 
 
-        
+        id_grup="nil_1"
+        cont_nok.id=id_grup
 
 
         
@@ -324,16 +332,204 @@ function show_jso_nokat(nokats) {
 
 
             al_gru.setAttribute('draggable',"true")
-            
-            
-
-
 
             
-            console.log(nokats[1])
+            console.log(nokats[al])
             cont_nok.appendChild(al_gru)
         }
         gen_cont.appendChild(cont_nok)
 }
 
 
+
+
+
+function get_group() {//edit to catch gbd_(existe en BBDD) groupini_ nil_1(NO KAT) spidertron_(new empty group)
+    var grupos=document.getElementsByClassName("droptarget")
+    var alumnos=document.getElementsByClassName("alumno")
+    var grupos_to_BD=[]//gnew=[[grupo1],[grupo2]]// gupd=[[idgru,[alumnoss]],[idgru,[alumnoss]]]
+
+    //gsend=[gupd,gnew]
+
+    gnew=[];
+    gupd=[];
+    for (let i = 0; i < grupos.length; i++) {
+        var g_split=grupos[i].id.split("_")
+        var group_type=g_split[0]
+        var iden=g_split[1]
+
+        
+
+        console.log(group_type)
+
+        switch (group_type) {
+            case "nil":
+                
+                break;
+
+
+            case "groupini":
+                    var alumnos_to_BD=[]
+                    for (let al = 0; al < alumnos.length; al++) {
+                        if (alumnos[al].parentNode.id == grupos[i].id) {
+                            var al_id_raw=alumnos[al].id
+                            var al_id_spl=al_id_raw.split("_")
+                            var al_id_dig=al_id_spl[1]
+                            alumnos_to_BD.push(al_id_dig)
+                        }
+                        
+                    }
+
+                    gnew.push(alumnos_to_BD)
+                break;
+
+
+            case "gbd":
+                    var alumnos_to_BD=[]
+                    for (let al = 0; al < alumnos.length; al++) {
+                        if (alumnos[al].parentNode.id == grupos[i].id) {
+                            var al_id_raw=alumnos[al].id
+                            var al_id_spl=al_id_raw.split("_")
+                            var al_id_dig=al_id_spl[1]
+                            alumnos_to_BD.push(al_id_dig)
+                        }
+                        
+                    }
+                    gupd_parts=[iden,alumnos_to_BD]
+                    gupd.push(gupd_parts)
+                break;
+
+
+            case "spidertron":
+                    var alumnos_to_BD=[]
+                    for (let al = 0; al < alumnos.length; al++) {
+                        if (alumnos[al].parentNode.id == grupos[i].id) {
+                            var al_id_raw=alumnos[al].id
+                            var al_id_spl=al_id_raw.split("_")
+                            var al_id_dig=al_id_spl[1]
+                            alumnos_to_BD.push(al_id_dig)
+                        }
+                        
+                    }
+
+                    gnew.push(alumnos_to_BD)
+                break;    
+                            
+                            
+            default:
+                break;
+        }
+
+        
+        
+            
+
+
+        
+        
+
+    }
+
+    gsend=[gupd,gnew]
+    
+    console.log(gsend)
+
+    var aaa=document.getElementById("devolver")
+
+    
+
+    aaa.value=JSON.stringify(gsend)
+    
+}
+
+
+
+var cont=0;
+function creat_empty_gru() {
+
+    var gen_cont=document.getElementById("test")
+
+
+    var cont_new=document.createElement("div")
+        
+    cont_new.className="droptarget"
+
+    id_grup="spidertron_"+cont
+    cont++
+    cont_new.id=id_grup
+
+    var lbl=document.createElement("label")
+    lbl.setAttribute("for",id_grup)
+    lbl.innerHTML="grupo_nuevo_"+cont
+        
+    gen_cont.appendChild(lbl)
+    gen_cont.appendChild(cont_new)
+
+}
+
+
+
+
+function show_jso_gru_BD(grupos_we,alumnoss) {
+    var gen_cont=document.getElementById("test")
+    
+
+    for (let gru = 0; gru < grupos_we.length; gru++) {
+        var cont_gru=document.createElement("div")
+        
+        
+        
+
+        
+        cont_gru.className="droptarget"
+        
+
+        id_grup="gbd_"+grupos_we[gru][0]
+        cont_gru.id=id_grup
+
+        
+
+
+        
+        for (let al = 0; al < alumnoss.length; al++) {
+
+            if (alumnoss[al][6] == grupos_we[gru][0]) {
+                console.log(alumnoss[al])
+                var al_gru=document.createElement("div")
+                var id_al="alumno_"+alumnoss[al][0]
+                al_gru.setAttribute("id",id_al)
+                al_gru.setAttribute("class","alumno")
+
+                al_gru.setAttribute('draggable',"true")
+                
+                
+
+
+
+                
+                al_gru.innerHTML=alumnoss[al][1]+" "+alumnoss[al][2]
+
+
+
+                
+                
+                cont_gru.appendChild(al_gru)
+            }
+
+
+            
+        }
+
+
+
+        var lbl=document.createElement("label")
+        lbl.setAttribute("for",id_grup)
+        lbl.innerHTML=grupos_we[gru][1]
+
+        gen_cont.appendChild(lbl)
+        gen_cont.appendChild(cont_gru)
+        
+    }
+
+
+}

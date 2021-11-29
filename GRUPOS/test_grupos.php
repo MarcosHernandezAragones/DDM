@@ -280,6 +280,46 @@ $alumnoss[19]=[20,"sdfsdfsdfsd","aaaa","sdfg","adf","passwrd",null,1,1,0,0,0,0];
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////if al[grupo]!=null && al[grupo]==idgrupo 
 
+function alumno_has_group($alumnoss){
+    $no_cat=[];
+    $yes_cat=[];
+
+    $cont_no_kat=0;
+    $cont_yes_kat=0;
+    for ($i=0; $i < count($alumnoss); $i++) { 
+
+        if (!is_null($alumnoss[$i][6]) && $alumnoss[$i][6] != "") {
+            $yes_cat[$cont_yes_kat]=$alumnoss[$i];
+            $cont_yes_kat++;
+        }else {
+            $no_cat[$cont_no_kat]=$alumnoss[$i];
+            $cont_no_kat++;
+        }
+    }
+    $result=[$no_cat,$yes_cat];
+
+    return $result;
+}
+
+function sort_group_BBDD($gruposs,$al_cat){
+//[$id_grupo,$nombre,$id_curs,$id_centre]
+//[$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso,$amarillo,$rojo,$verde,$azul]
+    $group_res=[];
+    $cont=0;
+    for ($i=0; $i < count($gruposs); $i++) { 
+
+        for ($al=0; $al < count($al_cat); $al++) { 
+            
+            if ($al_cat[$al][6] == $gruposs[$i][0]) {
+                $group_res[$cont]=[$gruposs[$i],$al_cat[$al]];
+            }
+
+        }
+        
+    }
+
+    return $group_res;
+}
 
 
 
