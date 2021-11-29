@@ -11,20 +11,25 @@
     width: 100%;
 }
 
-
 #parametros{
-    grid-column-start: 3;
-    grid-row-start: 2;
+    justify-self: left;
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 3vh 3vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2.2vh 2.2vh;
     row-gap: 5%;
 }
 
+#parametros>div{
+    justify-self: right;
+}
+
+#parametros>input{
+    justify-self: left;
+}
 
 .cuarto-rojo {
-    width: 10vh; 
-    height: 10vh; 
+    width: 13vh; 
+    height: 13vh; 
     justify-self: right;
     text-align: right;
     padding-right: 2%;
@@ -41,16 +46,24 @@
 }
 .cuarto:hover{
     cursor: pointer;
-    width: 12vh;
-    height: 12vh;
+    width: 15vh;
+    height: 15vh;
 }
 
 #lista{
     margin-left: 10px;
+    align-self: center;
 }
+
+form{
+    display:grid;
+}
+
+
+
 .cuarto-amarillo {
-    width: 10vh; 
-    height: 10vh;
+    width: 13vh; 
+    height: 13vh;
     background: yellow;
     align-self: flex-end;
     text-align: left;
@@ -65,8 +78,8 @@
     color: black;
 }
 .cuarto-verde {
-    width: 10vh; 
-    height: 10vh;
+    width: 13vh; 
+    height: 13vh;
     justify-self: right;
     text-align: right;
     padding-right: 2%;
@@ -82,8 +95,8 @@
     background: green;
 }
 .cuarto-azul {
-    width: 10vh; 
-    height: 10vh;
+    width: 13vh; 
+    height: 13vh;
     grid-column: 2;
     grid-row: 2;
     text-align: left;
@@ -115,9 +128,12 @@ h1{
     #circulo {
         grid-template-columns: 1fr 1fr 2fr;
     }
-    
     #parametros{
-        justify-self: center;
+        grid-column-start: 3;
+        grid-row-start: 2;
+        grid-template-rows: 3vh 3vh;
+        row-gap: 15%;
+        margin-left: 5%;
     }
 
 

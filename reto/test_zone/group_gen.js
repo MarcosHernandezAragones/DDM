@@ -1,9 +1,9 @@
 
 
-$orden=[4,3,1,2];//TEST ONLY 
+//$orden=[4,3,1,2];//TEST ONLY 
 
-$num_grupos=3;//TEST ONLY
-$miembros_grupo=6;//TEST ONLY
+//$num_grupos=3;//TEST ONLY
+//$miembros_grupo=6;//TEST ONLY
 // var $alumnoss=[]                         VALORES TEST AQUI RASCAESQUINAS
 // $alumnoss[0]=[1,"y1","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];//YRGB
 // $alumnoss[1]=[2,"y2","aaaa","sdfg","adf","passwrd",null,1,1,75,25,25,25];

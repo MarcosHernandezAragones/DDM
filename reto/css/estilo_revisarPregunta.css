@@ -1,1 +1,20 @@
 @import 'estilo_fijo.css';
+
+.pregunta{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+h1{
+    text-align: center;
+}
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+form>input[type="radio"]{
+    justify-self: center;
+}
+form>label{
+    justify-self: center;
+}

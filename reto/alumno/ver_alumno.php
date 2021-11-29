@@ -49,11 +49,11 @@
                 <button id="addAlumno" onclick="redirigir('add-alumno')">Añadir Alumno</button>
                 <?php
                     $datos_alumnos_clase=read_alumnoss($cursos[$i]['id_curso'],$cursos[$i]['id_centro']);
+                    
                             
                         if (count($datos_alumnos_clase) == 0) {
                             echo "No hay alumnos en esta clase";
                         }else{
-
                             echo "<table>
                                     <tr id='contenido'>
                                         <th class='alumno'>Nombre</th>
@@ -65,6 +65,9 @@
                                     </tr>";
 
                             for ($gg=0; $gg < count($datos_alumnos_clase); $gg++) { 
+
+
+
 
                                 $idAlumno=$datos_alumnos_clase[$gg][0];
                                 $sql1="select count(idPreguntas) as num_preg_total from preguntas";
@@ -160,6 +163,10 @@
             document.getElementById(idFlecha).classList.toggle("rotar");
 
             
+        }
+
+        function ejemplo1(clase1){
+
         }
     </script>
 </body>

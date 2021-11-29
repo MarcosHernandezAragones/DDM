@@ -35,11 +35,11 @@
 
     
     <main>
-    
+    <div>
     <?php
     for ($i=0; $i < count($preguntas); $i++) {
-
-        echo "<div class=\"pregunta\"><h1>".$preguntas[$i]->enunciado."</h1></div>";
+        echo "<div class='pregunta'>";
+        echo "<div><h1>".$preguntas[$i]->enunciado."</h1></div>";
         
         //empezamos el formulario
         echo "<form action=\"\" method=\"POST\" id=\"formulario".$i."\" onchange=\"actualizarRespAlumno(".$preguntas[$i]->idPregunta.", 'formulario".$i."', '".$idAlumno."')\">\n";
@@ -104,9 +104,13 @@
                     <label for=\"6\">De acuerdo</label>
                     <label for=\"7\">Extremadamente de acuerdo</label>
                     <input type=\"hidden\" name=\"siguiente\" value=\"$i\" id=\"siguiente\">
-                </form>\n";       
+                </form>\n";    
+                
+        echo "</div>";
     }
     ?>
+    </div>
+    
     <button class="salir" onclick="salir('cerrar-sesion')">Salir</button>
     <script src="funciones-js"></script>
     </main>
