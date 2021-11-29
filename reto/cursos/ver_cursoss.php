@@ -40,7 +40,7 @@
             $read_centro=read_centro($id_cent);
             $nombre_centro=$read_centro[1];
             echo "<div id='curso'>
-                <div>$nombre_curso------------$nombre_centro </div>";
+                <h2>$nombre_curso------------$nombre_centro </h2>";
 
             write_admin_forms($id_curso,$id_cent);
                 
@@ -58,8 +58,8 @@
             if ($id_cent == $id_centro_comp) {
                 $read_centro=read_centro($id_cent);
                 $nombre_centro=$read_centro[1];
-                echo "<div>
-                    <div>$nombre_curso------------$nombre_centro </div>";
+                echo "<div id='curso'>
+                    <h2>$nombre_curso</h2>";
                 
                 write_admin_forms($id_curso,$id_cent);
           
@@ -78,8 +78,8 @@
             if ($id_cent == $id_centro_comp) {
                 $read_centro=read_centro($id_cent);
                 $nombre_centro=$read_centro[1];
-                echo "<div>
-                    <div>$nombre_curso------------$nombre_centro </div>
+                echo "<div id='curso'>
+                    <h2>$nombre_curso</h2>
                 </div>";
             }
         }
@@ -94,6 +94,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo_verCursos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>ver clases</title>
 </head>
 <body>

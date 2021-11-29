@@ -39,6 +39,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo_propGrupos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <title>Propones Grupos</title>
 </head>
 <body>
@@ -55,32 +57,27 @@
         <br><br><br><br>
 
         <div id="circulo">
-            <button onclick="comprobar('rojo')" name="Dominante" class="cuarto-rojo cuarto"></button>
-            <button onclick="comprobar('amarillo')" class="cuarto-amarillo cuarto"></button>
-            <button onclick="comprobar('verde')" class="cuarto-verde cuarto"></button>
-            <button onclick="comprobar('azul')" class="cuarto-azul cuarto"></button>
+            <button onclick="comprobar('rojo')" name="Dominante" class="cuarto-rojo cuarto">Dominante</button>
+            <button onclick="comprobar('amarillo')" class="cuarto-amarillo cuarto">Creativo</button>
+            <button onclick="comprobar('verde')" class="cuarto-verde cuarto">Conciliador</button>
+            <button onclick="comprobar('azul')" class="cuarto-azul cuarto">Tecnico</button>
 
             <div id="lista">
                 <div id="id1"></div>
                 <div id="id2"></div>
                 <div id="id3"></div>
-                <div id="id4">
+                <div id="id4"></div>
+            </div>
+
+            <div id="parametros">
+                <div>Numero de grupos:</div> <input type="number" name="grupos" id="grupos" style="width:5vh" onchange="calcAlumnos()" min="0">
+                <div>Alumnos por grupo:</div> <input type="number" name="alumnos" id="alumnos" style="width:5vh" onchange="calcGrupos()" min="0">
             </div>
         </div>
         </div>
         
         <br><br>
-        <button onclick="limpiar()">Reiniciar orden</button>
-
-
-        <br><br>
-        <div id="devolver"></div>
-        <br><br>
-        <div>Numero de grupos: <input type="number" name="grupos" id="grupos" style="width:5vh" onchange="calcAlumnos()" min="0"></div>
-        <div>Alumnos por grupo: <input type="number" name="alumnos" id="alumnos" style="width:5vh" onchange="calcGrupos()" min="0"></div>
-        
-        
-
+        <button onclick="limpiar()" id="limpiar">Reiniciar orden</button>        
     </main>
 
 

@@ -101,43 +101,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo_alumno.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Preguntas Alumno</title>
 </head>
 <body>
     <?php include_once "../menu_fijo.php"?>
     
     <main>
-        <div class="pregunta"><h1><?php echo $preguntasPorResponder[$i]->enunciado; ?></h1></div>
-        <div class="explicacion"><h3><?php echo $preguntasPorResponder[$i]->explicacion; ?></h3></div>
-        <?php 
-            echo "Pregunta ".($i+1)." de ".count($preguntasPorResponder);
-        ?>
-        <form action="" method="POST" id="form_respuestas">
-            <input class="resp_gigante" type="radio" name="respuesta" id="1" value=0 required >
-            <input class="resp_grande" type="radio" name="respuesta" id="2" value=17>
-            <input class="resp_mediano" type="radio" name="respuesta" id="3" value=34>
-            <input class="resp" type="radio" name="respuesta" id="4" value=51>
-            <input class="resp_mediano" type="radio" name="respuesta" id="5" value=68>
-            <input class="resp_grande" type="radio" name="respuesta" id="6" value=85>
-            <input class="resp_gigante" type="radio" name="respuesta" id="7" value=100>
-            <label for="1">Extremadamente en desacuerdo</label>
-            <label for="2">En desacuerdo</label>
-            <label for="3">Parcialmente en desacuerdo</label>
-            <label for="4">Neutro</label>
-            <label for="5">Parcialmente de acuerdo</label>
-            <label for="6">De acuerdo</label>
-            <label for="7">Extremadamente de acuerdo</label>
-            <input type="hidden" name="siguiente" value="<?php echo $i?>" id="siguiente">
-        </form>
-        <?php 
-            if ($i!=count($preguntasPorResponder)-1) {
-                echo "<input type=\"submit\" name=\"boton\" value=\"Siguiente\" id=\"next\" form=\"form_respuestas\">";
-            }else echo "<input type=\"submit\" name=\"enviar\" value=\"Enviar Respuestas\" onclick=\"redirigir('adios')\" id=\"finish\" form=\"form_respuestas\">";
-        ?>
-        
-        
+        <div id="grid-container">
+            <div class="pregunta"><h1><?php echo $preguntasPorResponder[$i]->enunciado; ?></h1></div>
+            <div class="explicacion"><h3> Definición: <?php echo $preguntasPorResponder[$i]->explicacion; ?></h3></div>
+            <div class="num_pregunta">
+                <?php 
+                    echo "Pregunta ".($i+1)." de ".count($preguntasPorResponder);
+                ?>
+            </div>
+            
+            <form action="" method="POST" id="form_respuestas">
+                <input class="resp_gigante" type="radio" name="respuesta" id="1" value=0 required >
+                <input class="resp_grande" type="radio" name="respuesta" id="2" value=17>
+                <input class="resp_mediano" type="radio" name="respuesta" id="3" value=34>
+                <input class="resp" type="radio" name="respuesta" id="4" value=51>
+                <input class="resp_mediano" type="radio" name="respuesta" id="5" value=68>
+                <input class="resp_grande" type="radio" name="respuesta" id="6" value=85>
+                <input class="resp_gigante" type="radio" name="respuesta" id="7" value=100>
+                <label for="1">Extremadamente en desacuerdo</label>
+                <label for="2">En desacuerdo</label>
+                <label for="3">Parcialmente en desacuerdo</label>
+                <label for="4">Neutro</label>
+                <label for="5">Parcialmente de acuerdo</label>
+                <label for="6">De acuerdo</label>
+                <label for="7">Extremadamente de acuerdo</label>
+                <input type="hidden" name="siguiente" value="<?php echo $i?>" id="siguiente">
+            </form>
+            <?php 
+                if ($i!=count($preguntasPorResponder)-1) {
+                    echo "<input type=\"submit\" name=\"boton\" value=\"Siguiente\" id=\"next\" form=\"form_respuestas\">";
+                }else echo "<input type=\"submit\" name=\"enviar\" value=\"Enviar Respuestas\" onclick=\"redirigir('adios')\" id=\"finish\" form=\"form_respuestas\">";
+            ?>
+            
+            
+            
+        </div>
         <button class="salir" onclick="salir('cerrar-Sesion')">Salir</button>
     </main>
+        
     <script type="text/javascript" src="funciones-js"></script>
 </body>
 </html>

@@ -26,11 +26,7 @@
     <link rel="stylesheet" href="../css/estilo_veralumno.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Ver Alumnos</title>
-    <style>
-        .alumno{
-            display: inline-block;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -44,91 +40,106 @@
             for ($i=0; $i < count($cursos); $i++) { 
 
     ?>       
-            <div id="<?php echo $cursos[$i]['name']; ?>">
-                <h2 class="titulo"><?php echo $cursos[$i]['name']; ?> <a onclick="apariencia('<?php echo $cursos[$i]['name']; ?>','flecha<?php echo $i;?>' )"><i  id="flecha<?php echo $i;?>" class="fas fa-caret-right"></i></a></h2>
-            <form action="add-alumno" method="post">
-                <input id="addAlumno" type="submit" value="Añadir alumno">
-            </form>
+        <div id="<?php echo $cursos[$i]['name']; ?>">
+                <h2 class="titulo"><?php echo $cursos[$i]['name']; ?> <a onclick="apariencia('<?php echo $cursos[$i]['name']; ?>','flecha<?php echo $i;?>' )"><i  id="flecha<?php echo $i;?>" class="fas fa-caret-right rotar"></i></a></h2>
+            
+            
 
-            <div class="alumnos">
-        <?php
-            $datos_alumnos_clase=read_alumnoss($cursos[$i]['id_curso'],$cursos[$i]['id_centro']);
-                    
-                if (count($datos_alumnos_clase) == 0) {
-                    echo "No hay alumnos en esta clase";
-                }else{
-                    for ($gg=0; $gg < count($datos_alumnos_clase); $gg++) { 
-
-                        $idAlumno=$datos_alumnos_clase[$gg][0];
-                        $sql1="select count(idPreguntas) as num_preg_total from preguntas";
-                        $consulta = $conexion->prepare($sql1);
-                        $consulta->execute();
-                        $total_preguntas=$consulta->fetch();
-
-                        $sql2="SELECT count(preguntas_idPreguntas) as num_preg_r FROM alumno_has_preguntas WHERE alumno_usuario_idUsuario=\"$idAlumno\"";
-                        
-                        $consulta = $conexion->prepare($sql2);
-                        $consulta->execute();
-                        $respondias=$consulta->fetch();
-    
-                        $nombre=$datos_alumnos_clase[$gg][1];
-                        $apell=$datos_alumnos_clase[$gg][2];
-
-                        $rojo=$datos_alumnos_clase[$gg][10];
-                        $verde=$datos_alumnos_clase[$gg][11];
-                        $azul=$datos_alumnos_clase[$gg][12];
-                        $amarillo=$datos_alumnos_clase[$gg][9];
-
-                        $id_alumno=$datos_alumnos_clase[$gg][0];
-
-                        echo "
-                            <div id='contenido'>
-                                <div class='alumno'>
-                                    $nombre $apell:
-                                </div> 
-
-                                <div class='rojo'>
-                                    $rojo% 
-                                </div> 
-
-                                <div class='azul'>
-                                    $azul% 
-                                </div> 
-
-                                <div class='amarillo'>
-                                    $amarillo% 
-                                </div> 
-
-                                <div class='verde'>
-                                    $verde% 
-                                </div>  
-
-                                <div class='preguntas'>
-                                    ".$respondias->num_preg_r."/".$total_preguntas->num_preg_total."
-                                </div>
+            <div class="invisible">
+                <button id="addAlumno" onclick="redirigir('add-alumno')">Añadir Alumno</button>
+                <?php
+                    $datos_alumnos_clase=read_alumnoss($cursos[$i]['id_curso'],$cursos[$i]['id_centro']);
                             
-                                <div id='form_alumno'>
-                                    <form action='editar-alumno' method='post'>
-                                        <input type='hidden' name='id_alumn' value='$id_alumno'>
-                                        <input type='submit' id='editar'value='Edit'>
-                                    </form>
-                                </div> 
+                        if (count($datos_alumnos_clase) == 0) {
+                            echo "No hay alumnos en esta clase";
+                        }else{
 
-                                <div id='form_alumno_del'>
-                                    <form action='eliminar-alumno' method='post'>
-                                        <input type='hidden' name='id_alumn' value='$id_alumno'> 
-                                        <input type='submit' id='editar' value='DELETE'>
-                                    </form>
-                                </div>
-                            </div>
-                            <br>"
-                            ;
+                            echo "<table>
+                                    <tr id='contenido'>
+                                        <th class='alumno'>Nombre</th>
+                                        <th class='rojo'>Lider</th>
+                                        <th class='azul'>Trabajador</th>
+                                        <th class='amarillo'>Creativo</th>
+                                        <th class='verde'>Conciliador</th>
+                                        <th class='preguntas'>Preguntas Respondidas</th>
+                                    </tr>";
 
-                        
-                    }
-                }
-        ?>
-            </div></div>
+                            for ($gg=0; $gg < count($datos_alumnos_clase); $gg++) { 
+
+                                $idAlumno=$datos_alumnos_clase[$gg][0];
+                                $sql1="select count(idPreguntas) as num_preg_total from preguntas";
+                                $consulta = $conexion->prepare($sql1);
+                                $consulta->execute();
+                                $total_preguntas=$consulta->fetch();
+
+                                $sql2="SELECT count(preguntas_idPreguntas) as num_preg_r FROM alumno_has_preguntas WHERE alumno_usuario_idUsuario=\"$idAlumno\"";
+                                
+                                $consulta = $conexion->prepare($sql2);
+                                $consulta->execute();
+                                $respondias=$consulta->fetch();
+            
+                                $nombre=$datos_alumnos_clase[$gg][1];
+                                $apell=$datos_alumnos_clase[$gg][2];
+
+                                $rojo=$datos_alumnos_clase[$gg][10];
+                                $verde=$datos_alumnos_clase[$gg][11];
+                                $azul=$datos_alumnos_clase[$gg][12];
+                                $amarillo=$datos_alumnos_clase[$gg][9];
+
+                                $id_alumno=$datos_alumnos_clase[$gg][0];
+
+                                echo "
+                                    <tr><td>
+                                        <div id='contenido'>
+                                            <div class='alumno'>
+                                                $nombre $apell:
+                                            </div> 
+
+                                            <div class='rojo'>
+                                                $rojo% 
+                                            </div> 
+
+                                            <div class='azul'>
+                                                $azul% 
+                                            </div> 
+
+                                            <div class='amarillo'>
+                                                $amarillo% 
+                                            </div> 
+
+                                            <div class='verde'>
+                                                $verde% 
+                                            </div>  
+
+                                            <div class='preguntas'>
+                                                ".$respondias->num_preg_r."/".$total_preguntas->num_preg_total."
+                                            </div>
+                                        
+                                            <div id='form_alumno'>
+                                                <form action='editar-alumno' method='post'>
+                                                    <input type='hidden' name='id_alumn' value='$id_alumno'>
+                                                    <input type='submit' id='editar'value='Edit'>
+                                                </form>
+                                            </div> 
+
+                                            <div id='form_alumno_del'>
+                                                <form action='eliminar-alumno' method='post'>
+                                                    <input type='hidden' name='id_alumn' value='$id_alumno'> 
+                                                    <input type='submit' id='editar' value='DELETE'>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td></tr>"
+                                    ;
+
+                                
+                            }
+
+                            echo "</table>";
+                        }
+                ?>
+            </div>
+        </div>
     <?php
             }
 
@@ -140,7 +151,7 @@
 
             //hacemos que aparezca o desaparezca el contenido del curso
             var aux = document.getElementById(curso);
-            aux.lastChild.classList.toggle("invisible");
+            aux.children[1].classList.toggle("alumnos");
             aux.children[1].classList.toggle("invisible");
 
             console.log(idFlecha);

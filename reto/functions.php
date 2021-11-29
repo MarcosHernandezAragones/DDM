@@ -3,7 +3,7 @@
 
 
 function conectar_BD(){
-    $servidor = "192.168.4.171";
+    $servidor = "localhost";
     $usuario = "DDM";
     $password = "Admin1234!";
     $baseDatos="reto";
