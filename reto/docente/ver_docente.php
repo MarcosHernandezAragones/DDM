@@ -11,7 +11,9 @@
     
     $chek_chek=check_doc_rol($_SESSION['user']);// $check_check = [es_admin, es_superadmin, [datos profesor]]
     
-
+    if (!($chek_chek[0] || $chek_chek[1])) {
+        header("Location: profesor");
+    }
     function mostrar_docentes_centro_admin($identif_centro){//muestra los docentes de un centro  con las opciones de editar y borrar
         $datos_doc_all=read_docentess($identif_centro);
         $centro_aux="";
@@ -31,10 +33,22 @@
                 $centro_aux=$centro;
                 echo "<h1>$centro</h1>";
             }
-            echo  "<div id='docentes'>";
-            echo "<div >$nombre </div>  <div >$apellidos</div> <div >$correo</div>";
+            echo "<div id='docentes'>";
+            echo "<div class='primero'>Nombre: </div>";
+            echo "<div>$nombre</div>
+
+                  <div class='primero'>Apellido: </div>
+                  <div>$apellidos</div>
+
+                  <div class='primero'>Correo: </div>
+                  <div>$correo</div>";
             
-            echo "<div >$rol</div> <div >$centro</div> 
+            echo "<div class='primero'>Rol: </div>
+                  <div>$rol</div>
+
+                  <div class='primero'>Correo: </div>
+                  <div>$centro</div> 
+
             <form action='editar-profesor' method='post'>
                 <input type='hidden' name='id_doof' value='$id_prof'>
                 <input type='submit' value='Edit'>
@@ -61,9 +75,9 @@
             $centro=$centroarr[1];
             echo "<h1>$centro</h1><br>";
             echo  "<div>";
-            echo "<div >$nombre </div>  <div >$apellidos</div> <div >$correo</div>";
+            echo "<div >Nombre: $nombre </div>  <div>Apellido: $apellidos</div> <div >Correo: $correo</div>";
             
-            echo "<div >$rol</div> <div >$centro</div> </div>";
+            echo "<div >Rol: $rol</div> <div >Centro: $centro</div> </div>";
         }
     }
 
@@ -90,8 +104,8 @@
         <h1>Ver Docentes</h1>
         <form action="add-profesor" id="addDocente" method="post">
             <input type="hidden" name="confir" value="a">
-            <input type="submit" value="Añadir Docente">
-            <input type="button"  onclick="salir('ver-cursos-docente')" value="Añadir a un curso">
+            <input type="submit" value="Añadir nuevo Docente">
+            <input type="button"  onclick="salir('ver-cursos-docente')" value="Asignar docente a un curso">
         </form>
 
 

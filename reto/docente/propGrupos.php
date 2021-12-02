@@ -9,6 +9,7 @@
 
     if (isset($_POST['id_curso'])) {
         $id_curso=$_POST['id_curso'];
+        $_SESSION["id_curse"]=$_POST['id_curso'];
     }
     
 
@@ -68,12 +69,12 @@
                     <div id="id3">Amarillo</div>
                     <div id="id4">Rojo</div>
                 </div>
-            <form action="#" method="post">
+            <form action="mostrar-grupos" method="post" onsubmit="return verificar()">
                 <input type="hidden" name="orden" id="orden" value="">
-                <input type="hidden" name="curso" id="curso" value="<?php $id_curso?>">
+                <input type="hidden" name="curso" id="curso" value="<?php echo $id_curso;?>">
                 <div id="parametros">
-                    <div>Numero de grupos:</div> <input type="number" name="grupos" id="grupos" style="width:5vh" onchange="calcAlumnos()" min="0" required>
-                    <div>Alumnos por grupo:</div> <input type="number" name="alumnos" id="alumnos" style="width:5vh" onchange="calcGrupos()" min="0" required>
+                    <div>Numero de grupos:</div> <input type="number" name="grupos" id="grupos" style="width:5vh" onchange="calcAlumnos()" min="2" required>
+                    <div>Alumnos por grupo:</div> <input type="number" name="alumnos" id="alumnos" style="width:5vh" onchange="calcGrupos()" min="2" required>
                 </div>
             </div>
             </div>
@@ -145,6 +146,10 @@
             
             var alumRecomendados = (alumnosCurso/numGrupos);
 
+            if (document.getElementById("alumnos")>=alumnosCurso){
+                document.getElementById("alumnos").value = 2;
+            }
+
             if (Number.parseInt(alumRecomendados)==1) {
                 document.getElementById("grupos").setAttribute("max", (numGrupos-1));
                 document.getElementById("grupos").value = (numGrupos-1);
@@ -157,6 +162,10 @@
         function calcGrupos(){
             var numAlumnos = document.getElementById("alumnos").value;
 
+            if (document.getElementById("grupos")>=alumnosCurso){
+                document.getElementById("grupos").value = 2;
+            }
+
             var gruposRecomendados = (alumnosCurso/numAlumnos);
 
             if (Number.parseInt(gruposRecomendados)==1) {
@@ -164,8 +173,19 @@
                 document.getElementById("alumnos").value = (numAlumnos-1);
                 document.getElementById("grupos").value = Number.parseInt(gruposRecomendados+1);
             }else{document.getElementById("grupos").value = Number.parseInt(gruposRecomendados);}
+
+
         }
 
+        function verificar(){
+
+            if(document.getElementById("grupos").value<2 || document.getElementById("alumnos").value<2){
+                return false;
+            }
+
+            return true;
+            
+        }
 
     </script>
 </body>

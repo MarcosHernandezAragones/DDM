@@ -1,7 +1,4 @@
 <?php
-// busqueda rapida de crud con Ctrl+F CRUD_[crud que deseas buscar]
-
-
 function conectar_BD(){
     $servidor = "localhost";
     $usuario = "DDM";
@@ -141,9 +138,9 @@ function update_usuario($apellidos,$correo,$DNI,$nombre,$passwrd,$id_user){
 
 
 
-//////////////////////////////////////////////////////////////////////// returns [$id_alumno,$nombre,$apellidos,$DNI,$correo,$passwrd,$grupo,$centro,$curso,$amarillo,$rojo,$verde,$azul]
+////////////////////////////////////////////////////////////////////////
 /////////////////////////////CRUD_ALUMNO////////////////////////////////
-//////////////////////////////////////////////////////////////////////// 
+////////////////////////////////////////////////////////////////////////
 
 
 function delete_alumnos($id_alumno){
@@ -302,7 +299,7 @@ function read_alumnoss($curso,$centro){
 
 
 
-//////////////////////////////////////////////////////////////////////// returns [$idRol,$nombre_rol]
+////////////////////////////////////////////////////////////////////////
 ////////////////////////////////CRUD_ROL////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -382,7 +379,7 @@ function read_rolss(){
 
 
 
-//////////////////////////////////////////////////////////////////////// returns [$id_profesor,$nombre,$apellidos,$DNI,$correo,$passwrd,$rol,$centro]
+////////////////////////////////////////////////////////////////////////
 ////////////////////////////CRUD_PROFESOR///////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -526,7 +523,7 @@ function read_docentess($centro){
 
 
 
-//////////////////////////////////////////////////////////////////////// returns [$id_centro,$nombre_centro,$localizacion_centro]
+////////////////////////////////////////////////////////////////////////
 ////////////////////////////CRUD_CENTRO/////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -614,7 +611,7 @@ function read_centross(){
 
 
 
-//////////////////////////////////////////////////////////////////////// returns [$nombre_curso,$id_curso,$id_centro]
+////////////////////////////////////////////////////////////////////////
 //////////////////////////////CRUD_CURSO////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -703,7 +700,7 @@ function read_cursoss(){
 
 
 
-//////////////////////////////////////////////////////////////////////// returns [$id_profesor,$id_curso,$id_centro]
+////////////////////////////////////////////////////////////////////////
 /////////////////////////CRUD_CURSO_HAS_DOCENTE/////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -812,7 +809,7 @@ function read_curso_has_docentess(){
 
 
 
-//////////////////////////////////////////////////////////////////////// returns [$id_grupo,$nombre grupo ,$id_curso,$id_centro]
+////////////////////////////////////////////////////////////////////////
 ////////////////////////////CRUD_GRUPO//////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -872,6 +869,37 @@ function read_grupo($id_grupo){
     return $datos_grup;
 }
 
+function read_grupo_curso($id_curso,$id_centro){/////////////////////////////////////put me in shared visual studio
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM grupo WHERE curso_idCurso=\"$id_curso\" AND curso_centro_idCentro=\"$id_centro\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $datos_todos=[];
+    $cont=0;
+
+    while ( $fila1=$consulta1->fetch()) {
+        $nombre_curso=$fila1->nombre;
+        $id_grupo=$fila1->idGrupo;
+        $nombre=$fila1->nombre;
+        $id_curs=$fila1->curso_idCurso;
+        $id_centre=$fila1->curso_centro_idCentro;
+
+    
+
+
+        $datos_grup=[$id_grupo,$nombre,$id_curs,$id_centre];
+
+        $datos_todos[$cont]=$datos_grup;
+        $cont++;
+    }
+
+    $conexx = null;
+    return $datos_todos;//[[datos grupo], [datos grupo2],...]
+}
+
 function read_gruposs(){
     $conexx=conectar_BD();
 
@@ -903,6 +931,44 @@ function read_gruposs(){
     return $datos_todos;
 }
 
+function read_gruposs_curso($id_curse,$id_centre){
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM grupo WHERE curso_centro_idCentro=\"$id_centre\" AND curso_idCurso=\"$id_curse\" ORDER BY curso_centro_idCentro, curso_idCurso ASC";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $cuenta = $consulta1->rowCount();
+    if ($cuenta == 0) {
+        return false;
+    }else {
+        
+    
+        $datos_todos=[];
+        $cont=0;
+
+        
+        while ( $fila1=$consulta1->fetch()) {
+            $nombre_curso=$fila1->nombre;
+            $id_grupo=$fila1->idGrupo;
+            $nombre=$fila1->nombre;
+            $id_curs=$fila1->curso_idCurso;
+            $id_centre=$fila1->curso_centro_idCentro;
+
+        
+
+
+            $datos_grup=[$id_grupo,$nombre,$id_curs,$id_centre];
+
+            $datos_todos[$cont]=$datos_grup;
+            $cont++;
+        }
+
+        $conexx = null;
+        return $datos_todos;
+    }
+}
 
 
 

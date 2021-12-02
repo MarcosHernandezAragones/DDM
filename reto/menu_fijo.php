@@ -1,5 +1,4 @@
 <?php
-$ruta=$_SESSION['ruta_principio'];
 if (isset($_SESSION['rol'])) {
     $rol = $_SESSION['rol'];
 }else{
@@ -14,6 +13,7 @@ echo "<section>
             if($rol==0) {
                 echo "<p class=\"usuario_contro\">$nombre</p>";
                 echo "<a href=\"revisar-respuestas\">Revisar respuestas</a>";
+                echo "<a href=\"cerrar-sesion\">Salir</a>";
             }
             
             if($rol>0){
@@ -34,6 +34,7 @@ echo "<section>
             }
         echo "</div>";
         
+
         echo "<div id='menu_movil'>";
             echo "<input type='checkbox' onchange='desaparecer()'>";
             echo "<i class='fas fa-bars'></i>";
@@ -41,8 +42,9 @@ echo "<section>
             echo "<nav>";
                 echo "<ul>";
                     if($rol==0) {
-                        echo "<li><p class=\"usuario_contro\">$nombre</p>";
-                        echo "<li><a href=\"revisar-respuestas\">Revisar respuestas</a>";
+                        echo "<li><p class=\"usuario_contro\">$nombre</p></li>";
+                        echo "<li><a href=\"revisar-respuestas\">Revisar respuestas</a></li>";
+                        echo "<li><a href=\"cerrar-sesion\">Salir</a></li>";
                     }
                     
                     if($rol>0){
@@ -61,7 +63,7 @@ echo "<section>
                         echo "<li><a href=\"centros\">Administrar Centros</a></li>";
                         echo "<li><a href=\"crear-preguntas\">Administrar Preguntas</a></li>";
                     }
-                echo "<ul>";
+                echo "</ul>";
             echo "</nav>";
         echo "</div>"; 
 

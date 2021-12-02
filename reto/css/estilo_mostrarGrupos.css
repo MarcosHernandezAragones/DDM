@@ -1,0 +1,53 @@
+@import 'estilo_fijo.css';
+
+#test{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+label{
+    text-align: center;
+    width: 100%;
+}
+.droptarget{
+    justify-self: center;
+    grid-row-start: 2;
+}
+#test > div{
+
+    width: 20vh;
+    height: 100%;
+    margin-left: 2%;
+    margin-top: 2%;
+    background-color: #ddd;
+    border: 3px solid #592a51;
+    display: inline-block;
+    padding-bottom: 5%;
+}
+.alumno{
+    margin-top: 2%;
+    width:100%;
+    height: 3vh;
+    background-color: whitesmoke;
+}
+
+@media only screen and (max-width:576px){
+    main{
+        top: 15%;
+    }
+    #test{
+        margin-top: 2%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+    .droptarget{
+        text-align: center;
+        align-self: center;
+    }
+    #test > div{
+        width: 48%;
+    }
+
+}

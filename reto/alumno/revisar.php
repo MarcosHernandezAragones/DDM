@@ -96,13 +96,13 @@
             }
 
         //labels de los radiobuttons
-        echo "  <label for=\"1\">Extremadamente en desacuerdo</label>
-                    <label for=\"2\">En desacuerdo</label>
-                    <label for=\"3\">Parcialmente en desacuerdo</label>
-                    <label for=\"4\">Neutro</label>
-                    <label for=\"5\">Parcialmente de acuerdo</label>
-                    <label for=\"6\">De acuerdo</label>
-                    <label for=\"7\">Extremadamente de acuerdo</label>
+        echo "  <label id='f1' name='repuesta' for=\"1\">Extremadamente en desacuerdo</label>
+                    <label id='f2' for=\"2\">En desacuerdo</label>
+                    <label id='f3' for=\"3\">Parcialmente en desacuerdo</label>
+                    <label id='f4' for=\"4\">Neutro</label>
+                    <label id='f5' for=\"5\">Parcialmente de acuerdo</label>
+                    <label id='f6' for=\"6\">De acuerdo</label>
+                    <label id='f7' for=\"7\">Extremadamente de acuerdo</label>
                     <input type=\"hidden\" name=\"siguiente\" value=\"$i\" id=\"siguiente\">
                 </form>\n";    
                 

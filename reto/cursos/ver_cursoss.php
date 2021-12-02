@@ -9,7 +9,11 @@
  
 
     $chek_chek=check_doc_rol($_SESSION['user']);// entra tras enviar los datos del formulario de la misma pagina
-
+    
+    
+    if (!($chek_chek[0] || $chek_chek[1])) {
+        header("Location: profesor");
+    }
     if (!$chek_chek[0] && !$chek_chek[1]) {
         echo "Acceso denegado por motivos random";
         //redirect a landpage pendiente

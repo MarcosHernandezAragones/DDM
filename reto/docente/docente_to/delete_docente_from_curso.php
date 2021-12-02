@@ -16,7 +16,7 @@
             delete_curso_has_docente($id_doof, $id_centre, $id_curse);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:0;url=ver-cursos-docente");
+            header("refresh:15;url=ver-cursos-docente");
         }
         //header("Location: ver_cursoss.php");
         header("refresh:0;url=ver-cursos-docente");

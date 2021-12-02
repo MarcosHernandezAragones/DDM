@@ -79,7 +79,7 @@
 
 
     
-        <form action="insertar-fichero" id="varias" method="post" enctype="multipart/form-data">  
+        <form action="insertar-fichero-preguntas" id="varias" method="post" enctype="multipart/form-data">  
         
             <h1>INTRODUCIR VARIAS PREGUNTAS</h1>
 

@@ -33,20 +33,17 @@ h1{
     margin-bottom: 2%;
 }
 #docentes{
+    text-align: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
     grid-template-rows: 1fr;
     margin-top: 2%;
 }
+.primero{
+    display: none;
+}
 #docentes>form>input[type="submit"]{
     width: 70%;
-}
-.atras{
-    margin-top: 30vh;
-    margin-left: 5vh;
-    width: 90%;
-    font-size: 2vh;
-    height: 3vh;
 }
 
 @media only screen and (min-width: 1433px) and (max-width: 1585px){
@@ -84,14 +81,6 @@ h1{
     #docentes>form>input[type="submit"]{
         width: 70%;
     }
-    .atras{
-        margin-top: 30vh;
-        margin-left: 5vh;
-        width: 90%;
-        font-size: 2vh;
-        height: 3vh;
-    }
-    
 }
 
 @media only screen and (min-width: 1381px) and (max-width: 1432px){
@@ -129,13 +118,6 @@ h1{
     }
     #docentes>form>input[type="submit"]{
         width: 70%;
-    }
-    .atras{
-        margin-top: 30vh;
-        margin-left: 5vh;
-        width: 90%;
-        font-size: 2vh;
-        height: 3vh;
     }
 }
 
@@ -175,18 +157,9 @@ h1{
     #docentes>form>input[type="submit"]{
         width: 70%;
     }
-    .atras{
-        margin-top: 30vh;
-        margin-left: 5vh;
-        width: 90%;
-        font-size: 2vh;
-        height: 3vh;
-    }
 }
 
 @media only screen and (min-width: 734px) and (max-width: 1058px){
-    
-    
     h1{
         order: 1;
         align-self: center;
@@ -209,38 +182,21 @@ h1{
         order: 3;
     }
     #contenido>h1{
-        margin-left: 15%;
+        margin-left: 35%;
         margin-bottom: 2%;
     }
     #docentes{
         display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr  1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
         margin-top: 2%;
     }
     #docentes>form>input[type="submit"]{
         width: 70%;
-        margin-left: 5%;
     }
-
-    
-    .atras{
-        order: 4;
-        margin-top: 20%;
-        width: 60%;
-        margin-left: 20%;
-        font-size: 2.5vh;
-        height: 3vh;
-    }
-    
-    
-    
 }
 
 @media only screen and (min-width: 577px) and (max-width: 733px){
-    
-   
-
     h1{
         order: 1;
         align-self: center;
@@ -268,23 +224,23 @@ h1{
     }
     #docentes{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 0.5fr 1fr;
         grid-template-rows: 1fr  1fr 1fr 1fr 1fr 1fr 1fr;
         margin-top: 2%;
+    }
+    div{
+        display: grid;
+        text-align: left;
+        margin-left: 2%;
+    }
+    .primero{
+        display: grid;
+        margin-right: 2%;
+        text-align: right;
     }
     #docentes>form>input[type="submit"]{
         width: 70%;
         margin-left: 5%;
-    }
-
-    
-    .atras{
-        order: 4;
-        margin-top: 20%;
-        width: 60%;
-        margin-left: 20%;
-        font-size: 2.5vh;
-        height: 3vh;
     }
     
 }
@@ -318,23 +274,21 @@ h1{
     }
     #docentes{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 0.5fr 1fr;
         grid-template-rows: 1fr  1fr 1fr 1fr 1fr 1fr 1fr;
         margin-top: 2%;
+    }
+    div{
+        text-align: left;
+        margin-left: 2%;
+    }
+    .primero{
+        display: grid;
+        margin-right: 2%;
+        text-align: right;
     }
     #docentes>form>input[type="submit"]{
         width: 70%;
         margin-left: 5%;
     }
-
-    
-    .atras{
-        order: 4;
-        margin-top: 20%;
-        width: 60%;
-        margin-left: 20%;
-        font-size: 2.5vh;
-        height: 3vh;
-    }
-    
 }

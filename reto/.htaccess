@@ -12,6 +12,7 @@ Deny from 192.168.4.62
     RewriteRule ^add-alumno$ alumno/crear_alumno.php [L,NC]
     RewriteRule ^eliminar-alumno$ alumno/delete_alumno.php [L,NC]
     RewriteRule ^editar-alumno$ alumno/editar_alumno.php [L,NC]
+    RewriteRule ^insertar-fichero-alumno alumno/insertarFicheroAlumno.php [L,NC]
     RewriteRule ^revisar-respuestas$ alumno/revisar.php [L,NC]
     RewriteRule ^editar-respuesta$ alumno/update_respuesta.php[L,NC]
     RewriteRule ^listar-alumnos$ alumno/ver_alumno.php [L,NC]
@@ -47,11 +48,14 @@ Deny from 192.168.4.62
     RewriteRule ^eliminar-grupo$ grupos/delete_grupo.php [L,NC]
     RewriteRule ^editar-grupo$ grupos/editar_grupo.php [L,NC]
     RewriteRule ^grupo$ grupos/ver_grupos.php [L,NC]
-    
+    RewriteRule ^mostrar-grupos$ grupos/mostrar_grupos.php [L,NC]
+    RewriteRule ^java-script$ grupos/group_gen.js [L,NC]
+    RewriteRule ^asignar-grupos$ grupos/asignar_grupos.php [L,NC]
+
     #Carpeta preguntas
     RewriteRule ^add-pregunta$ preguntas/addPregunta.php [L,NC]
     RewriteRule ^crear-preguntas$ preguntas/CRUDPreguntas.php [L,NC]
-    RewriteRule ^insertar-fichero$ preguntas/insertarFichero.php [L,NC]
+    RewriteRule ^insertar-fichero-preguntas$ preguntas/insertarFichero.php [L,NC]
     RewriteRule ^ver-preguntas$ preguntas/ver_Preguntas.php [L,NC]
 
     #Contenido Carpeta padre

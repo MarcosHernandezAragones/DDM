@@ -32,10 +32,10 @@ if (!isset($_POST["subir"])) {
             if ($linea!=0) {
                 $datos=explode(";",$linea);
             
-                $id=$datos[0];
-                $pregunta=$datos[1];
-                $explicacion=$datos[2];
-                $color=strtolower($datos[3]);
+
+                $pregunta=$datos[0];
+                $explicacion=$datos[1];
+                $color=strtolower($datos[2]);
                 
                 
     
@@ -63,7 +63,7 @@ if (!isset($_POST["subir"])) {
     
                 
     
-                $query = "INSERT INTO preguntas VALUES ($id,\"$pregunta\",\"$explicacion\",$color)";
+                $query = "INSERT INTO preguntas('enunciado', explicacion, tipo_idTipo) VALUES (\"$pregunta\",\"$explicacion\",$color)";
                 // echo $query."<br>";
                 $conexion->query($query);
                

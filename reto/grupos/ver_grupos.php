@@ -5,7 +5,8 @@
     //$_SESSION['id_prof']=4;//test only 
     
 
-    $chek_chek=check_doc_rol($_SESSION['user']);// entra tras enviar los datos del formulario de la misma pagina
+    
+    
     $id=$_SESSION['user'];
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];

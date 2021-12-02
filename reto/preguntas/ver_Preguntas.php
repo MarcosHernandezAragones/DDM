@@ -4,6 +4,14 @@
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
+
+    $chek_chek=check_doc_rol($_SESSION['user']);
+
+    if (!($chek_chek[0] || $chek_chek[1])) {
+        header("Location: profesor");
+    }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

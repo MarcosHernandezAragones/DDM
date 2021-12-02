@@ -29,9 +29,9 @@
             update_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso,$idGrupo,$id_alumno);
         } catch (Exception $th) {
             echo $th;
-            header("refresh:0;url=listar-alumno");
+            header("refresh:0;url=listar-alumnos");
         }
-        header("Location: listar-alumno");
+        header("Location: listar-alumnos");
     }else if (isset($_POST['id_alumn'])) {
     
         $datos_alumno=read_alumno($_POST['id_alumn']);
@@ -113,7 +113,7 @@
 <?php
 
 }else {
-    header("Location: listar-alumno");
+    header("Location: listar-alumnos");
 }
 
 

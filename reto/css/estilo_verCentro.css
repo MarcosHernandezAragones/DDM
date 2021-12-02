@@ -34,14 +34,7 @@ h1{
 #del{
     grid-column: 4/6;
 }
-.atras{
-    align-self: center;
-    order: 4;
-    width: 60%;
-    margin-top: 20%;
-    height: 3vh;
-    font-size: 2vh;
-}
+
 
 @media only screen and (min-width: 1433px) and (max-width: 1585px){
     h1{

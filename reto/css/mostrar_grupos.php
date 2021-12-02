@@ -1,34 +1,24 @@
-<?php session_start();
+<?php
 
     include_once "../functions.php";
     include_once "test_grupos.php";
-    $id=$_SESSION['user'];
-    $nombre=$_SESSION['nombre'];
-    $centro=$_SESSION['centro'];
-    $rol=$_SESSION['rol'];
     $first_time=true;
     
 ///////////////////test
-    $chek_chek=check_doc_rol($_SESSION['user']);//$datos_doc_all[$i][7]
 
-
-
-    $num_grupos=$_POST["grupos"];
-    $miembros_grupo=$_POST["alumnos"];
+    $num_grupos=2;
+    $miembros_grupo=4;
     $orden=[4,3,1,2];
 
-    $id_curso=$_SESSION["id_curse"];
-    
-    $id_centro=$chek_chek[2][7];
-    
+    $id_curso=1;
+    $id_centro=1;
 
 
     $alumnoss=read_alumnoss($id_curso,$id_centro);
     
     $grupos_clase=read_grupo_curso($id_curso,$id_centro);
-    
     //print_r($grupos_clase);
-  
+
     if (count($grupos_clase) != 0) {
       $first_time=false;
 
@@ -52,24 +42,19 @@
       $al_gru_jso=json_encode($al_cat);
 
     }else {
-      
       $alumnoss_aux=group_maker($alumnoss,$num_grupos,$miembros_grupo,$orden);
-      //print_r($alumnoss_aux);
+
       $alumnoss_gru=$alumnoss_aux[0];
       $alumnoss_nokat=$alumnoss_aux[1];
-      //print_r($alumnoss_nokat);
-      if (is_array($alumnoss_nokat)) {
-        $alumnoss_nokat=array_values($alumnoss_nokat);
-      }
-      
+      //$alumnoss_nokat=array_values($alumnoss_nokat);
 
       
       $al_nokat_jso=json_encode($alumnoss_nokat);
-      //echo $al_nokat_jso;
+
       $al_gru_jso=json_encode($alumnoss_gru);
     }
     
-   
+    
 ?>
 
 
@@ -92,15 +77,20 @@
 <body>
   <?php include_once "../menu_fijo.php"?>
       <main>
-    <form action="asignar-grupos" method="post">
+<form action="asignar-grupos" method="post">
       <input id="devolver" type="hidden" name="gru2" value="">
-      <input id="devolver" type="hidden" name="cent" value="<?php echo $id_centro; ?>">
-      <input id="devolver" type="hidden" name="curse" value="<?php echo $id_curso; ?>">
       <input type="submit" onclick="return get_group()" name="gru" value="GUARDAR">
     </form>
     <button onclick="creat_empty_gru()">+ GRUP</button>
     <div id="test">
+      <label>Alumnos sin asignar</label>
     </div>
+    
+    
+
+
+
+
     </main>
 </body>
 </html>
@@ -172,23 +162,23 @@ document.addEventListener("drop", function(event) {
 </script>
 
 <?php
-    if ($first_time) {
+  if ($first_time) {
 ?>
 
 <script>
-        show_jso_gru(<?php echo $al_gru_jso ?>)
+    show_jso_gru(<?php echo $al_gru_jso ?>)
 </script>
 
 <?php
-    }else{
+}else{
 ?>
 
 <script>
-        show_jso_gru_BD(<?php echo $grupos_w ?>,<?php echo $al_gru_jso ?>)
+    show_jso_gru_BD(<?php echo $grupos_w ?>,<?php echo $al_gru_jso ?>)
 </script>
 
 <?php
-    }
+}
 ?>
 
 

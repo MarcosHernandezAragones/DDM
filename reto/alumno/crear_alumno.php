@@ -52,7 +52,7 @@
 <?php include_once "../menu_fijo.php"?>
 
         <main>
-            <h1>Añadir Alumno</h1>
+            <h1>Añadir un Alumno</h1>
 
 
             <div id="formulario">
@@ -96,13 +96,43 @@
                         </select><br>
                         </div>
                     <input type="submit" value="Enviar">
-
-
-
             </form>
             </div>
+
+            <h2>Añadir varios Alumnos</h2>
+                <form action="insertar-fichero-alumno" onsubmit="return validar()" id="varias" method="post" enctype="multipart/form-data">  
+                    <label class="Texto" for="curso">Curso: </label>
+                        <select class="input" name="curso" id="curso" required>
+                            <option value="nil" selected>-----------------</option>
+                            <?php 
+                            for ($i=0; $i < count($cursos); $i++) { 
+                                $value_curso=$cursos[$i]["id_centro"]."!!!".$cursos[$i]["id_curso"];
+
+                                echo" <option value=\"".$value_curso."\" >".$cursos[$i]["name"]."</option>";
+                            }
+
+                            ?>
+                    </select> 
+                <label for="archivo">Selecciona un archivo CSV:</label>
+                <input type="file" name="archivo" id="archivo" accept=".csv" required>
+                <input type="submit" value="Subir Archivo" name="subir">
+            </form>
     </main>
     <script type="text/javascript" src="funciones-js"></script>
+    <script>
+
+        function validar(){
+            archivo = document.getElementById("archivo").value
+            
+            if(archivo.endsWith('.csv')==false){
+                console.log("esto funciona")
+                return false
+            }
+           
+
+        }
+
+    </script>
 </body>
 </html>
 
