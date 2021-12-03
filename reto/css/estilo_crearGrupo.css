@@ -1,0 +1,36 @@
+@import 'estilo_fijo.css';
+h1{
+    order: 1;
+    align-self: center;
+    margin-top: 5%;
+}
+#formulario{
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 2%;
+    order: 2;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 0.5fr;
+    grid-template-rows: 1fr;
+}
+#formulario>label{
+    margin-right: 5%;
+    justify-self: right;
+}
+#formulario>input[type="text"]{
+    width: 90%;
+    margin-left: 5%;
+}
+#formulario>input[type="submit"]{
+    width: 90%;
+    height: 2vh;
+    font-size: 1.5vh;
+}
+.atras{
+    align-self: center;
+    order: 3;
+    width: 60%;
+    margin-top: 15vh;
+    height: 3vh;
+    font-size: 2vh;
+}

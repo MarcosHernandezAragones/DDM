@@ -2,7 +2,7 @@
     include "funciones_BBDD.php";
     $idAlumno=$_SESSION['user'];
     $nombre=$_SESSION['nombre'];
-    $centro=$_SESSION['centro'];
+    $centro=centroAlumno($idAlumno);
 ?>
 <!DOCTYPE html>
 <html lang="es">

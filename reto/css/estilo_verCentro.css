@@ -1,0 +1,309 @@
+@import 'estilo_fijo.css';
+
+h1{
+    order: 1;
+    align-self: center;
+    margin-top: 10%;
+}
+.addCentro{
+    order: 2;
+    margin-top: 2%;
+}
+.addCentro>input[type="submit"]{
+    height: 2.5vh;
+    font-size: 1.5vh;
+    width: 40%;
+    margin-left: 30%;
+}
+.centros{
+    padding: 1.5px;
+    order: 3;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 5%;
+}
+.centros>form>input{
+    width: 50%;
+    margin-left: 25%;
+}
+#edit{
+    grid-column: 2/4;
+}
+#del{
+    grid-column: 4/6;
+}
+
+
+@media only screen and (min-width: 1433px) and (max-width: 1585px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .addCentro{
+        order: 2;
+        margin-top: 2%;
+    }
+    .addCentro>input[type="submit"]{
+        height: 2.5vh;
+        font-size: 1.5vh;
+        width: 40%;
+        margin-left: 30%;
+    }
+    .centros{
+        padding: 1.5px;
+        order: 3;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-top: 5%;
+    }
+    .centros>form>input{
+        width: 50%;
+        margin-left: 25%;
+    }
+    #edit{
+        grid-column: 2/4;
+    }
+    #del{
+        grid-column: 4/6;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+}
+
+@media only screen and (min-width: 1381px) and (max-width: 1432px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .addCentro{
+        order: 2;
+        margin-top: 2%;
+    }
+    .addCentro>input[type="submit"]{
+        height: 2.5vh;
+        font-size: 1.5vh;
+        width: 40%;
+        margin-left: 30%;
+    }
+    .centros{
+        padding: 1.5px;
+        order: 3;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-top: 5%;
+    }
+    .centros>form>input{
+        width: 50%;
+        margin-left: 25%;
+    }
+    #edit{
+        grid-column: 2/4;
+    }
+    #del{
+        grid-column: 4/6;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1059px) and (max-width: 1381px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 10%;
+    }
+    .addCentro{
+        order: 2;
+        margin-top: 2%;
+    }
+    .addCentro>input[type="submit"]{
+        height: 2.5vh;
+        font-size: 1.5vh;
+        width: 40%;
+        margin-left: 30%;
+    }
+    .centros{
+        padding: 1.5px;
+        order: 3;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-top: 5%;
+    }
+    .centros>form>input{
+        width: 50%;
+        margin-left: 25%;
+    }
+    #edit{
+        grid-column: 2/4;
+    }
+    #del{
+        grid-column: 4/6;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 60%;
+        margin-top: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+}
+
+@media only screen and (min-width: 734px) and (max-width: 1058px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 20%;
+    }
+    .addCentro{
+        order: 2;
+        margin-top: 10%;
+    }
+    .addCentro>input[type="submit"]{
+        height: 3vh;
+        font-size: 2vh;
+        width: 60%;
+        margin-left: 20%;
+    }
+    .centros{
+        order: 3;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-top: 15%;
+    }
+    .centros>form>input{
+        width: 70%;
+        margin-left: 15%;
+    }
+    #edit{
+        grid-column: 2/4;
+    }
+    #del{
+        grid-column: 4/6;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 80%;
+        margin-top: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+ 
+}
+
+@media only screen and (min-width: 577px) and (max-width: 734px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 20%;
+    }
+    .addCentro{
+        order: 2;
+        margin-top: 10%;
+    }
+    .addCentro>input[type="submit"]{
+        height: 3vh;
+        font-size: 2vh;
+        width: 60%;
+        margin-left: 20%;
+    }
+    .centros{
+        order: 3;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-top: 15%;
+    }
+    .centros>form>input{
+        width: 70%;
+        margin-left: 15%;
+    }
+    #edit{
+        grid-column: 2/4;
+    }
+    #del{
+        grid-column: 4/6;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 80%;
+        margin-top: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    
+    
+}
+
+@media only screen and (max-width:576px){
+    h1{
+        order: 1;
+        align-self: center;
+        margin-top: 20%;
+    }
+    .addCentro{
+        order: 2;
+        margin-top: 10%;
+    }
+    .addCentro>input[type="submit"]{
+        height: 3vh;
+        font-size: 2vh;
+        width: 60%;
+        margin-left: 20%;
+    }
+    .centros{
+        order: 3;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-top: 15%;
+    }
+    .centros>form>input{
+        width: 70%;
+        margin-left: 15%;
+    }
+    #edit{
+        grid-column: 2/4;
+    }
+    #del{
+        grid-column: 4/6;
+    }
+    .atras{
+        align-self: center;
+        order: 4;
+        width: 80%;
+        margin-top: 20%;
+        height: 3vh;
+        font-size: 2vh;
+    }
+    
+}

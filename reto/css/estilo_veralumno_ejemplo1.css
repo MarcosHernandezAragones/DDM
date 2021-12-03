@@ -1,0 +1,76 @@
+@import 'estilo_fijo.css';
+
+
+.invisible{
+    display: none;
+}
+
+.rotar{
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+section{
+    position: fixed;
+    width: 100%;
+    height: 20%;
+    float: none;
+    z-index: 3;
+}
+main{
+    position: absolute;
+    top: 22%;
+    left: 0;
+    right: 0;
+}
+
+.curso{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+h2{
+    order: 1;
+    text-align: center;
+
+}
+.curso>form{
+    text-align: center;
+    width: 60%;
+    order: 2;
+    padding-left: 20%;
+}
+.curso>form>input{
+    width: 100%;
+}
+.alumnos{
+    order: 3;
+}
+#contenido{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+#form_alumno{
+    margin-top: 2%;
+    grid-column-start: 2;
+}
+#form_alumno_del{
+    margin-top: 2%;
+    grid-column-start: 4;
+}
+.rojo{
+    color: red;
+}
+.azul{
+    color: blue;
+}
+.amarillo{
+    color: orange;
+}
+.verde{
+    color: green;
+}
+.preguntas{
+    color: purple;
+}

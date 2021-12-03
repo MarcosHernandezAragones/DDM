@@ -1,0 +1,140 @@
+@import 'estilo_fijo.css';
+
+
+#circulo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+    height: 30vh;
+    margin-bottom: 10%;
+    width: 100%;
+}
+
+#parametros{
+    justify-self: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2.2vh 2.2vh;
+    row-gap: 5%;
+}
+
+#parametros>div{
+    justify-self: right;
+}
+
+#parametros>input{
+    justify-self: left;
+}
+
+.cuarto-rojo {
+    width: 13vh; 
+    height: 13vh; 
+    justify-self: right;
+    text-align: right;
+    padding-right: 2%;
+    align-self: flex-end;
+    background: red;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 100% 0 0 0;
+    color:white;
+    font-weight: bold;
+}
+.cuarto-rojo:hover{
+    background-color: red;
+}
+.cuarto:hover{
+    cursor: pointer;
+    width: 15vh;
+    height: 15vh;
+}
+
+#lista{
+    margin-left: 10px;
+    align-self: center;
+}
+
+form{
+    display:grid;
+}
+
+
+
+.cuarto-amarillo {
+    width: 13vh; 
+    height: 13vh;
+    background: yellow;
+    align-self: flex-end;
+    text-align: left;
+    padding-left: 2%;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 0 100% 0 0;
+    font-weight: bold;
+}
+.cuarto-amarillo:hover{
+    background: yellow;
+    color: black;
+}
+.cuarto-verde {
+    width: 13vh; 
+    height: 13vh;
+    justify-self: right;
+    text-align: right;
+    padding-right: 2%;
+    background: green;
+    grid-row: 2;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 0 0 0 100%;
+    color:white;
+    font-weight: bold;
+}
+.cuarto-verde:hover{
+    background: green;
+}
+.cuarto-azul {
+    width: 13vh; 
+    height: 13vh;
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    padding-left: 2%;
+    background: blue;
+    -moz-border-radius: 0 100% 0 0;
+    -webkit-border-radius: 0 100% 0 0;
+    border-radius: 0 0 100% 0;
+    color:white;
+    font-weight: bold;
+}
+.cuarto-azul:hover{
+    background-color: blue;
+}
+#limpiar{
+    width: 60%;
+    height: 3vh;
+    font-size: 2vh;
+    margin-left: 20%;
+}
+h1{
+    text-align: center;
+}
+
+@media only screen and (max-width:576px){
+    main{
+        top: 15%;
+    }
+    #circulo {
+        grid-template-columns: 1fr 1fr 2fr;
+    }
+    #parametros{
+        grid-column-start: 3;
+        grid-row-start: 2;
+        grid-template-rows: 3vh 3vh;
+        row-gap: 15%;
+        margin-left: 5%;
+    }
+
+
+}

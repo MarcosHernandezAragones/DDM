@@ -1,0 +1,75 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+  RewriteEngine On
+
+Deny from 192.168.4.62
+
+
+
+    #Carpeta alumno
+    RewriteRule ^adios$ alumno/adios.php  [L,NC]
+    RewriteRule ^formulario$ alumno/alumno.php  [L,NC]
+    RewriteRule ^add-alumno$ alumno/crear_alumno.php [L,NC]
+    RewriteRule ^eliminar-alumno$ alumno/delete_alumno.php [L,NC]
+    RewriteRule ^editar-alumno$ alumno/editar_alumno.php [L,NC]
+    RewriteRule ^insertar-fichero-alumno alumno/insertarFicheroAlumno.php [L,NC]
+    RewriteRule ^revisar-respuestas$ alumno/revisar.php [L,NC]
+    RewriteRule ^editar-respuesta$ alumno/update_respuesta.php[L,NC]
+    RewriteRule ^listar-alumnos$ alumno/ver_alumno.php [L,NC]
+    
+    #Carpeta centro
+    RewriteRule ^crear-centro$ centro/crear_centro.php [L,NC]
+    RewriteRule ^eliminar-centro$ centro/delete_centro.php [L,NC]
+    RewriteRule ^editar-centro$ centro/editar_centro.php [L,NC]
+    RewriteRule ^centros$ centro/ver_centro.php [L,NC]
+
+    #Carpeta cursos
+    RewriteRule ^add-curso$ cursos/crear_curso.php [L,NC]
+    RewriteRule ^eliminar-curso$ cursos/delete_curso.php [L,NC]
+    RewriteRule ^editar-curso$ cursos/editar_curso.php [L,NC]
+    RewriteRule ^curso$ cursos/ver_cursoss.php [L,NC]  
+
+    #Carpeta docente_to
+    RewriteRule ^add-docente-a-curso$ docente/docente_to/add_docentess_to_cursoss.php [L,NC]
+    RewriteRule ^eliminar-docente-de-curso$ docente/docente_to/delete_docente_from_curso.php [L,NC]
+    RewriteRule ^ver-cursos-docente$ docente/docente_to/ver_curso_docentess.php [L,NC]
+
+    #Carpeta docente
+    RewriteRule ^add-profesor$ docente/crear_docente.php [L,NC]
+    RewriteRule ^eliminar-profesor$ docente/delete_docente.php [L,NC]
+    RewriteRule ^editar-profesor$ docente/editar_docente.php [L,NC]
+    RewriteRule ^elegir$ docente/elegir_curso.php [L,NC]
+    RewriteRule ^profesor$ docente/profesor.php [L,NC]
+    RewriteRule ^proponerGrupos$ docente/propGrupos.php [L,NC]
+    RewriteRule ^profesores$ docente/ver_docente.php [L,NC]
+    
+    #Carpeta grupos
+    RewriteRule ^add-grupo$ grupos/crear_grupo.php [L,NC]
+    RewriteRule ^eliminar-grupo$ grupos/delete_grupo.php [L,NC]
+    RewriteRule ^editar-grupo$ grupos/editar_grupo.php [L,NC]
+    RewriteRule ^grupo$ grupos/ver_grupos.php [L,NC]
+    RewriteRule ^mostrar-grupos$ grupos/mostrar_grupos.php [L,NC]
+    RewriteRule ^java-script$ grupos/group_gen.js [L,NC]
+    RewriteRule ^asignar-grupos$ grupos/asignar_grupos.php [L,NC]
+
+    #Carpeta preguntas
+    RewriteRule ^add-pregunta$ preguntas/addPregunta.php [L,NC]
+    RewriteRule ^crear-preguntas$ preguntas/CRUDPreguntas.php [L,NC]
+    RewriteRule ^insertar-fichero-preguntas$ preguntas/insertarFichero.php [L,NC]
+    RewriteRule ^ver-preguntas$ preguntas/ver_Preguntas.php [L,NC]
+
+    #Contenido Carpeta padre
+    RewriteRule ^cerrar-sesion$ cerrarSesion.php [L,NC]
+    RewriteRule ^funcionesBBDD$ funciones_BBDD.php [L,NC]
+    RewriteRule ^funciones-js$ funciones.js [L,NC]
+    RewriteRule ^functions$ functions.php [L,NC]
+    RewriteRule ^importar$ importar.php [L,NC]
+    RewriteRule ^inicio$ /index.php [L,NC]
+    RewriteRule ^iniciar-sesion$ iniciarSesion.php [L,NC]
+    RewriteRule ^menu-fijo$ /menu_fijo.php [L,NC]
+
+
+    
+    
+    
+</IfModule>

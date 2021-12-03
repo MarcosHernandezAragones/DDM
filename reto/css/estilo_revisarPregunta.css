@@ -1,0 +1,85 @@
+@import 'estilo_fijo.css';
+
+.pregunta{
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+h1{
+    text-align: center;
+    margin-bottom: 2%;
+}
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 95%;
+    margin-left: 2%;
+    margin-right: 1%;
+}
+form>input[type="radio"]{
+    justify-self: center;
+}
+form>label{
+    justify-self: center;
+}
+
+.salir{
+    margin-top: 5%;
+    height: 3vh;
+    font-size: 2vh;
+    width: 60%;
+    margin-left: 20%;
+}
+
+@media only screen and (max-width:576px){
+    main{
+        top: 20%;
+    }
+    h1{
+        font-size: 3vh;
+        width: 95%;
+        margin-left: 2%;
+    }
+    .pregunta{
+        grid-template-rows: 0.4fr 1fr;
+    }
+    form{
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: 95%;
+        margin-left: 2%;
+        margin-right: 1%;
+    }
+    form>input[type="radio"]{
+        grid-column-start: 1;
+    }
+    label{
+        grid-column-start: 2;
+    }
+    #f1{
+        grid-row-start: 1;
+    }
+    #f2{
+        grid-row-start: 2;
+    }
+    #f3{
+        grid-row-start: 3;
+    }
+    #f4{
+        grid-row-start: 4;
+    }
+    #f5{
+        grid-row-start: 5;
+    }
+    #f6{
+        grid-row-start: 6;
+    }
+    #f7{
+        grid-row-start: 7;
+    }
+    
+
+
+}

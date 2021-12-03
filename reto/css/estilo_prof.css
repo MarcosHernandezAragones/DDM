@@ -1,0 +1,405 @@
+@import 'estilo_fijo.css';
+
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+button:hover{
+    background-color: #4a2343;
+    color: white;
+}
+h1{
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+}
+.propGrupos{
+    margin-top: 15vh;
+    width: 75%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.verGrupos{
+    margin-top: 5vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.verAlumno{
+    margin-top: 5vh;
+    margin-left: 7vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.verClases{
+    margin-top: 5vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.adminProf{
+    margin-top: 5vh;
+    margin-left: 7vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.adminCentro{
+    margin-top: 5vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.addPreguntas{
+    margin-top: 5vh;
+    margin-left: 7vh;
+    width: 35%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+.salir{
+    margin-top: 14.5vh;
+    width: 75%;
+    font-size: 3.5vh;
+    height: 5vh;
+}
+@media only screen and (min-width: 1433px) and (max-width: 1585px){
+
+    .propGrupos{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verGrupos{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verAlumno{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verClases{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminProf{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminCentro{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .addPreguntas{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .salir{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 3.5vh;
+        height: 5vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1381px) and (max-width: 1432px){
+    
+    .propGrupos{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verGrupos{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verAlumno{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verClases{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminProf{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminCentro{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .addPreguntas{
+        margin-top: 5vh;
+        margin-left: 7vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .salir{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 3.5vh;
+        height: 5vh;
+    }
+    
+}
+
+@media only screen and (min-width: 1059px) and (max-width: 1381px){
+    
+    .propGrupos{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verGrupos{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verAlumno{
+        margin-top: 5vh;
+        margin-left: 2vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verClases{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminProf{
+        margin-top: 5vh;
+        margin-left: 2vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminCentro{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .addPreguntas{
+        margin-top: 5vh;
+        margin-left: 2vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .salir{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 3.5vh;
+        height: 5vh;
+    }
+    
+}
+
+@media only screen and (min-width: 734px) and (max-width: 1058px){
+    
+    .propGrupos{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verGrupos{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verAlumno{
+        margin-top: 5vh;
+        margin-left: 3vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verClases{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminProf{
+        margin-top: 5vh;
+        margin-left: 3vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminCentro{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .addPreguntas{
+        margin-top: 5vh;
+        margin-left: 3vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .salir{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 3.5vh;
+        height: 5vh;
+    }
+    
+}
+
+@media only screen and (min-width: 577px) and (max-width: 734px){
+    
+    .propGrupos{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verGrupos{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verAlumno{
+        margin-top: 5vh;
+        margin-left: 3vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verClases{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminProf{
+        margin-top: 5vh;
+        margin-left: 3vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminCentro{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .addPreguntas{
+        margin-top: 5vh;
+        margin-left: 3vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .salir{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 3.5vh;
+        height: 5vh;
+    }
+    
+}
+
+@media only screen and (max-width:576px){
+    
+    .propGrupos{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verGrupos{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verAlumno{
+        margin-top: 5vh;
+        margin-left: 2vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .verClases{
+        margin-top: 5vh;
+        margin-left: 0vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminProf{
+        margin-top: 5vh;
+        margin-left: 2vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .adminCentro{
+        margin-top: 5vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .addPreguntas{
+        margin-top: 5vh;
+        margin-left: 2vh;
+        width: 35%;
+        font-size: 2vh;
+        height: 5vh;
+    }
+    .salir{
+        margin-top: 15vh;
+        width: 75%;
+        font-size: 3.5vh;
+        height: 5vh;
+    }
+    
+}
