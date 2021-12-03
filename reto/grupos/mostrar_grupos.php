@@ -1,7 +1,13 @@
-<?php session_start();
+<?php 
+
+
+
+session_start();
 
     include_once "../functions.php";
     include_once "test_grupos.php";
+
+    
     $id=$_SESSION['user'];
     $nombre=$_SESSION['nombre'];
     $centro=$_SESSION['centro'];
@@ -11,11 +17,23 @@
 ///////////////////test
     $chek_chek=check_doc_rol($_SESSION['user']);//$datos_doc_all[$i][7]
 
-
+    
 
     $num_grupos=$_POST["grupos"];
     $miembros_grupo=$_POST["alumnos"];
     $orden=[4,3,1,2];
+
+    if (isset($_POST['orden'])) {
+      $orden_raw=$_POST['orden'];
+      $ord_arr=explode(",",$orden_raw);
+      for ($ord=0; $ord < count($ord_arr); $ord++) { 
+        $orden[$ord]=intval($ord_arr[$ord]);
+      }
+      
+
+    }
+    
+
 
     $id_curso=$_SESSION["id_curse"];
     
@@ -90,7 +108,7 @@
 
 </head>
 <body>
-  <?php include_once "../menu_fijo.php"?>
+  <?php include_once "../menu_fijo.php";  echo "err 4";?>
       <main>
     <form action="asignar-grupos" method="post">
       <input id="devolver" type="hidden" name="gru2" value="">
@@ -104,75 +122,15 @@
     </main>
 </body>
 </html>
-<script>
-/* Events fired on the drag target */
 
-document.addEventListener("dragstart", function(event) {
-  // The dataTransfer.setData() method sets the data type and the value of the dragged data
-  event.dataTransfer.setData("Text", event.target.id);
-  
-  // Output some text when starting to drag the p element
-  //document.getElementById("demo").innerHTML = "Started to drag the p element.";
-  
-  // Change the opacity of the draggable element
-  event.target.style.opacity = "0.4";
-});
-
-// While dragging the p element, change the color of the output text
-document.addEventListener("drag", function(event) {
-  //document.getElementById("demo").style.color = "red";
-});
-
-// Output some text when finished dragging the p element and reset the opacity
-document.addEventListener("dragend", function(event) {
-  //document.getElementById("demo").innerHTML = "Finished dragging the p element.";
-  event.target.style.opacity = "1";
-});
-
-/* Events fired on the drop target */
-
-// When the draggable p element enters the droptarget, change the DIVS's border style
-document.addEventListener("dragenter", function(event) {
-  if ( event.target.className == "droptarget" ) {
-    event.target.style.border = "3px solid red";
-  }
-});
-
-// By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element
-document.addEventListener("dragover", function(event) {
-  event.preventDefault();
-});
-
-// When the draggable p element leaves the droptarget, reset the DIVS's border style
-document.addEventListener("dragleave", function(event) {
-  if ( event.target.className == "droptarget" ) {
-    event.target.style.border = "";
-  }
-});
-
-/* On drop - Prevent the browser default handling of the data (default is open as link on drop)
-   Reset the color of the output text and DIV's border color
-   Get the dragged data with the dataTransfer.getData() method
-   The dragged data is the id of the dragged element ("drag1")
-   Append the dragged element into the drop element
-*/
-document.addEventListener("drop", function(event) {
-  event.preventDefault();
-  if ( event.target.className == "droptarget" ) {
-    //document.getElementById("demo").style.color = "";
-    event.target.style.border = "";
-    var data = event.dataTransfer.getData("Text");
-    event.target.appendChild(document.getElementById(data));
-  }
-});
-</script>
 <script src="java-script"></script>
 <script>    
     show_jso_nokat(<?php echo $al_nokat_jso ?>)
 </script>
 
-<?php
+<?php 
     if ($first_time) {
+      
 ?>
 
 <script>

@@ -30,7 +30,7 @@
             <form action='eliminar-curso' method='post'>
             <input type='hidden' name='id_curso' value='$id_curso'>
                 <input type='hidden' name='id_cent' value='$id_cent'>
-                <input type='submit' value='DELETE'>
+                <input type='submit' value='DELETE' onclick='return confirm(\"Estas seguro de que quieres eliminar el curso\")'>
             </form>";
    }
         

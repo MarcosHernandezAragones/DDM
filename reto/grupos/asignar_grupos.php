@@ -22,21 +22,26 @@ $datos_update=$datos_gru_arr[0];
 print_r($datos_update);
 echo "<br>-------------------------------------------------------------------------<br>";
 $datos_create=$datos_gru_arr[1];
-print_r($datos_create);
+//print_r($datos_create);
 
 
 
 for ($gbd=0; $gbd < count($datos_update); $gbd++) { 
     
 
-    if (isset($datos_update[$gbd][1])) {//delete de los grupos que existen en la BBDD sin alumnos
+    if ((isset($datos_update[$gbd][1]) && empty($datos_update[$gbd][1]))                            ) {//delete de los grupos que existen en la BBDD sin alumnos
         echo "<br>---------------------sdgnsdngjksdbhgjsdjkgsdjbvgjbgsdfjkbvsdjk------------------------------<br>";
         $idGrupo=$datos_update[$gbd][0];
+        echo $idGrupo;
+        if ($idGrupo != "nil") {
             $sql_upd_del="UPDATE alumno SET grupo_idGrupo=null WHERE grupo_idGrupo=\"$idGrupo\"";
 
             $consulta_del = $conexx->prepare($sql_upd_del);
             $consulta_del->execute();
-        delete_grupo($idGrupo);
+            delete_grupo($idGrupo);
+        }
+        
+            
         echo "<br>---------------------a------------------------------<br>";
     }else{
 
@@ -105,6 +110,6 @@ for ($cre=0; $cre < count($datos_create); $cre++) {
 //header("refresh:10;url=mostrar-grupos");
 //header("Location: mostrar-grupos");
 $conexx = null;
-header("refresh:10;url=mostrar-grupos");
+header("refresh:0;url=mostrar-grupos");
 ?>
 

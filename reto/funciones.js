@@ -61,25 +61,7 @@ function actualizarRespAlumno(idPregunta, idForm, idAlum){
     fetch("editar-respuesta?idAlumno="+idAlum+"&idPregunta="+idPregunta+"&respuesta="+respuesta);
 }
 
-$(document).ready(main);
 
-var contador = 1;
-
-function main () {
-	$('.menu_movil').click(function(){
-		if (contador == 1) {
-			$('nav').animate({
-				left: '0'
-			});
-			contador = 0;
-		} else {
-			contador = 1;
-			$('nav').animate({
-				left: '-100%'
-			});
-		}
-	});
-}
 
 
 

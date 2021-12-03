@@ -6,9 +6,13 @@ if (isset($_SESSION['rol'])) {
 }
 
 echo "<section>
-        <img id=\"gob\" src=\"\" alt=\"\">
-        <img id=\"centro\" src=\"\" alt=\"\">
-        <img id=\"abajo\" src=\"../logo_login.png\" alt=\"\" srcset=\"\">
+        <script src='https://code.jquery.com/jquery-latest.js'></script>
+      <header>
+        <div id='imagenes'>
+            <img id=\"gob\" src=\"\" alt=\"\">
+            <img id=\"centro\" src=\"\" alt=\"\">
+            <img id=\"abajo\" src=\"../logo_login.png\" alt=\"\" srcset=\"\">
+        </div>
         <div id='menu'>";
             if($rol==0) {
                 echo "<p class=\"usuario_contro\">$nombre</p>";
@@ -35,11 +39,10 @@ echo "<section>
         echo "</div>";
         
 
-        echo "<div id='menu_movil'>";
-            echo "<input type='checkbox' onchange='desaparecer()'>";
-            echo "<i class='fas fa-bars'></i>";
-            echo "<i class='fas fa-times'></i>";
-            echo "<nav>";
+        echo "<div class='menu_bar'>";
+            echo "<a href='#' onclick='incisible()' class='bt-menu' ><span class='icon-list2'></span>Menú</a>";
+        echo "</div>";
+            echo "<nav id='vas' class='invisible'>";
                 echo "<ul>";
                     if($rol==0) {
                         echo "<li><p class=\"usuario_contro\">$nombre</p></li>";
@@ -65,12 +68,17 @@ echo "<section>
                     }
                 echo "</ul>";
             echo "</nav>";
-        echo "</div>"; 
-
-
+        echo"</header>";
     echo    "</section>";
     echo "
     <script>
+        function incisible(){
+            if(document.getElementById(\"vas\").classList.contains(\"invisible\")){
+                document.getElementById(\"vas\").classList.toggle(\"invisible\")
+            }
+                
+        }
+
         function desaparecer(){
             aux = document.getElementById('gob');
             aux.classList.toggle('invisible');
@@ -81,6 +89,29 @@ echo "<section>
             aux = document.getElementById('abajo');
             aux.classList.toggle('invisible');
             
+        }
+
+        $(document).ready(main);
+
+        var contador = 1;
+
+        function main () {
+
+            $('.menu_bar').click(function(){
+                if (contador == 1) {
+                    $('nav').animate({
+                        top: '0'
+                    });
+                    contador = 0;
+
+                } else if(contador==0) {
+                    $('nav').animate({
+                        top: '-100%',
+                    });
+                    contador=1
+
+                }
+            });
         }
     </script>
     ";

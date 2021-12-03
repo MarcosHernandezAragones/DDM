@@ -57,7 +57,7 @@
                         </form>
                         <form action='eliminar-centro' id='del' method='post'>
                             <input type='hidden' name='id_cent' value='$id_cent'>
-                            <input type='submit' value='DELETE'>
+                            <input type='submit' value='DELETE' onclick='return confirm(\"Estas seguro de que quieres eliminar el centro $nombre_centro\")'>
                         </form>";
                 echo "</div>";
             }

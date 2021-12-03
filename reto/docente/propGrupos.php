@@ -69,8 +69,8 @@
                     <div id="id3">Amarillo</div>
                     <div id="id4">Rojo</div>
                 </div>
-            <form action="mostrar-grupos" method="post" onsubmit="return verificar()">
-                <input type="hidden" name="orden" id="orden" value="">
+            <form action="mostrar-grupos" method="post"  onsubmit="return verificar()">
+                <input type="hidden" name="orden" id="orden" value="4,3,1,2">
                 <input type="hidden" name="curso" id="curso" value="<?php echo $id_curso;?>">
                 <div id="parametros">
                     <div>Numero de grupos:</div> <input type="number" name="grupos" id="grupos" style="width:5vh" onchange="calcAlumnos()" min="2" required>
@@ -89,10 +89,17 @@
 
 
     <script>
-        const ORDEN = ['azul','verde','amarillo','rojo'];
+        var ORDEN = ['azul','verde','amarillo','rojo'];
+        
         <?php echo "const alumnosCurso=$numAlumnos;
         "?>
         
+        var rojo = 2;
+        var azul = 4;
+        var verde = 3;
+        var amarillo = 1;
+
+        var devolver = [azul,verde,amarillo,rojo];
 
         function limpiar() {
             //vaciamos array
@@ -103,6 +110,8 @@
             for (let i = 0; i < 4; i++) {
                 document.getElementById("id"+(i+1)).innerHTML = "";   
             }
+
+            devolver=[];
         }
 
         function comprobar(color) {
@@ -123,8 +132,24 @@
             //si el color ya esta en el array lo eliminara y si no esta lo añadira en la ultima posicion
             if (esta==true){
                 ORDEN.splice(pos,1);
+                devolver.splice(pos,1);
             }else{
                 ORDEN.push(color);
+
+                switch (ORDEN.at(-1)) {
+                        case "rojo":
+                            devolver.push(rojo);
+                            break;
+                        case "azul":
+                            devolver.push(azul);
+                            break;
+                        case "amarillo":
+                            devolver.push(amarillo);
+                            break;
+                        case "verde":
+                            devolver.push(verde);
+                            break;
+                    }
             }
 
             var orden_jso=JSON.stringify(ORDEN);
@@ -135,7 +160,14 @@
                 if (ORDEN[i]!=null && ORDEN[i]!=""){
                     document.getElementById("id"+(i+1)).innerHTML = ORDEN[i];
                 }else{document.getElementById("id"+(i+1)).innerHTML = "";}      
-            }            
+            }  
+            
+            
+
+            
+
+            document.getElementById("orden").value = devolver;
+
         }
 
 
@@ -182,6 +214,14 @@
             if(document.getElementById("grupos").value<2 || document.getElementById("alumnos").value<2){
                 return false;
             }
+
+            console.log(devolver.length);
+
+            if(devolver.length < 4){
+                alert("En el orden de los colores deben aparecer todos")
+                return false;
+            }
+
 
             return true;
             

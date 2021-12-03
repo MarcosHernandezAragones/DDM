@@ -252,7 +252,126 @@ function order_by_color(jso) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function allowDrop(event) {
+    event.preventDefault();
+  }
+  
+  
+  
+  function drag(event) {
+    // The dataTransfer.setData() method sets the data type and the value of the dragged data
+  
+      event.dataTransfer.setData("Text", event.target.id);
+  
+      // Output some text when starting to drag the p element
+      //document.getElementById("demo").innerHTML = "Started to drag the p element.";
+  
+      // Change the opacity of the draggable element
+      //event.target.style.opacity = "0.4";
+  }
+  
+  function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("Text");
+    if ( event.target.className == "droptarget" ) {
+      //document.getElementById("demo").style.color = "";
+      event.target.style.border = "";
+      var newT=event.target
+      newT.appendChild(document.getElementById(data));
+    }
+  
+    if ( event.target.parentElement.className == "droptarget" ) {
+  
+  
+      event.target.style.border = "";
+      var newT=event.target.parentElement
+      newT.appendChild(document.getElementById(data));
+    }
+    if ( event.target.parentElement.parentElement.className == "droptarget" ) {
+  
+  
+      event.target.style.border = "";
+      var newT=event.target.parentElement.parentElement
+      newT.appendChild(document.getElementById(data));
+    }
+  
+    if ( event.target.parentElement.parentElement.parentElement.className == "droptarget" ) {
+  
+  
+      event.target.style.border = "";
+      var newT=event.target.parentElement.parentElement.parentElement
+      newT.appendChild(document.getElementById(data));
+    }
+  }
+
+
+
+
+
+
+
+
 function show_jso_gru(grupos_we) {
+    console.log("generated")
     var gen_cont=document.getElementById("test")
     //gen_cont.setAttribute('draggable',"true")
     //gen_cont.setAttribute('ondragstart',"drag(event)")
@@ -267,8 +386,8 @@ function show_jso_gru(grupos_we) {
         cont_gru.className="droptarget"
         id_grup="grupoini_"+gru
         cont_gru.id=id_grup
-        cont_gru.setAttribute("draggable","false")
-        
+        cont_gru.setAttribute("ondrop","drop(event)")
+        cont_gru.setAttribute("ondragover","allowDrop(event)")
         var lbl=document.createElement("label")
         lbl.setAttribute("draggable","false")
         lbl.innerHTML="autogen_"+gru
@@ -284,13 +403,28 @@ function show_jso_gru(grupos_we) {
             al_gru.setAttribute("class","alumno")
 
             al_gru.setAttribute('draggable',"true")
-            
-            
+            al_gru.setAttribute('ondragstart',"drag(event)")
+            //YRGB
+            var azul=grupos_we[gru][al][12]
+            var verde=grupos_we[gru][al][11]
+            var rojo=grupos_we[gru][al][10]
+            var marillo=grupos_we[gru][al][9]
 
+            var arr_col=[azul,verde,rojo,marillo]
 
+            var col_mostrar=""
 
+                    col_mostrar+=" <strong class=\"azul\">"+arr_col[0]+"% </strong>"
+                
+                    col_mostrar+=" <strong class=\"verde\">"+arr_col[1]+"% </strong>"
+               
+                    col_mostrar+=" <strong class=\"rojo\">"+arr_col[2]+"% </strong>"
+               
+                    col_mostrar+=" <strong class=\"amarillo\">"+arr_col[3]+"% </strong>"
+  
+
+                al_gru.innerHTML="<div id=\"al\">"+grupos_we[gru][al][1]+" "+grupos_we[gru][al][2]+"</div>"+col_mostrar
             
-            al_gru.innerHTML=grupos_we[gru][al][1]+" "+grupos_we[gru][al][2]
 
 
 
@@ -321,8 +455,8 @@ function show_jso_nokat(nokats) {
 
         id_grup="nil_1"
         cont_nok.id=id_grup
-        cont_nok.setAttribute("draggable","false")
-
+        cont_nok.setAttribute("ondrop","drop(event)")
+        cont_nok.setAttribute("ondragover","allowDrop(event)")
         var lbl=document.createElement("label")
         
         lbl.innerHTML="Alumnos sin asignar"
@@ -335,14 +469,67 @@ function show_jso_nokat(nokats) {
                 var al_gru=document.createElement("div")
                 var id_al="alumno_"+nokats[al][0]
                 al_gru.setAttribute("id",id_al)
-                al_gru.innerHTML=nokats[al][1]+" "+nokats[al][2]
+                
                 al_gru.setAttribute("class","alumno")
 
 
                 al_gru.setAttribute('draggable',"true")
+                al_gru.setAttribute('ondragstart',"drag(event)")
+                //YRGB
+                var azul=nokats[al][12]
+                var verde=nokats[al][11]
+                var rojo=nokats[al][10]
+                var marillo=nokats[al][9]
+
+                var arr_col=[azul,verde,rojo,marillo]
+
+
+                var col_mostrar=""
 
                 
-                console.log(nokats[al])
+
+
+                
+                    col_mostrar+=" <strong class=\"azul\">"+arr_col[0]+"% </strong>"
+                
+                    col_mostrar+=" <strong class=\"verde\">"+arr_col[1]+"% </strong>"
+               
+                    col_mostrar+=" <strong class=\"rojo\">"+arr_col[2]+"% </strong>"
+               
+                    col_mostrar+=" <strong class=\"amarillo\">"+arr_col[3]+"% </strong>"
+  
+
+                al_gru.innerHTML="<div id=\"al\">"+nokats[al][1]+" "+nokats[al][2]+"</div>"+col_mostrar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //console.log(nokats[al])
                 cont_nok.appendChild(al_gru)
             }
         
@@ -475,6 +662,8 @@ function creat_empty_gru() {
 
 
     var cont_new=document.createElement("div")
+    cont_new.setAttribute("ondrop","drop(event)")
+    cont_new.setAttribute("ondragover","allowDrop(event)")
         
     cont_new.className="droptarget"
 
@@ -486,7 +675,7 @@ function creat_empty_gru() {
     
     lbl.innerHTML="grupo_nuevo_"+cont
     cont_new.setAttribute("draggable","false")
-    gen_cont.appendChild(lbl)
+    cont_new.appendChild(lbl)
     gen_cont.appendChild(cont_new)
 
 }
@@ -510,8 +699,10 @@ function show_jso_gru_BD(grupos_we,alumnoss) {
 
         id_grup="gbd_"+grupos_we[gru][0]
         cont_gru.id=id_grup
-        cont_gru.setAttribute("draggable","false")
-        
+
+        cont_gru.setAttribute("ondrop","drop(event)")
+        cont_gru.setAttribute("ondragover","allowDrop(event)")
+
         var lbl=document.createElement("label")
         
         lbl.innerHTML=grupos_we[gru][1]
@@ -528,10 +719,39 @@ function show_jso_gru_BD(grupos_we,alumnoss) {
                 al_gru.setAttribute("class","alumno")
 
                 al_gru.setAttribute('draggable',"true")
+                al_gru.setAttribute('ondragstart',"drag(event)")
+                
+                //al_gru.innerHTML=alumnoss[al][1]+" "+alumnoss[al][2] 
+                
+
+                //YRGB
+                var azul=alumnoss[al][12]
+                var verde=alumnoss[al][11]
+                var rojo=alumnoss[al][10]
+                var marillo=alumnoss[al][9]
+
+                var arr_col=[azul,verde,rojo,marillo]
 
                 
-                al_gru.innerHTML=alumnoss[al][1]+" "+alumnoss[al][2] 
+
+                var col_mostrar=""
+
                 
+
+
+                
+                    col_mostrar+=" <strong class=\"azul\">"+arr_col[0]+"% </strong>"
+                
+                    col_mostrar+=" <strong class=\"verde\">"+arr_col[1]+"% </strong>"
+               
+                    col_mostrar+=" <strong class=\"rojo\">"+arr_col[2]+"% </strong>"
+               
+                    col_mostrar+=" <strong class=\"amarillo\">"+arr_col[3]+"% </strong>"
+  
+
+                al_gru.innerHTML="<div id=\"al\">"+alumnoss[al][1]+" "+alumnoss[al][2]+"</div>"+col_mostrar
+
+
                 cont_gru.appendChild(al_gru)
             }
  
@@ -544,3 +764,37 @@ function show_jso_gru_BD(grupos_we,alumnoss) {
 
 
 }
+
+
+
+
+
+
+// function allowDrop(ev) {     
+//     ev.preventDefault(); 
+// } 
+// function drag(ev) {
+//     ev.dataTransfer.setData("text", ev.target.id); 
+// }  
+
+// function drop(ev) {     
+//      ev.preventDefault();     
+//      var data = ev.dataTransfer.getData("text");      
+//      if (ev.target.parentElement.className == "equipo") {         
+//          var newTarget = ev.target.parentElement;         
+//          newTarget.appendChild(document.getElementById(data));    
+//     } 
+
+//     if (ev.target.parentElement.parentElement.className == "equipo") {  
+//         var newTarget = ev.target.parentElement.parentElement;    
+//         newTarget.appendChild(document.getElementById(data));   
+//     }   
+//     if (ev.target.parentElement.parentElement.parentElement.className == "equipo") {   
+//         var newTarget = ev.target.parentElement.parentElement.parentElement;  
+//         newTarget.appendChild(document.getElementById(data));     }  
+//     if (ev.target.className == "equipo") {   
+//         ev.target.appendChild(document.getElementById(data));   
+//     }
+// }
+ //<div ondrop="drop(event)" ondragover="allowDrop(event)">
+ //<div draggable="true" ondragstart="drag(event)"></div>

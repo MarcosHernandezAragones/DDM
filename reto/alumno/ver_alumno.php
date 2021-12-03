@@ -113,7 +113,7 @@
                                             <div id='form_alumno_del'>
                                                 <form action='eliminar-alumno' method='post'>
                                                     <input type='hidden' name='id_alumn' value='$id_alumno'> 
-                                                    <input type='submit' id='editar' value='DELETE'>
+                                                    <input type='submit' id='editar' value='DELETE' onclick='return confirm(\"Estas seguro de que quieres eliminar el usuario $nombre $apell\")'>
                                                 </form>
                                             </div>
                                         </div>

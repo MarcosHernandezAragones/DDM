@@ -54,7 +54,7 @@
                 <input type='submit' value='Edit'>
             </form>" 
             ;
-            echo  "<form action='eliminar-profesor' method='post'><input type='hidden' name='id_doof' value='$id_prof'><input type='submit' value='DELETE'></form></div><br>";
+            echo  "<form action='eliminar-profesor' method='post'><input type='hidden' name='id_doof' value='$id_prof'><input type='submit' value='DELETE' onclick='return confirm(\"Estas seguro de que quieres eliminar el usuario $nombre $apellidos\")'></form></div><br>";
 
         }
         echo "<div>";
