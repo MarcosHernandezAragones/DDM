@@ -22,8 +22,8 @@
             echo $th;
             header("refresh:0;url=grupo");
         }
-        //header("Location: grupo");
-        header("refresh:0;url=grupo");
+        header("Location: grupo");
+        //header("refresh:0;url=grupo");
        
 
     } else if ( isset($_POST["group"])){
@@ -47,11 +47,9 @@
 <body>
     <?php include_once "../menu_fijo.php" ?>
     <main>
-        <form action="grupo" method="post">
-            <input type="submit" value="volver">
-        </form>
+        <h1>Editar grupo</h1>
 
-        <form action="editar-grupo" method="post">
+        <form action="editar-grupo" id="editar" method="post">
             <input type="hidden" name="aux_cursed" value="<?php echo $grupo[0] ?>">
             
             <label for="nombre">Nombre: </label>

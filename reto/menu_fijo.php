@@ -9,8 +9,8 @@ echo "<section>
         <script src='https://code.jquery.com/jquery-latest.js'></script>
       <header>
         <div id='imagenes'>
-            <img id=\"gob\" src=\"\" alt=\"\">
-            <img id=\"centro\" src=\"\" alt=\"\">
+            <img id=\"gob\" src=\"../gobierno_aragon.jpg\" alt=\"\">
+            <img id=\"centro\" src=\"../LOGO-CPIFP-PNG.png\" alt=\"\">
             <img id=\"abajo\" src=\"../logo_login.png\" alt=\"\" srcset=\"\">
         </div>
         <div id='menu'>";

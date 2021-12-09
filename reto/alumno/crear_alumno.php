@@ -15,9 +15,9 @@
         $correo=$_POST['correo'];
         $DNI=$_POST['dni'];
         $nombre=$_POST['nombre'];
-        $passwrd=$_POST['contrasena'];
+        $passwrd=$_POST['dni'];
 
-        $vars_curso=explode('!!!',$_POST['curso']);
+        $vars_curso=explode('!!!',$_POST['curso_1']);
 
         $idCentro=$vars_curso[0];
         $idCurso=$vars_curso[1];
@@ -30,7 +30,8 @@
             echo $th;
             header("refresh:0;url=listar-alumnos");
         }
-        header("Location: listar-alumnos");
+        //header("Location: listar-alumnos");
+        header("refresh:5;url=listar-alumnos");
     }else{
     
 
@@ -57,7 +58,7 @@
 
             <div id="formulario">
                 
-                <form action="add-alumno" method="post">
+                <form action="add-alumno" method="post" onsubmit="return valid()">
                     <div class="primeros">
                         <label class="Texto" for="nombre">Nombre: </label>
                         <input  type="text" name="nombre" id="nombre" required>
@@ -76,14 +77,11 @@
                         <label class="Texto" for="correo">E-mail: </label>
                         <input class="input" type="email" name="correo" id="correo" required><br>
                     </div>
-                    <div class="primeros">
-                        <label class="Texto" for="contrasena">Contraseña: </label>
-                        <input  type="text" name="contrasena" id="contrasena" required><br>
-                    </div>
+                    
 
                     <div class="segundos" >
                         <label class="Texto" for="curso">Curso: </label>
-                        <select class="input" name="curso" id="curso" required>
+                        <select class="input" name="curso_1" id="curso_1" required>
                             <option value="nil" selected>-----------------</option>
                             <?php 
                             for ($i=0; $i < count($cursos); $i++) { 
@@ -128,8 +126,21 @@
                 console.log("esto funciona")
                 return false
             }
+
+            if (document.getElementById("curso").value=="nil"){
+                alert("Opcion no valida, elija un curso para introducir el fichero.")
+                return false
+            }
            
 
+        }
+
+        function valid(){
+            if (document.getElementById("curso_1").value=="nil"){
+                alert("Opcion no valida, elija un curso para introducir un alumno.")
+                
+                return false
+            }
         }
 
     </script>

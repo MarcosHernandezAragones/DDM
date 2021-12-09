@@ -111,9 +111,9 @@ function delete_usuario($id_user){
     $conexx = null;
 }
 
-function create_usuario($apellidos,$correo,$DNI,$nombre,$passwrd){
+function create_usuario($apellidos,$correo,$DNI,$nombre,$pass){
     $conexx=conectar_BD();
-    $sql1="INSERT INTO  usuario (idUsuario,apellidos,correo,DNI,nombre,password) VALUES (0,\"$apellidos\",\"$correo\",\"$DNI\",\"$nombre\",\"$passwrd\")";//REVISAR ESTO
+    $sql1="INSERT INTO  usuario (idUsuario,apellidos,correo,DNI,nombre,password) VALUES (0,\"$apellidos\",\"$correo\",\"$DNI\",\"$nombre\", CONCAT('*', UPPER(SHA1(UNHEX(SHA1('$pass'))))))";//REVISAR ESTO
     
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
@@ -121,9 +121,9 @@ function create_usuario($apellidos,$correo,$DNI,$nombre,$passwrd){
     $conexx = null;
 }
 
-function update_usuario($apellidos,$correo,$DNI,$nombre,$passwrd,$id_user){
+function update_usuario($apellidos,$correo,$DNI,$nombre,$pass,$id_user){
     $conexx=conectar_BD();
-    $sql1="UPDATE usuario SET apellidos=\"$apellidos\"  , correo=\"$correo\" ,DNI=\"$DNI\" , nombre=\"$nombre\" , password=\"$passwrd\" WHERE idUsuario=\"$id_user\"";//REVISAR ESTO
+    $sql1="UPDATE usuario SET apellidos=\"$apellidos\"  , correo=\"$correo\" ,DNI=\"$DNI\" , nombre=\"$nombre\" , password=CONCAT('*', UPPER(SHA1(UNHEX(SHA1('$pass'))))) WHERE idUsuario=\"$id_user\"";//REVISAR ESTO
     
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();
@@ -873,6 +873,37 @@ function read_grupo_curso($id_curso,$id_centro){////////////////////////////////
     $conexx=conectar_BD();
 
     $sql1="SELECT * FROM grupo WHERE curso_idCurso=\"$id_curso\" AND curso_centro_idCentro=\"$id_centro\"";
+
+    $consulta1 = $conexx->prepare($sql1);
+    $consulta1->execute();
+
+    $datos_todos=[];
+    $cont=0;
+
+    while ( $fila1=$consulta1->fetch()) {
+        $nombre_curso=$fila1->nombre;
+        $id_grupo=$fila1->idGrupo;
+        $nombre=$fila1->nombre;
+        $id_curs=$fila1->curso_idCurso;
+        $id_centre=$fila1->curso_centro_idCentro;
+
+    
+
+
+        $datos_grup=[$id_grupo,$nombre,$id_curs,$id_centre];
+
+        $datos_todos[$cont]=$datos_grup;
+        $cont++;
+    }
+
+    $conexx = null;
+    return $datos_todos;//[[datos grupo], [datos grupo2],...]
+}
+
+function read_grupo_curso_t($id_curso){/////////////////////////////////////put me in shared visual studio
+    $conexx=conectar_BD();
+
+    $sql1="SELECT * FROM grupo WHERE curso_idCurso=\"$id_curso\"";
 
     $consulta1 = $conexx->prepare($sql1);
     $consulta1->execute();

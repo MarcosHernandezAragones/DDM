@@ -27,10 +27,16 @@ $conexion=conectarBD();
     
         //echo "Usuario(post): ".$user."<br>";
         //echo "Contraseña(post): ".$pass."<br>";
+
+
+        
+        
     
+
+
+
         //preparamos la query
-        $query = "SELECT * FROM usuario WHERE nombre=\"$user\" AND ".'password'."=\"$pass\"";
-    
+        $query = "SELECT * FROM usuario WHERE DNI=\"$user\" AND password = CONCAT('*', UPPER(SHA1(UNHEX(SHA1('$pass')))))";
     }
 
     //Ejecutamos la query y miramos si nos devuelve un solo valor
@@ -43,7 +49,7 @@ $conexion=conectarBD();
 //Si solo devuelve una fila, es que el usuario existe
 if ($nfilas==1) {
     //hacemos una nueva query para comprobar si el usuario pertenece a docente(si no lo hace, es que es un alumno)
-    $query = "SELECT docente.usuario_idUsuario as idUsuario,centro.nombre as nombreCentro, usuario.nombre as nombre,docente.rol_idRol as rol FROM centro,docente,usuario WHERE usuario.idUsuario=usuario_idUsuario AND usuario.nombre=\"$user\" and docente.centro_idCentro=centro.idCentro";
+    $query = "SELECT docente.usuario_idUsuario as idUsuario,centro.nombre as nombreCentro, usuario.nombre as nombre,docente.rol_idRol as rol FROM centro,docente,usuario WHERE usuario.idUsuario=usuario_idUsuario AND usuario.DNI=\"$user\" and docente.centro_idCentro=centro.idCentro";
     
 
     $consultaProf = $conexion->prepare($query);

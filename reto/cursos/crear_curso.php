@@ -75,7 +75,7 @@
                 <label for="centro">Centro: </label>
             </div>
             <div>
-                <select name="centro" id="centro"required>
+                <select name="centro" id="centros"required>
                     <option value="nil" selected>-----------------</option>
                     <?php 
                     for ($i=0; $i < count($centros); $i++) { 

@@ -10,7 +10,7 @@
 
     if (isset($_POST['nombre'])) {//entra tras haberse enviado los datos del formulario
         $flag=true;
-        if ($_POST["centro"] == "nil") {
+        if ($_POST["centros"] == "nil") {
             echo "centro no seleccionado";
             header("refresh:0;url=profesores");
             $flag=false;
@@ -29,7 +29,7 @@
 
         
 
-        $idCentro=$_POST['centro'];
+        $idCentro=$_POST['centros'];
         
         $idRol=$_POST['rol'];
         
@@ -103,10 +103,10 @@
             </div>
             <div id="primero">
 
-            <label for="centro">Centro: </label>
+            <label for="centros">Centro: </label>
             </div>
             <div>
-            <select name="centro" id="centro"  required>
+            <select name="centros" id="centros"  required>
                 <option value="nil" selected>-----------------</option>
                 <?php 
                 for ($i=0; $i < count($centros); $i++) { 
@@ -145,7 +145,7 @@
     <script>
         function comprobar(){
             
-            if (document.getElementById("centro").value=="nil") {
+            if (document.getElementById("centros").value=="nil") {
                 alert("El profesor debe tener un centro para poder añadirlo")
                 return false;
             }else if(document.getElementById("rol").value=="nil"){

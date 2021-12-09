@@ -35,7 +35,5 @@ if (isset($_SESSION['user'])) {
             </fieldset>
         </form>   
     </section>
-
-
 </body>
 </html>

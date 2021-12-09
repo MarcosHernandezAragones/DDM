@@ -1,0 +1,29 @@
+@import 'estilo_fijo.css';
+
+h1{
+    order: 1;
+    align-self: center;
+    margin-top: 5%;
+}
+
+#grupo{
+    margin-top: 5%;
+    order:2;
+    justify-content: center;
+    display: flex;
+}
+.atras>input[type="submit"]{
+    width: 60%;
+}
+#editar{
+    order: 2;
+    align-self: center;
+    margin-top: 5%;
+    font-size: 3vh;
+}
+#editar>input[type="submit"]{
+    height: 3vh;
+    font-size: 2vh;
+    margin-top: 5%;
+    width: 90%;
+}

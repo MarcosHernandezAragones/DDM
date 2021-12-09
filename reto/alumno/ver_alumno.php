@@ -42,7 +42,7 @@
 
     ?>       
         <div id="<?php echo $cursos[$i]['name']; ?>">
-                <h2 class="titulo"><?php echo $cursos[$i]['name']; ?><a onclick="apariencia('<?php echo $cursos[$i]['name']; ?>','flecha<?php echo $i;?>' )"><i  id="flecha<?php echo $i;?>" class="fas fa-caret-right rotar"></i></a></h2>
+                <h2 class="titulo"><?php echo $cursos[$i]['name'];?> <a onclick="apariencia('<?php echo $cursos[$i]['name']; ?>','flecha<?php echo $i;?>' )"><i  id="flecha<?php echo $i;?>" class="fas fa-caret-right rotar"></i></a></h2>
             
             
 

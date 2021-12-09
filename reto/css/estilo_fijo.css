@@ -27,7 +27,6 @@ section{
 }
 #menu{
     justify-content: right;
-    margin-top: 20vh;
     order: 3;
     width: 100%;
     display: grid;
@@ -35,7 +34,6 @@ section{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 #menu>a{
-    margin-bottom: 5%;
     font-size: 3vh;
     color: white;
     text-decoration: none;
@@ -60,17 +58,22 @@ img{
     margin-right: 20%;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     z-index: 10;
     background-color: #592a51;
 }
 #gob{
+    height: 10vh;
+    width: 30vh;
     padding-bottom: 10%;
     order: 4;
     margin-top: 1vh;
     align-self: flex-end;
 }
 #centro{
+    height: 10vh;
+    width: 30vh;
     padding-bottom: 10%;
     order: 4;
     margin-top: 1vh;
@@ -108,6 +111,22 @@ input:hover[type="submit"],input:hover[type="button"]{
         height: 10vh;
         width: 10vh;
     }
+    #gob{
+        height: 10vh;
+        width: 30vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #centro{
+        height: 10vh;
+        width: 30vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
     #menu>a{
         font-size: 2.5vh;
     }
@@ -116,6 +135,22 @@ input:hover[type="submit"],input:hover[type="button"]{
     img{
         height: 10vh;
         width: 10vh;
+    }
+    #gob{
+        height: 10vh;
+        width: 30vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #centro{
+        height: 10vh;
+        width: 30vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
     }
     #menu>a{
         font-size: 2.5vh;
@@ -130,11 +165,27 @@ input:hover[type="submit"],input:hover[type="button"]{
         grid-template-rows: 1fr 1fr 1fr;
         align-self: center;
     }
+    #gob{
+        height: 8vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #centro{
+        height: 8vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
     #menu{
         margin-top: 5vh;
     }
     #menu>a{
-        font-size: 1.9vh;
+        font-size: 2.5vh;
     }
 }
 @media only screen and (min-width: 901px) and (max-width: 1058px){
@@ -146,13 +197,52 @@ input:hover[type="submit"],input:hover[type="button"]{
         grid-template-rows: 1fr 1fr 1fr;
         align-self: center;
     }
+    #gob{
+        height: 8vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #centro{
+        height: 8vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
     #menu{
         margin-top: 5vh;
     }
     #menu>a{
-        font-size: 1.9vh;
+        font-size: 2.5vh;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (min-width: 735px) and (max-width: 900px){
     section{
         position: fixed;
@@ -176,14 +266,33 @@ input:hover[type="submit"],input:hover[type="button"]{
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
         z-index: 10;
         background-color: #592a51;
-
+    }
+    #gob{
+        height: 5vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #centro{
+        height: 5vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #abajo{
+        margin-right: 10%;
+        justify-self:right;
     }
     img{
-        height: 10vh;
-        width: 10vh;
-        margin-left: 20%;
+        height: 8vh;
+        width: 8vh;
     }
     #menu{
         display: none;
@@ -270,15 +379,36 @@ input:hover[type="submit"],input:hover[type="button"]{
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
         z-index: 10;
         background-color: #592a51;
-
+    }
+    #gob{
+        height: 5vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #centro{
+        height: 5vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #abajo{
+        margin-right: 10%;
+        justify-self:right;
     }
     img{
-        height: 10vh;
-        width: 10vh;
-        margin-left: 20%;
+        height: 8vh;
+        width: 8vh;
     }
+
+
     #menu{
         display: none;
     }
@@ -341,6 +471,25 @@ input:hover[type="submit"],input:hover[type="button"]{
 		float: right;
 	}
 }
+
+@media only screen and (max-width:898px) and (max-height:540px){
+    main{
+        top: 45%;
+    }
+    .menu_bar .bt-menu {
+		font-size: 4vh;
+        padding: 10px;
+	}  
+    header nav {
+        margin-top: 13%;
+	}
+    header nav ul li {
+        height: 5vh;
+	}
+    header nav ul li a {
+        padding-top: 0%;
+	}
+}
 @media only screen and (max-width: 576px){
     section{
         position: fixed;
@@ -350,10 +499,11 @@ input:hover[type="submit"],input:hover[type="button"]{
         z-index: 4;
     }
     main{
+        width: 100%;
         position: absolute;
         top: 25%;
         left: 0;
-        right: 0;
+        right: -45%;
     }
     header{
         width: 100%;
@@ -362,16 +512,36 @@ input:hover[type="submit"],input:hover[type="button"]{
     }
     #imagenes{
         width: 100%;
+        grid-column-gap: 2%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
         z-index: 10;
         background-color: #592a51;
-
+    }
+    #gob{
+        height: 5vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #centro{
+        height: 5vh;
+        width: 20vh;
+        padding-bottom: 10%;
+        order: 4;
+        margin-top: 1vh;
+        align-self: flex-end;
+    }
+    #abajo{
+        margin-right: 10%;
+        justify-self:right;
     }
     img{
-        height: 10vh;
-        width: 10vh;
-        margin-left: 20%;
+        height: 8vh;
+        width: 8vh;
     }
     #menu{
         display: none;
@@ -404,7 +574,7 @@ input:hover[type="submit"],input:hover[type="button"]{
 	header nav {
         z-index: 3;
 		width: 100%;
-        margin-top: 43%;
+        margin-top: 42%;
 		position: fixed;
 		overflow: scroll;
 	}

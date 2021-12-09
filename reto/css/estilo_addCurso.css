@@ -37,39 +37,3 @@ h1{
     height: 3vh;
     font-size: 2vh;
 }
-
-@media only screen and (min-width: 1433px) and (max-width: 1585px){
-
-    
-    
-}
-
-@media only screen and (min-width: 1381px) and (max-width: 1432px){
-    
-    
-    
-}
-
-@media only screen and (min-width: 1059px) and (max-width: 1381px){
-    
-    
-    
-}
-
-@media only screen and (min-width: 734px) and (max-width: 1058px){
-
-    
-    
-    
-}
-
-@media only screen and (min-width: 577px) and (max-width: 734px){
-
-    
-    
-}
-
-@media only screen and (max-width:576px){
-
-    
-}

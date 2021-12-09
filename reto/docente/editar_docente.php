@@ -7,7 +7,7 @@
     $centro=$_SESSION['centro'];
     $rol=$_SESSION['rol'];
     //select_cursos_prof(1);
-    //$_SESSION['id_prof']=3;//test only
+    //$_SESSION['id_prof']=3;//test only     
     $centros = read_centross();
     
     $rolarr=read_rolss();
@@ -20,10 +20,15 @@
         $DNI=$_POST['dni'];
         $nombre=$_POST['nombre'];
         $passwrd=$_POST['contraseña'];
+        $pass_old=$_POST['pass_old'];
         $id_prof=$_POST['id_al_upd'];
         
+        if ($passwrd == "" || is_null($passwrd)) {
+            $passwrd=$pass_old;
+        }
 
-        $idCentro=$_POST['centro'];
+
+        $idCentro=$_POST['centros'];
         $idRol=$_POST['rol'];
 
         
@@ -66,7 +71,7 @@
     
     <main>
         <h1>Editar Docente</h1>
-        <form action="editar-profesor" id="formulario" method="post">
+        <form action="editar-profesor" id="formulario" method="post" onsubmit="return validar()">
             <div id="primero">
             <input type="hidden" name="id_al_upd" value="<?php echo $datos_docente[0] ?>">
             <label for="nombre">Nombre: </label>
@@ -96,13 +101,14 @@
             <label for="contraseña">Contraseña nueva del docente: </label>
             </div>
             <div>
-            <input type="text" name="contraseña" id="contraseña" value = "<?php echo $datos_docente[5] ?>"><!-- contraseña visible solo al crear --><br>
+            <input type="hidden" name="pass_old" value = "<?php echo $datos_docente[5] ?>">
+            <input type="text" name="contraseña" id="contraseña" ><!-- contraseña visible solo al crear --><br>
             </div>
             <div id="primero">
             <label for="centro">Centro: </label>
             </div>
             <div>
-            <select name="centro" id="centro">
+            <select name="centros" id="centros">
                 <option value="nil" selected>-----------------</option>
                 <?php 
                     
@@ -154,6 +160,25 @@
     <button class="atras" onclick="salir('profesores')">Atras</button>
     </main>
     <script type="text/javascript" src="funciones-js"></script>
+    <script>
+
+        function validar(){
+
+            if (document.getElementById("centros").value=="nil"){
+                alert("Opcion no valida, elija un centro para modificar el docente.");
+                return false
+            }
+
+            if (document.getElementById("rol").value=="nil"){
+                alert("Opcion no valida, elija un rol para modificar el docente.");
+                return false
+            }
+
+        }
+
+
+
+    </script>
 </body>
 </html>
 <?php

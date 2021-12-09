@@ -35,9 +35,9 @@ include_once "../functions.php";
 
         $idCentro=$vars_curso[0];
         $idCurso=$vars_curso[1];
-    
+        
         try {   
-            for ($i=0; $i < $lineas; $i++) { 
+            for ($i=0; $i < count($lineas); $i++) { 
                 if ($i!=0) {
                     $datos=explode(";",$lineas[$i]);
                 
@@ -45,27 +45,27 @@ include_once "../functions.php";
                     $nombre= $datos[1];
                     $apellidos= $datos[2];
                     $correo= $datos[3];
-                    $passwrd = $datos[4];    
+                    $passwrd = $datos[0];    
 
-        
                     create_alumnos($apellidos,$correo,$DNI,$nombre,$passwrd,$idCentro,$idCurso);
                    
-                           
+     
                 }
             }
 
+
             $conexion->commit();
+
     
         }catch(Exception $e){
             $conexion->rollback();
-            echo "Ha habido un error ".$e->getMessage()."<br>";
-            $error=true;
+            echo "Ha habido un error ".$e->getMessage()."<br><br>";
         }
     
-        if(!$error){
-            $_SESSION['mensajeFich'] = "Los datos han sido introducidos correctamente";
-            header("refresh:0;url=add-alumno");
-        }
+        
+        echo "Los datos han sido introducidos correctamente en 3 segundos seras redirigido a listar-alumnos";
+        header("refresh:3;url=listar-alumnos");
+        
         
     
     }

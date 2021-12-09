@@ -48,6 +48,7 @@ session_start();
     //print_r($grupos_clase);
   
     if (count($grupos_clase) != 0) {
+      $_SESSION["borrar_grupo"]=false;
       $first_time=false;
 
       $al_sort=alumno_has_group($alumnoss);
@@ -70,6 +71,10 @@ session_start();
       $al_gru_jso=json_encode($al_cat);
 
     }else {
+      if ($_SESSION["borrar_grupo"]) {
+        $_SESSION["borrar_grupo"]=false;
+        header("Location: elegir");
+      }
       
       $alumnoss_aux=group_maker($alumnoss,$num_grupos,$miembros_grupo,$orden);
       //print_r($alumnoss_aux);
@@ -100,7 +105,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo_mostrarGrupos.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <title>mostrar grupos</title>
+    <title>Mostrar grupos</title>
 
     <style>
         
@@ -108,9 +113,9 @@ session_start();
 
 </head>
 <body>
-  <?php include_once "../menu_fijo.php";  echo "err 4";?>
+  <?php include_once "../menu_fijo.php";?>
       <main>
-    <form action="asignar-grupos" method="post">
+    <form action="asignar-grupos" id="guardar" method="post">
       <input id="devolver" type="hidden" name="gru2" value="">
       <input id="devolver" type="hidden" name="cent" value="<?php echo $id_centro; ?>">
       <input id="devolver" type="hidden" name="curse" value="<?php echo $id_curso; ?>">

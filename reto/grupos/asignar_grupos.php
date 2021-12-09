@@ -6,7 +6,7 @@ include_once "../functions.php";
 $id_centro=$_POST["cent"];
 $id_curso=$_SESSION["id_curse"];
 
-
+$_SESSION["borrar_grupo"]=true;
 
 
 
@@ -78,24 +78,27 @@ for ($cre=0; $cre < count($datos_create); $cre++) {
     
     $nombre_curso="autogen_".$cre;
 
+    if (!empty($datos_create[$cre])) {
+        # code...
+   
+        $sql1="INSERT INTO grupo (nombre, curso_centro_idCentro,curso_idCurso ) VALUES (\"$nombre_curso\", \"$id_centro\", \"$id_curso\")";
+        //echo $sql1;
+        $consulta_cre1 = $conexx->prepare($sql1);
+        $consulta_cre1->execute();
 
-    $sql1="INSERT INTO grupo (nombre, curso_centro_idCentro,curso_idCurso ) VALUES (\"$nombre_curso\", \"$id_centro\", \"$id_curso\")";
-    //echo $sql1;
-    $consulta_cre1 = $conexx->prepare($sql1);
-    $consulta_cre1->execute();
+        
+        $last_id = $conexx->lastInsertId();
+        echo $last_id;
+        for ($al=0; $al < count($datos_create[$cre]); $al++) { 
+            print_r($datos_create[$cre][$al]);
+            $id_alumno=$datos_create[$cre][$al];
+            $sql_cre2="UPDATE alumno SET grupo_idGrupo=$last_id WHERE usuario_idUsuario=\"$id_alumno\"";
+            $consulta_cre2 = $conexx->prepare($sql_cre2);
+            $consulta_cre2->execute();
 
-    
-    $last_id = $conexx->lastInsertId();
-    echo $last_id;
-    for ($al=0; $al < count($datos_create[$cre]); $al++) { 
-        $id_alumno=$datos_create[$cre][$al];
-        $sql_cre2="UPDATE alumno SET grupo_idGrupo=$last_id WHERE usuario_idUsuario=\"$id_alumno\"";
-        $consulta_cre2 = $conexx->prepare($sql_cre2);
-        $consulta_cre2->execute();
+        }
 
-    }
-
-    
+     }
 
 
 }
@@ -110,6 +113,7 @@ for ($cre=0; $cre < count($datos_create); $cre++) {
 //header("refresh:10;url=mostrar-grupos");
 //header("Location: mostrar-grupos");
 $conexx = null;
-header("refresh:0;url=mostrar-grupos");
+//header("refresh:5;url=mostrar-grupos");
+header("Location: mostrar-grupos");
 ?>
 

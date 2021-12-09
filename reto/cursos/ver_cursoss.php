@@ -44,7 +44,7 @@
             $read_centro=read_centro($id_cent);
             $nombre_centro=$read_centro[1];
             echo "<div id='curso'>
-                <h2>$nombre_curso------------$nombre_centro </h2>";
+                <h2>$nombre_curso $nombre_centro </h2>";
 
             write_admin_forms($id_curso,$id_cent);
                 

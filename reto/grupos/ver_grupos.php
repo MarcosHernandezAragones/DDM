@@ -38,11 +38,12 @@
         <?php 
             $h1_content="";   
             for ($i=0; $i < count($grupos); $i++) { 
+                
                 for ($kk=0; $kk < count($cursos); $kk++) { 
                     if ($grupos[$i][2] == $cursos[$kk][1] && $grupos[$i][3] == $cursos[$kk][2]) {
                         if ($h1_content != $cursos[$kk][0]) {
                             $h1_content=$cursos[$kk][0];
-                            echo "<h1>".$cursos[$kk][0];
+                            echo "<h1 id='".$cursos[$kk][0]."'>".$cursos[$kk][0]."<a onclick=\"apariencia('".$cursos[$kk][0]."','flecha$i' )\"><i  id=\"flecha$i\" class=\"fas fa-caret-right rotar\"></i></a>";
         ?>
             
 
@@ -53,12 +54,12 @@
             <form action='add-grupo' class="addGrupo" method='post'>
                 <input type="hidden" name="curse" value="<?php echo $grupos[$i][2] ?>">
                 <input type="hidden" name="centre" value="<?php echo $grupos[$i][3] ?>">
-                <input type='submit' value='Añadir Grupo'>
+                <input type='submit' value='Añadir Grupo' class="<?php echo $cursos[$kk][0]?> invisible">
             </form>
 
 <?php
                         }
-            echo "<div class='Grupos'>";
+            echo "<div class='Grupos ".$cursos[$kk][0]." invisible'>";
         ?>
         
             
@@ -90,6 +91,24 @@
 
     </main>
     <script type="text/javascript" src="funciones-js"></script>
+    <script>
+        function apariencia(curso, idFlecha) {
+
+        //hacemos que aparezca o desaparezca el contenido del curso
+        var aux = document.getElementsByClassName(curso);
+
+            for (let i = 0; i < aux.length; i++) {
+                //aux[i].classList.toggle("curso");
+                aux[i].classList.toggle("invisible")
+            }
+
+
+        //cambiamos la forma de la flecha
+        document.getElementById(idFlecha).classList.toggle("rotar");
+
+
+        }
+    </script>
 </html>
 
 

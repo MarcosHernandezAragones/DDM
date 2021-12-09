@@ -13,6 +13,60 @@
     }
     
 
+
+
+
+
+    $chek_chek=check_doc_rol($_SESSION['user']);//$datos_doc_all[$i][7]
+
+    $grupos_clase=read_grupo_curso_t($id_curso);
+    
+    //print_r($grupos_clase);
+  
+    if (count($grupos_clase)> 0) {
+        header("Location: mostrar-grupos");
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $conexion=conectarBD();
 
 

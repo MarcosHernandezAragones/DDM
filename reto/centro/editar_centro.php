@@ -71,7 +71,7 @@
                 <label for="Localizacion">Localizacion: </label>
             </div>
             <div  id="segundo">
-                <input type="text" name="Localizacion" id="centro" value="<?php echo $datos_centro_edit[2] ?>"><br>
+                <input type="text" name="Localizacion" id="centros" value="<?php echo $datos_centro_edit[2] ?>"><br>
             </div>
             <input type="submit" value="Enviar">
         </form>
